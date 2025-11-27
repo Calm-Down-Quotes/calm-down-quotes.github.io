@@ -1,5 +1,5 @@
 /* ========================================================
-   DOM ELEMENT REFERENCES
+   DOM REFERENCES
 ======================================================== */
 const quoteBtn = document.getElementById("quote-btn");
 
@@ -16,6 +16,8 @@ const whatsappBtn = document.getElementById("whatsapp-btn");
 const smsBtn = document.getElementById("sms-btn");
 const messengerBtn = document.getElementById("messenger-btn");
 const shareBtn = document.getElementById("share-btn");
+const pinterestBtn = document.getElementById("pinterest-btn");
+const instagramBtn = document.getElementById("instagram-btn");
 
 
 /* ========================================================
@@ -26,24 +28,21 @@ let quotesLoaded = false;
 
 async function loadQuotes() {
     try {
-        const response = await fetch("quotes.json", { cache: "no-store" });
+        const res = await fetch("quotes.json", { cache: "no-store" });
 
-        if (!response.ok) throw new Error("Quotes file missing or unreadable");
+        if (!res.ok) throw new Error("quotes.json missing");
 
-        quotes = await response.json();
+        quotes = await res.json();
 
         if (!Array.isArray(quotes) || quotes.length === 0)
-            throw new Error("quotes.json is empty");
+            throw new Error("quotes.json empty");
 
         quotesLoaded = true;
-    } 
-    catch (err) {
-        console.error("Quote Load Error:", err);
 
+    } catch (err) {
+        console.error(err);
         quoteText.textContent = "Unable to load quotes";
-        quoteAuthor.textContent = "";
-        quoteMeaning.textContent = "Please try again later";
-        quoteInstruction.textContent = "";
+        quoteMeaning.textContent = "Please check back later";
     }
 }
 
@@ -58,25 +57,15 @@ function generateQuote() {
 
     const q = quotes[Math.floor(Math.random() * quotes.length)];
 
-    // Extract clean text fields
-    const rawQuote = (q.quote || "").trim();
-    const rawAuthor = (q.author || "").trim();
-    const rawMeaning = (q.meaning || "").trim();
-    const rawInstruction = (q.instruction || "").trim();
+    quoteText.textContent = (q.quote || "").trim();
+    quoteAuthor.textContent = (q.author || "").trim();
+    quoteMeaning.textContent = (q.meaning || "").trim();
+    quoteInstruction.textContent = (q.instruction || "").trim();
 
-    // Display cleanly (NO punctuation enforced)
-    quoteText.textContent = rawQuote;
-    quoteAuthor.textContent = rawAuthor;
-
-    quoteMeaning.textContent = rawMeaning;
-    quoteInstruction.textContent = rawInstruction;
-
-    // Show box
     quoteBox.classList.remove("hidden");
 
-    // Restart animation
     quoteBox.classList.remove("visible");
-    void quoteBox.offsetWidth; 
+    void quoteBox.offsetWidth;
     quoteBox.classList.add("visible");
 }
 
@@ -84,7 +73,7 @@ quoteBtn.addEventListener("click", generateQuote);
 
 
 /* ========================================================
-   SHARE TEXT FORMATTER
+   BUILD SHARE TEXT
 ======================================================== */
 function buildShareText() {
     const q = quoteText.textContent.trim();
@@ -96,7 +85,7 @@ function buildShareText() {
 
     return (
 `${q}
-${a ? a : ""}
+${a}
 
 ${m}
 
@@ -117,41 +106,34 @@ copyBtn.addEventListener("click", async () => {
 
     try {
         await navigator.clipboard.writeText(text);
-
         copyFeedback.classList.add("visible");
         setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
-    } 
-    catch (err) {
-        console.error("Clipboard Error:", err);
+    } catch (err) {
         alert("Unable to copy");
     }
 });
 
 
 /* ========================================================
-   WHATSAPP SHARE
+   WHATSAPP
 ======================================================== */
 whatsappBtn.addEventListener("click", () => {
-    const text = encodeURIComponent(buildShareText());
-    if (!text) return;
-    window.open(`https://api.whatsapp.com/send?text=${text}`, "_blank");
+    const encoded = encodeURIComponent(buildShareText());
+    window.open(`https://api.whatsapp.com/send?text=${encoded}`, "_blank");
 });
 
 
 /* ========================================================
-   SMS SHARE
+   SMS
 ======================================================== */
 smsBtn.addEventListener("click", () => {
-    const text = encodeURIComponent(buildShareText());
-    if (!text) return;
-
-    // Cross-device safe
-    window.location.href = `sms:?body=${text}`;
+    const encoded = encodeURIComponent(buildShareText());
+    window.location.href = `sms:?body=${encoded}`;
 });
 
 
 /* ========================================================
-   MESSENGER SHARE (Corrected)
+   FACEBOOK MESSENGER
 ======================================================== */
 messengerBtn.addEventListener("click", () => {
     const link = encodeURIComponent("https://calm-down-quotes.github.io/");
@@ -163,11 +145,39 @@ messengerBtn.addEventListener("click", () => {
 
 
 /* ========================================================
-   NATIVE SHARE API (iPhone + Android)
+   PINTEREST SHARE
+======================================================== */
+pinterestBtn?.addEventListener("click", () => {
+    const description = encodeURIComponent(buildShareText());
+    const url = encodeURIComponent("https://calm-down-quotes.github.io/");
+    const img = encodeURIComponent("https://calm-down-quotes.github.io/preview.png");
+
+    window.open(
+        `https://pinterest.com/pin/create/button/?url=${url}&media=${img}&description=${description}`,
+        "_blank"
+    );
+});
+
+
+/* ========================================================
+   INSTAGRAM STORY SHARE (Mobile-Friendly Fallback)
+======================================================== */
+instagramBtn?.addEventListener("click", () => {
+    const text = buildShareText();
+
+    alert(
+        "Instagram only allows photo/video story uploads.\n\nYour quote has been copied.\nOpen Instagram → Create Story → Paste text manually."
+    );
+
+    navigator.clipboard.writeText(text).catch(() => {});
+});
+
+
+/* ========================================================
+   NATIVE SHARE (Mobile)
 ======================================================== */
 shareBtn.addEventListener("click", async () => {
     const text = buildShareText();
-    if (!text) return;
 
     if (navigator.share) {
         try {
@@ -177,11 +187,31 @@ shareBtn.addEventListener("click", async () => {
                 url: "https://calm-down-quotes.github.io/"
             });
         } 
-        catch (err) {
-            console.warn("Share cancelled");
-        }
-    } 
-    else {
-        alert("Sharing is not supported on this device");
+        catch (_) {}
+    } else {
+        alert("Sharing not supported on this device");
+    }
+});
+
+
+/* ========================================================
+   SWIPE LEFT / RIGHT FOR NEW QUOTE
+======================================================== */
+let startX = 0;
+
+document.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (Math.abs(diff) < 60) return;
+
+    if (diff < 0) {
+        generateQuote();
+    } else {
+        generateQuote();
     }
 });
