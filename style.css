@@ -1,5 +1,5 @@
 /* ========================================================
-   GLOBAL RESET — FOUNDATION
+   GLOBAL RESET
 ======================================================== */
 * {
     margin: 0;
@@ -14,8 +14,8 @@ html {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #faf9f6; /* warm neutral base */
-    color: #1d1d1f;
+    background: #ffffff;
+    color: #1c1c1e;
     line-height: 1.55;
 
     display: flex;
@@ -23,41 +23,46 @@ body {
     align-items: center;
 
     opacity: 0;
-    animation: fadeIn 0.9s ease forwards;
+    animation: fadeIn 1s ease forwards;
 
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
 
-/* Page fade */
+/* Page fade-in */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================================================
-   MAIN CONTAINER
+   MAIN CONTAINER — VERTICAL CENTERING FOR LARGE SCREENS
 ======================================================== */
-.container,
-.policy-section {
+.container {
     width: 100%;
     max-width: 650px;
     padding: 60px 20px 50px;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 75vh;
 }
 
 /* ========================================================
-   HEADINGS — WARM NEUTRAL
+   HEADINGS
 ======================================================== */
 h1 {
     font-size: 36px;
     font-weight: 700;
+    color: #0e0e0f;
     letter-spacing: -0.7px;
-    color: #262626;
-    margin-bottom: 26px;
+    margin-bottom: 22px;
 
     opacity: 0;
-    animation: slideDown 1.0s ease forwards 0.20s;
+    animation: slideDown 1s ease forwards 0.25s;
 }
 
 @keyframes slideDown {
@@ -67,12 +72,12 @@ h1 {
 
 .subtitle {
     font-size: 16px;
-    color: #8a8a8a;
-    margin-top: -8px;
+    color: #8a8a8f;
+    margin-top: -6px;
     margin-bottom: 34px;
 
     opacity: 0;
-    animation: fadeSoft 1.3s ease forwards 0.35s;
+    animation: fadeSoft 1.1s ease forwards 0.45s;
 }
 
 @keyframes fadeSoft {
@@ -81,7 +86,7 @@ h1 {
 }
 
 /* ========================================================
-   BREATHING CIRCLE — WARM GLOW
+   BREATHING CIRCLE
 ======================================================== */
 .breathing-circle {
     width: 100px;
@@ -89,17 +94,17 @@ h1 {
     margin: 0 auto 32px;
     border-radius: 50%;
 
-    background: radial-gradient(circle, #fff5e6 0%, #f1e5d2 100%);
+    background: radial-gradient(circle, #f4ecff 0%, #e6f2ff 100%);
 
     box-shadow:
-        0 0 42px rgba(210, 180, 140, 0.28),
-        0 0 22px rgba(180, 160, 120, 0.18);
+        0 0 40px rgba(186, 157, 255, 0.25),
+        0 0 22px rgba(120, 148, 255, 0.18);
 
-    animation: breatheWarm 8s ease-in-out infinite;
+    animation: breathePastel 8s ease-in-out infinite;
     will-change: transform, opacity;
 }
 
-@keyframes breatheWarm {
+@keyframes breathePastel {
     0%   { transform: scale(0.86); opacity: 0.85; }
     30%  { transform: scale(1.14); opacity: 1; }
     70%  { transform: scale(0.93); opacity: 0.92; }
@@ -107,22 +112,22 @@ h1 {
 }
 
 /* ========================================================
-   PRIMARY BUTTON — WARM TAUPE GRADIENT (Option 1)
+   MAIN BUTTON
 ======================================================== */
 #quote-btn {
     padding: 16px 42px;
     font-size: 17px;
     font-weight: 600;
-    color: #fff;
+    color: white;
 
-    background: linear-gradient(180deg, #d1b9a3, #a08c78);
+    background: linear-gradient(180deg, #baa1ff, #7ea8ff);
     border-radius: 30px;
     border: none;
     cursor: pointer;
 
     box-shadow:
-        0 4px 14px rgba(130, 110, 95, 0.25),
-        0 2px 6px rgba(0, 0, 0, 0.10);
+        0 4px 14px rgba(140, 120, 255, 0.28),
+        0 2px 6px rgba(0, 0, 0, 0.12);
 
     transition: transform 0.25s ease, box-shadow 0.3s ease;
 }
@@ -130,8 +135,8 @@ h1 {
 #quote-btn:hover {
     transform: translateY(-2px);
     box-shadow:
-        0 6px 18px rgba(130, 110, 95, 0.33),
-        0 3px 10px rgba(0, 0, 0, 0.12);
+        0 6px 18px rgba(140, 120, 255, 0.35),
+        0 3px 10px rgba(0, 0, 0, 0.14);
 }
 
 #quote-btn:active {
@@ -139,20 +144,20 @@ h1 {
 }
 
 /* ========================================================
-   QUOTE CARD — WARM NEUTRAL PANEL
+   QUOTE BOX
 ======================================================== */
 #quote-box {
     display: none;
-    margin-top: 40px;
     padding: 38px 32px;
-    background: #ffffff;
+    background: white;
 
+    margin-top: 40px;
     border-radius: 22px;
-    border: 1px solid rgba(0,0,0,0.06);
 
+    border: 1px solid rgba(0,0,0,0.05);
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.05),
-        0 2px 4px rgba(0,0,0,0.04);
+        0 8px 20px rgba(0,0,0,0.06),
+        0 2px 4px rgba(0,0,0,0.05);
 
     opacity: 0;
     transform: translateY(22px);
@@ -170,20 +175,31 @@ h1 {
     margin: 0 auto 20px;
 }
 
-/* Quote */
+/* QUOTE TEXT */
 .quote {
     font-size: 22px;
-    font-weight: 700;
-    color: #1d1d1f;
+    font-style: italic;
+    font-weight: 500;
+    color: #1c1c1e;
+    line-height: 1.4;
 }
 
-/* Meaning */
+/* AUTHOR NAME */
+.author {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: -12px;
+    margin-bottom: 26px;
+    color: #2a2a2e;
+}
+
+/* MEANING */
 .meaning {
     font-size: 17px;
-    color: #4a4a4a;
+    color: #4a4a4e;
 }
 
-/* Instruction */
+/* INSTRUCTION */
 .instruction {
     font-size: 15px;
     font-style: italic;
@@ -200,8 +216,8 @@ h1 {
     border: none;
     cursor: pointer;
 
-    background: #f0e8df;
-    color: #594d43;
+    background: #f7f2ff;
+    color: #5e4fa2;
 
     transition: opacity 0.25s, transform 0.2s;
 }
@@ -213,7 +229,7 @@ h1 {
 
 .copy-feedback {
     font-size: 13px;
-    color: #a08c78;
+    color: #7ea8ff;
     opacity: 0;
     transition: opacity 0.35s ease;
 }
@@ -223,7 +239,7 @@ h1 {
 }
 
 /* ========================================================
-   SHARE BUTTONS
+   SHARE BUTTONS (HORIZONTAL LAYOUT)
 ======================================================== */
 .share-buttons {
     margin-top: 25px;
@@ -234,14 +250,15 @@ h1 {
 }
 
 .share-btn {
-    padding: 10px 22px;
+    padding: 10px 20px;
     font-size: 14px;
-    border-radius: 22px;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
 
-    background: #f5efe8;
-    color: #6d5c4c;
+    background: #e7f0ff;
+    color: #3d63ff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 
     transition: opacity 0.25s, transform 0.2s;
 }
@@ -254,14 +271,12 @@ h1 {
 /* ========================================================
    ADS
 ======================================================== */
-#ad-bar,
 .footer-ad {
     display: flex;
     justify-content: center;
-    margin: 22px 0;
+    margin: 30px 0 20px;
 }
 
-#ad-bar ins,
 .footer-ad ins {
     max-width: 100%;
 }
@@ -270,18 +285,17 @@ h1 {
    FOOTER
 ======================================================== */
 footer {
-    margin-top: 70px;
-    margin-bottom: 25px;
     text-align: center;
     font-size: 12px;
-    color: #8a8a8a;
+    color: #8e8e94;
+    margin-bottom: 25px;
 }
 
 .footer-links a {
     margin: 0 6px;
-    color: #7e7e7e;
-    text-decoration: none;
+    color: #7e7ea0;
     font-size: 13px;
+    text-decoration: none;
 }
 
 .footer-links a:hover {
@@ -293,9 +307,9 @@ footer {
 ======================================================== */
 @media screen and (max-width: 600px) {
 
-    .container,
-    .policy-section {
+    .container {
         padding: 42px 18px 32px;
+        min-height: 68vh;
     }
 
     h1 {
