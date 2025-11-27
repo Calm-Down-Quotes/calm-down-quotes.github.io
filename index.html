@@ -26,24 +26,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Calm Down Quotes</title>
 
-    <!-- Canonical URL -->
+    <!-- Canonical -->
     <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
-    <!-- Mobile theme -->
-    <meta name="theme-color" content="#ffffff">
-
-    <!-- ========================================================
-         SEO
-    ========================================================= -->
+    <!-- SEO -->
     <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes and gentle guidance.">
-    <meta name="keywords" content="quotes, mindfulness, calm, anxiety relief, motivation, inspiration, wellness, meditation">
+    <meta name="keywords" content="quotes, mindfulness, calm, anxiety relief, wellness, meditation, motivation">
     <meta name="author" content="Calm Down Quotes">
 
-    <!-- ========================================================
-         SOCIAL (OpenGraph)
-    ========================================================= -->
+    <!-- OPEN GRAPH -->
     <meta property="og:title" content="Calm Down Quotes">
     <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
     <meta property="og:type" content="website">
@@ -51,14 +45,14 @@
     <meta property="og:url" content="https://calm-down-quotes.github.io/">
 
     <!-- ========================================================
-         CONTENT SECURITY POLICY
+         SECURITY — CSP (Safe for Ads + Analytics)
     ========================================================= -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline';
         script-src 
-            'self'
+            'self' 
             'unsafe-inline'
             https://www.googletagmanager.com
             https://www.google-analytics.com
@@ -70,9 +64,7 @@
         base-uri 'self';
     ">
 
-    <!-- ========================================================
-         CSS
-    ========================================================= -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -80,8 +72,7 @@
 <body>
 
     <!-- ========================================================
-         MAIN CONTENT 
-         (Vertically centered wellness layout)
+         MAIN BODY CONTENT
     ========================================================= -->
     <main class="container">
 
@@ -92,24 +83,31 @@
         <h1>Calm Down Quotes</h1>
         <p class="subtitle">Take a breath and centre your mind</p>
 
-        <!-- Generate Quote Button -->
-        <button id="quote-btn" aria-label="Generate a calming quote">
+        <!-- Generate Button -->
+        <button id="quote-btn" aria-label="Generate calming quote">
             Give Me a Quote
         </button>
 
-        <!-- Quote Box -->
+        <!-- QUOTE CARD -->
         <section id="quote-box" class="hidden" aria-live="polite">
 
+            <!-- Quote -->
             <p class="quote" id="quote-text"></p>
+
+            <!-- Author -->
             <p class="author" id="quote-author"></p>
+
+            <!-- Meaning -->
             <p class="meaning" id="quote-meaning"></p>
+
+            <!-- Instruction -->
             <p class="instruction" id="quote-instruction"></p>
 
-            <!-- Copy Quote -->
+            <!-- Copy -->
             <button id="copy-btn" class="copy-btn">Copy Quote</button>
             <span id="copy-feedback" class="copy-feedback">Copied</span>
 
-            <!-- Share Buttons -->
+            <!-- SHARE BUTTONS -->
             <div class="share-buttons">
                 <button id="whatsapp-btn" class="share-btn">WhatsApp</button>
                 <button id="sms-btn" class="share-btn">SMS</button>
@@ -122,21 +120,19 @@
     </main>
 
     <!-- ========================================================
-         BOTTOM AD (Clean layout)
+         FOOTER AD
     ========================================================= -->
     <div class="footer-ad">
         <ins class="adsbygoogle"
              style="display:block; margin-top:20px;"
              data-ad-client="ca-pub-8271945337069886"
-             data-ad-slot="YOUR-SLOT-ID"
+             data-ad-slot="0000000000"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
     </div>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    <!-- ========================================================
-         FOOTER
-    ========================================================= -->
+    <!-- FOOTER -->
     <footer>
         <nav class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
