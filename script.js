@@ -1,11 +1,11 @@
 /* ========================================================
-   DOM ELEMENT CACHING (Performance)
+   ELEMENT REFERENCES (Fast + Safe)
 ======================================================== */
-
 const quoteBtn = document.getElementById("quote-btn");
 const quoteBox = document.getElementById("quote-box");
 
 const quoteText = document.getElementById("quote-text");
+const quoteAuthor = document.getElementById("quote-author");
 const quoteMeaning = document.getElementById("quote-meaning");
 const quoteInstruction = document.getElementById("quote-instruction");
 
@@ -14,12 +14,18 @@ const copyFeedback = document.getElementById("copy-feedback");
 
 const whatsappBtn = document.getElementById("whatsapp-btn");
 const smsBtn = document.getElementById("sms-btn");
-
+const messengerBtn = document.getElementById("messenger-btn");
+const shareBtn = document.getElementById("share-btn");
 
 /* ========================================================
-   LOAD QUOTES (One-Time Load)
+   GLOBAL CONSTANTS
 ======================================================== */
+const SITE_NAME = "Calm Down Quotes";
+const SITE_URL = "https://calm-down-quotes.github.io/";
 
+/* ========================================================
+   LOAD QUOTES FROM JSON
+======================================================== */
 let quotes = [];
 let quotesLoaded = false;
 
@@ -30,132 +36,171 @@ async function loadQuotes() {
         if (!response.ok) throw new Error("Failed to load quotes.json");
 
         const data = await response.json();
-        if (!Array.isArray(data) || data.length === 0)
-            throw new Error("quotes.json is empty or invalid.");
+        if (!Array.isArray(data) || data.length === 0) {
+            throw new Error("Invalid or empty quotes.json");
+        }
 
         quotes = data;
         quotesLoaded = true;
 
     } catch (error) {
-        console.error(error);
-
-        quoteText.textContent = "Unable to load quotes.";
-        quoteMeaning.textContent = "Please check back later.";
+        console.error("Quote loading error:", error);
+        quoteText.textContent = "Unable to load quotes";
+        quoteAuthor.textContent = "";
+        quoteMeaning.textContent = "Please check back soon";
         quoteInstruction.textContent = "";
     }
 }
 
 loadQuotes();
 
-
 /* ========================================================
-   GENERATE A NEW QUOTE
+   GENERATE NEW QUOTE
 ======================================================== */
-
 function generateQuote() {
     if (!quotesLoaded || quotes.length === 0) return;
 
-    const random = quotes[Math.floor(Math.random() * quotes.length)];
+    const randomItem = quotes[Math.floor(Math.random() * quotes.length)];
 
-    quoteText.textContent = random.quote || "";
-    quoteMeaning.textContent = random.meaning || "";
-    quoteInstruction.textContent = random.instruction || "";
+    const rawQuote = randomItem.quote || "";
+    const rawAuthor = randomItem.author || "";
+    const rawMeaning = randomItem.meaning || "";
+    const rawInstruction = randomItem.instruction || "";
 
-    // Reveal quote box on first click
+    // Apply final formatting rules (no punctuation)
+    quoteText.textContent = rawQuote.trim();
+    quoteAuthor.textContent = rawAuthor.trim();
+    quoteMeaning.textContent = rawMeaning.trim();
+    quoteInstruction.textContent = rawInstruction.trim();
+
+    // Reveal animation
     quoteBox.classList.remove("hidden");
-
-    // Restart fade animation
     quoteBox.classList.remove("visible");
     void quoteBox.offsetWidth;
     quoteBox.classList.add("visible");
-
-    // Auto-scroll into view on mobile
-    setTimeout(() => {
-        quoteBox.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 100);
 }
 
-
-/* ========================================================
-   BUTTON — GENERATE QUOTE
-======================================================== */
-
-quoteBtn.addEventListener("click", () => {
-    if (!quotesLoaded) return;
-    generateQuote();
-});
-
+quoteBtn.addEventListener("click", generateQuote);
 
 /* ========================================================
    COPY QUOTE TO CLIPBOARD
 ======================================================== */
-
 copyBtn.addEventListener("click", async () => {
-    const textToCopy = [
-        quoteText.textContent.trim(),
-        quoteMeaning.textContent.trim(),
-        quoteInstruction.textContent.trim()
-    ].filter(Boolean).join("\n\n");
+    const text = 
+`${quoteText.textContent.trim()}
+${quoteAuthor.textContent.trim()}
 
-    if (!textToCopy) return;
+${quoteMeaning.textContent.trim()}
+
+${quoteInstruction.textContent.trim()}
+
+Shared from ${SITE_NAME}
+${SITE_URL}`;
+
+    if (!quoteText.textContent.trim()) return;
 
     try {
-        await navigator.clipboard.writeText(textToCopy);
+        await navigator.clipboard.writeText(text);
 
         copyFeedback.classList.add("visible");
         setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
 
-    } catch (error) {
-        console.error("Clipboard error:", error);
-        alert("Unable to copy. Please try again.");
+    } catch (err) {
+        console.error("Clipboard error", err);
+        alert("Unable to copy. Please try manually.");
     }
 });
 
-
 /* ========================================================
-   SHARE — WHATSAPP
+   SHARE: WHATSAPP
 ======================================================== */
-
 whatsappBtn.addEventListener("click", () => {
-    const message = [
-        quoteText.textContent,
-        quoteMeaning.textContent,
-        quoteInstruction.textContent
-    ].filter(Boolean).join("\n\n");
+    if (!quoteText.textContent.trim()) return;
 
-    if (!message.trim()) return;
+    const msg = 
+`${quoteText.textContent}
+${quoteAuthor.textContent}
 
-    const encoded = encodeURIComponent(message);
-    const url = `https://api.whatsapp.com/send?text=${encoded}`;
+${quoteMeaning.textContent}
 
-    window.open(url, "_blank", "noopener");
+${quoteInstruction.textContent}
+
+Shared from ${SITE_NAME}
+${SITE_URL}`;
+
+    const url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank");
 });
 
+/* ========================================================
+   SHARE: SMS
+======================================================== */
+smsBtn.addEventListener("click", () => {
+    if (!quoteText.textContent.trim()) return;
+
+    const msg = 
+`${quoteText.textContent}
+${quoteAuthor.textContent}
+
+${quoteMeaning.textContent}
+
+${quoteInstruction.textContent}
+
+Shared from ${SITE_NAME}
+${SITE_URL}`;
+
+    const smsURL = `sms:?body=${encodeURIComponent(msg)}`;
+    window.location.href = smsURL;
+});
 
 /* ========================================================
-   SHARE — SMS (iPhone + Android Compatible)
+   SHARE: MESSENGER (Mobile Safe)
 ======================================================== */
+messengerBtn.addEventListener("click", () => {
+    if (!quoteText.textContent.trim()) return;
 
-smsBtn.addEventListener("click", () => {
-    const message = [
-        quoteText.textContent,
-        quoteMeaning.textContent,
-        quoteInstruction.textContent
-    ].filter(Boolean).join("\n\n");
+    const msg = 
+`${quoteText.textContent}
+${quoteAuthor.textContent}
 
-    if (!message.trim()) return;
+${quoteMeaning.textContent}
 
-    const encoded = encodeURIComponent(message);
+${quoteInstruction.textContent}
 
-    /**
-     * iPhone uses:  sms:&body=
-     * Android uses: sms:?body=
-     * We detect platform to choose correct format.
-     */
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const smsURL = isIOS
-        ? `sms:&body=${encoded}`
-        : `sms:?body=${encoded}`;
+Shared from ${SITE_NAME}
+${SITE_URL}`;
 
-    window.location.href = smsURL;
+    const fbURL = `fb-messenger://share?link=${encodeURIComponent(SITE_URL)}&app_id=123456`;
+    window.location.href = fbURL;
+});
+
+/* ========================================================
+   SHARE: NATIVE SHARESHEET
+======================================================== */
+shareBtn.addEventListener("click", async () => {
+    if (!navigator.share) {
+        alert("Sharing is not supported on this device");
+        return;
+    }
+
+    const msg = 
+`${quoteText.textContent}
+${quoteAuthor.textContent}
+
+${quoteMeaning.textContent}
+
+${quoteInstruction.textContent}
+
+Shared from ${SITE_NAME}`;
+
+    try {
+        await navigator.share({
+            title: SITE_NAME,
+            text: msg,
+            url: SITE_URL
+        });
+
+    } catch (err) {
+        console.warn("Share cancelled", err);
+    }
 });
