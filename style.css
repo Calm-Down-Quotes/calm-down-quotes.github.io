@@ -23,42 +23,42 @@ body {
     align-items: center;
 
     opacity: 0;
-    animation: fadeIn 1s ease forwards;
+    animation: fadeIn 0.9s ease forwards;
 
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
 
-/* Page fade-in */
+/* Intro fade */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================================================
-   MAIN CONTAINER (CENTERED)
+   MAIN CONTAINER — PERFECT ON ALL SCREEN SIZES
 ======================================================== */
 .container {
     width: 100%;
-    max-width: 650px;
-    padding: 60px 20px 50px;
+    max-width: 750px;
+    padding: 60px 22px 60px;
     text-align: center;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 
-    min-height: 70vh;
+    min-height: calc(100vh - 120px);
 }
 
 /* ========================================================
    HEADINGS
 ======================================================== */
 h1 {
-    font-size: 36px;
+    font-size: clamp(28px, 5vw, 40px);
     font-weight: 700;
     color: #0e0e0f;
-    letter-spacing: -0.7px;
+    letter-spacing: -0.6px;
     margin-bottom: 18px;
 
     opacity: 0;
@@ -66,21 +66,21 @@ h1 {
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 .subtitle {
-    font-size: 16px;
+    font-size: clamp(14px, 3.2vw, 18px);
     color: #8a8a8f;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
 
     opacity: 0;
     animation: fadeSoft 1.1s ease forwards 0.45s;
 }
 
 @keyframes fadeSoft {
-    from { opacity: 0; transform: translateY(6px); }
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -88,13 +88,12 @@ h1 {
    BREATHING CIRCLE
 ======================================================== */
 .breathing-circle {
-    width: 100px;
-    height: 100px;
+    width: clamp(70px, 15vw, 110px);
+    height: clamp(70px, 15vw, 110px);
     margin: 0 auto 34px;
     border-radius: 50%;
 
     background: radial-gradient(circle, #f4ecff 0%, #e6f2ff 100%);
-
     box-shadow:
         0 0 40px rgba(186, 157, 255, 0.25),
         0 0 22px rgba(120, 148, 255, 0.18);
@@ -104,7 +103,7 @@ h1 {
 
 @keyframes breathePastel {
     0%   { transform: scale(0.86); opacity: 0.85; }
-    30%  { transform: scale(1.14); opacity: 1; }
+    30%  { transform: scale(1.15); opacity: 1; }
     70%  { transform: scale(0.93); opacity: 0.92; }
     100% { transform: scale(0.86); opacity: 0.85; }
 }
@@ -114,7 +113,7 @@ h1 {
 ======================================================== */
 #quote-btn {
     padding: 16px 42px;
-    font-size: 17px;
+    font-size: clamp(15px, 3.8vw, 17px);
     font-weight: 600;
     color: white;
 
@@ -137,28 +136,24 @@ h1 {
         0 3px 10px rgba(0, 0, 0, 0.14);
 }
 
-#quote-btn:active {
-    transform: translateY(0);
-}
-
 /* ========================================================
-   QUOTE BOX (FIXED VERSION)
+   QUOTE BOX — PERFECT MOBILE + DESKTOP
 ======================================================== */
 #quote-box {
     display: none;
-    padding: 40px 30px 34px;
+    padding: 40px 30px;
     background: white;
 
     margin-top: 42px;
     border-radius: 24px;
-
     border: 1px solid rgba(0,0,0,0.05);
+
     box-shadow:
         0 8px 22px rgba(0,0,0,0.06),
         0 2px 4px rgba(0,0,0,0.05);
 
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(28px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -168,7 +163,6 @@ h1 {
     transform: translateY(0);
 }
 
-/* FIX: do NOT force bottom margin on all p tags */
 #quote-box p {
     max-width: 92%;
     margin-left: auto;
@@ -176,42 +170,37 @@ h1 {
 }
 
 /* ========================================================
-   QUOTE TEXT (PERFECT)
+   QUOTE + AUTHOR (PERFECTED)
 ======================================================== */
 .quote {
-    font-size: 23px;
+    font-size: clamp(20px, 4.8vw, 26px);
     font-style: italic;
     font-weight: 500;
     color: #1c1c1e;
     line-height: 1.45;
-
     margin-bottom: 14px;
 }
 
-/* ========================================================
-   AUTHOR (PERFECT SPACING)
-======================================================== */
 .author {
-    font-size: 17px;
+    font-size: clamp(15px, 3.8vw, 18px);
     font-weight: 700;
     color: #2a2a2e;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 /* ========================================================
    MEANING / INSTRUCTION
 ======================================================== */
 .meaning {
-    font-size: 17px;
+    font-size: clamp(15px, 3.6vw, 18px);
     color: #4a4a4e;
     margin-bottom: 18px;
 }
 
 .instruction {
-    font-size: 15px;
+    font-size: clamp(14px, 3.4vw, 16px);
     font-style: italic;
     color: #5c5c60;
-    margin-bottom: 10px;
 }
 
 /* ========================================================
@@ -239,8 +228,8 @@ h1 {
     font-size: 13px;
     color: #7ea8ff;
     opacity: 0;
+    margin-top: 10px;
     transition: opacity 0.35s ease;
-    margin-top: 8px;
 }
 
 .copy-feedback.visible {
@@ -251,7 +240,7 @@ h1 {
    SHARE BUTTONS
 ======================================================== */
 .share-buttons {
-    margin-top: 28px;
+    margin-top: 30px;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
@@ -286,10 +275,6 @@ h1 {
     margin: 30px 0 28px;
 }
 
-.footer-ad ins {
-    max-width: 100%;
-}
-
 /* ========================================================
    FOOTER
 ======================================================== */
@@ -312,44 +297,21 @@ footer {
 }
 
 /* ========================================================
-   MOBILE RESPONSIVE (PERFECTED)
+   MOBILE — PERFECT CLEAN VERSION
 ======================================================== */
 @media screen and (max-width: 600px) {
 
     .container {
         padding: 48px 22px 36px;
-        min-height: 72vh;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    .breathing-circle {
-        width: 78px;
-        height: 78px;
-        margin-bottom: 28px;
+        min-height: 75vh;
     }
 
     #quote-box {
-        padding: 32px 22px 28px;
-    }
-
-    .quote {
-        font-size: 21px;
-    }
-
-    .author {
-        font-size: 16px;
-        margin-bottom: 24px;
-    }
-
-    .meaning {
-        font-size: 16px;
+        padding: 30px 22px;
     }
 
     #quote-btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
     }
 }
