@@ -1,5 +1,5 @@
 /* ========================================================
-   DOM ELEMENT CACHING (Performance + Stability)
+   DOM ELEMENT CACHING (Performance)
 ======================================================== */
 
 const quoteBtn = document.getElementById("quote-btn");
@@ -17,7 +17,7 @@ const smsBtn = document.getElementById("sms-btn");
 
 
 /* ========================================================
-   LOAD QUOTES (Once Only — Safe Fetch Handling)
+   LOAD QUOTES (One-Time Load)
 ======================================================== */
 
 let quotes = [];
@@ -25,24 +25,19 @@ let quotesLoaded = false;
 
 async function loadQuotes() {
     try {
-        const response = await fetch("quotes.json", {
-            cache: "no-store"
-        });
+        const response = await fetch("quotes.json", { cache: "no-store" });
 
-        if (!response.ok) {
-            throw new Error("Failed to load quotes.json");
-        }
+        if (!response.ok) throw new Error("Failed to load quotes.json");
 
-        quotes = await response.json();
-
-        if (!Array.isArray(quotes) || quotes.length === 0) {
+        const data = await response.json();
+        if (!Array.isArray(data) || data.length === 0)
             throw new Error("quotes.json is empty or invalid.");
-        }
 
+        quotes = data;
         quotesLoaded = true;
 
     } catch (error) {
-        console.error("Error reading quotes.json:", error);
+        console.error(error);
 
         quoteText.textContent = "Unable to load quotes.";
         quoteMeaning.textContent = "Please check back later.";
@@ -50,35 +45,39 @@ async function loadQuotes() {
     }
 }
 
-loadQuotes(); // Load immediately
+loadQuotes();
 
 
 /* ========================================================
-   GENERATE QUOTE (Stable, Clean, No Flash)
+   GENERATE A NEW QUOTE
 ======================================================== */
 
 function generateQuote() {
     if (!quotesLoaded || quotes.length === 0) return;
 
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const randomQuote = quotes[randomIndex];
+    const random = quotes[Math.floor(Math.random() * quotes.length)];
 
-    quoteText.textContent = randomQuote.quote || "";
-    quoteMeaning.textContent = randomQuote.meaning || "";
-    quoteInstruction.textContent = randomQuote.instruction || "";
+    quoteText.textContent = random.quote || "";
+    quoteMeaning.textContent = random.meaning || "";
+    quoteInstruction.textContent = random.instruction || "";
 
-    // Ensure quote-box is visible on first click
+    // Reveal quote box on first click
     quoteBox.classList.remove("hidden");
 
-    // Reset animation cleanly
+    // Restart fade animation
     quoteBox.classList.remove("visible");
-    void quoteBox.offsetWidth; // Force reflow
+    void quoteBox.offsetWidth;
     quoteBox.classList.add("visible");
+
+    // Auto-scroll into view on mobile
+    setTimeout(() => {
+        quoteBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
 }
 
 
 /* ========================================================
-   PRIMARY BUTTON — NEW QUOTE
+   BUTTON — GENERATE QUOTE
 ======================================================== */
 
 quoteBtn.addEventListener("click", () => {
@@ -88,16 +87,15 @@ quoteBtn.addEventListener("click", () => {
 
 
 /* ========================================================
-   COPY QUOTE TO CLIPBOARD (Mobile-Safe)
+   COPY QUOTE TO CLIPBOARD
 ======================================================== */
 
 copyBtn.addEventListener("click", async () => {
-    const textToCopy = 
-`${quoteText.textContent.trim()}
-
-${quoteMeaning.textContent.trim()}
-
-${quoteInstruction.textContent.trim()}`.trim();
+    const textToCopy = [
+        quoteText.textContent.trim(),
+        quoteMeaning.textContent.trim(),
+        quoteInstruction.textContent.trim()
+    ].filter(Boolean).join("\n\n");
 
     if (!textToCopy) return;
 
@@ -115,42 +113,49 @@ ${quoteInstruction.textContent.trim()}`.trim();
 
 
 /* ========================================================
-   SHARE: WHATSAPP
+   SHARE — WHATSAPP
 ======================================================== */
 
 whatsappBtn.addEventListener("click", () => {
-    const text =
-`${quoteText.textContent}
+    const message = [
+        quoteText.textContent,
+        quoteMeaning.textContent,
+        quoteInstruction.textContent
+    ].filter(Boolean).join("\n\n");
 
-${quoteMeaning.textContent}
+    if (!message.trim()) return;
 
-${quoteInstruction.textContent}`.trim();
-
-    if (!text) return;
-
-    const encoded = encodeURIComponent(text);
+    const encoded = encodeURIComponent(message);
     const url = `https://api.whatsapp.com/send?text=${encoded}`;
 
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener");
 });
 
 
 /* ========================================================
-   SHARE: SMS (Cross-Device Safe)
+   SHARE — SMS (iPhone + Android Compatible)
 ======================================================== */
 
 smsBtn.addEventListener("click", () => {
-    const text =
-`${quoteText.textContent}
+    const message = [
+        quoteText.textContent,
+        quoteMeaning.textContent,
+        quoteInstruction.textContent
+    ].filter(Boolean).join("\n\n");
 
-${quoteMeaning.textContent}
+    if (!message.trim()) return;
 
-${quoteInstruction.textContent}`.trim();
+    const encoded = encodeURIComponent(message);
 
-    if (!text) return;
-
-    const encoded = encodeURIComponent(text);
-    const smsURL = `sms:?body=${encoded}`;
+    /**
+     * iPhone uses:  sms:&body=
+     * Android uses: sms:?body=
+     * We detect platform to choose correct format.
+     */
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const smsURL = isIOS
+        ? `sms:&body=${encoded}`
+        : `sms:?body=${encoded}`;
 
     window.location.href = smsURL;
 });
