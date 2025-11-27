@@ -1,0 +1,375 @@
+/* ========================================================
+   GLOBAL RESET & BASE FOUNDATION
+======================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #ffffff;
+    color: #1c1c1e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    animation: pageFade 1s ease forwards;
+    line-height: 1.55;
+}
+
+/* Smooth page fade */
+@keyframes pageFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================================
+   UNIVERSAL PAGE WRAPPER
+======================================================== */
+.container,
+.policy-section {
+    width: 100%;
+    max-width: 650px;
+    padding: 60px 20px 50px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* ========================================================
+   HEADINGS (ALL PAGES)
+======================================================== */
+h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    color: #0f0f0f;
+    line-height: 1.18;
+    margin-bottom: 28px;
+
+    opacity: 0;
+    animation: headerFade 1.1s ease forwards 0.3s;
+}
+
+@keyframes headerFade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 14px;
+    color: #111;
+    text-align: left;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 16px;
+    color: #7b7b7b;
+    margin-top: -10px;
+    margin-bottom: 36px;
+
+    opacity: 0;
+    animation: subtitleFade 1.2s ease forwards 0.45s;
+}
+
+@keyframes subtitleFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================================
+   TEXT RULES FOR POLICY PAGES
+======================================================== */
+.policy-section p,
+.policy-section li {
+    text-align: left;
+    font-size: 16px;
+    color: #2c2c2e;
+    line-height: 1.55;
+    margin-bottom: 16px;
+}
+
+.policy-section ul {
+    margin: 10px 0 18px 20px;
+}
+
+.policy-section a {
+    color: #005fcb;
+    text-decoration: none;
+}
+
+.policy-section a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================================
+   BREATHING CIRCLE (UPGRADED)
+======================================================== */
+.breathing-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #e8f0ff 0%, #d7e6ff 100%);
+
+    box-shadow:
+        0 0 45px rgba(0,122,255,0.18),
+        0 0 25px rgba(0,122,255,0.10);
+
+    animation: breathePulse 8s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes breathePulse {
+    0%   { transform: scale(0.85); opacity: 0.85; }
+    35%  { transform: scale(1.12); opacity: 1; }
+    70%  { transform: scale(0.92); opacity: 0.93; }
+    100% { transform: scale(0.85); opacity: 0.85; }
+}
+
+/* ========================================================
+   PREMIUM BUTTON
+======================================================== */
+#quote-btn {
+    padding: 16px 40px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(180deg, #007aff, #005fcb);
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0,122,255,0.25),
+        0 2px 6px rgba(0,0,0,0.14);
+
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+    will-change: transform;
+}
+
+#quote-btn:hover {
+    background: linear-gradient(180deg, #006ae6, #004eaa);
+    box-shadow:
+        0 6px 18px rgba(0,122,255,0.34),
+        0 3px 10px rgba(0,0,0,0.18);
+    transform: translateY(-2px);
+}
+
+#quote-btn:active {
+    transform: translateY(0);
+    box-shadow:
+        0 3px 10px rgba(0,122,255,0.18),
+        0 1px 4px rgba(0,0,0,0.10);
+}
+
+/* ========================================================
+   QUOTE CARD
+======================================================== */
+#quote-box {
+    margin-top: 40px;
+    padding: 36px 32px;
+    background: #ffffff;
+    border-radius: 20px;
+
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.06),
+        0 2px 4px rgba(0,0,0,0.08);
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Show when visible */
+#quote-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Restrict text width for readability */
+#quote-box p {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Quote */
+.quote {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f0f0f;
+    line-height: 1.35;
+    margin-bottom: 20px;
+}
+
+/* Meaning */
+.meaning {
+    font-size: 17px;
+    color: #3a3a3c;
+    line-height: 1.55;
+    margin-bottom: 26px;
+}
+
+/* Instruction */
+.instruction {
+    font-size: 15px;
+    font-style: italic;
+    color: #2c2c2e;
+    opacity: 0.85;
+}
+
+/* ========================================================
+   COPY BUTTON
+======================================================== */
+.copy-btn {
+    margin-top: 20px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+
+    background: #f2f2f7;
+    color: #1c1c1e;
+
+    transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.copy-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+    opacity: 0.95;
+}
+
+/* Copy feedback */
+.copy-feedback {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #007aff;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.copy-feedback.visible {
+    opacity: 1;
+}
+
+/* ========================================================
+   ADS
+======================================================== */
+#ad-bar {
+    width: 100%;
+    background: #fafafa;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-ad {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* ========================================================
+   FOOTER
+======================================================== */
+footer {
+    margin-top: 70px;
+    margin-bottom: 25px;
+    font-size: 12px;
+    color: #7b7b7b;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    font-size: 13px;
+    color: #5e5e5e;
+    text-decoration: none;
+    margin: 0 6px;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.6;
+}
+
+.footer-links span {
+    color: #b3b3b3;
+}
+
+/* ========================================================
+   MOBILE RESPONSIVE
+======================================================== */
+@media screen and (max-width: 600px) {
+
+    .container,
+    .policy-section {
+        padding: 42px 18px 32px;
+    }
+
+    h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .subtitle {
+        margin-bottom: 26px;
+    }
+
+    #quote-btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 16px;
+        padding: 14px 0;
+    }
+
+    .breathing-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    #quote-box {
+        padding: 24px 20px;
+        border-radius: 14px;
+    }
+
+    .quote {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .meaning {
+        font-size: 15px;
+    }
+
+    .instruction {
+        font-size: 14px;
+    }
+}

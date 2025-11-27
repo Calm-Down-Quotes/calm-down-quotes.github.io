@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- ========================================================
+         CORE META
+    ========================================================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calm Down — Daily Quote Engine</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://YOURWEBSITENAME.github.io/">
+
+    <!-- ========================================================
+         SEO
+    ========================================================= -->
+    <meta name="description" content="A calming, minimalist space to help you breathe, reset, and reshape your thoughts with powerful quotes and gentle guidance.">
+    <meta name="keywords" content="quotes, mindfulness, calm down, anxiety relief, daily quotes, meditation, breathing">
+    <meta name="author" content="Daily Quote Engine">
+
+    <!-- ========================================================
+         SOCIAL PREVIEW (OpenGraph)
+    ========================================================= -->
+    <meta property="og:title" content="Calm Down — Daily Quote Engine">
+    <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="preview.png">
+    <meta property="og:url" content="https://YOURWEBSITENAME.github.io">
+
+    <!-- ========================================================
+         SECURITY (CSP)
+         Strict, secure, GitHub Pages + AdSense compatible
+    ========================================================= -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        img-src 'self' https: data:;
+        connect-src 'self';
+        style-src 'self' 'unsafe-inline';
+        script-src 'self' https://pagead2.googlesyndication.com https://pagead2.googlesyndication.com/pagead/js/*;
+        frame-src https://*.googlesyndication.com https://*.google.com;
+        object-src 'none';
+        base-uri 'self';
+    ">
+
+    <!-- ========================================================
+         GOOGLE ADSENSE LOADER
+    ========================================================= -->
+    <script async 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR-CLIENT-ID"
+        crossorigin="anonymous">
+    </script>
+
+    <!-- ========================================================
+         STYLESHEET
+    ========================================================= -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ========================================================
+         TOP AD BAR
+    ========================================================= -->
+    <div id="ad-bar">
+        <ins class="adsbygoogle"
+             style="display:block; height:60px;"
+             data-ad-client="YOUR-CLIENT-ID"
+             data-ad-slot="YOUR-SLOT-ID"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+    </div>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+    <!-- ========================================================
+         MAIN CONTENT
+    ========================================================= -->
+    <main class="container">
+
+        <!-- Breathing Circle -->
+        <div class="breathing-circle" aria-hidden="true"></div>
+
+        <!-- Title -->
+        <h1>Calm Down</h1>
+        <p class="subtitle">Take a breath. Centre your mind.</p>
+
+        <!-- Button -->
+        <button id="quote-btn" aria-label="Generate a calming quote">Give Me a Quote</button>
+
+        <!-- Quote Box -->
+        <section id="quote-box" class="hidden" aria-live="polite">
+            <p class="quote" id="quote-text"></p>
+            <p class="meaning" id="quote-meaning"></p>
+            <p class="instruction" id="quote-instruction"></p>
+
+            <!-- COPY BUTTON -->
+            <button id="copy-btn" class="copy-btn" aria-label="Copy this quote">Copy Quote</button>
+
+            <!-- COPY FEEDBACK -->
+            <span id="copy-feedback" class="copy-feedback">Copied!</span>
+        </section>
+
+    </main>
+
+    <!-- ========================================================
+         FOOTER AD
+    ========================================================= -->
+    <div class="footer-ad">
+        <ins class="adsbygoogle"
+             style="display:block; margin-top:20px;"
+             data-ad-client="YOUR-CLIENT-ID"
+             data-ad-slot="YOUR-SLOT-ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+    <!-- ========================================================
+         FOOTER LINKS
+    ========================================================= -->
+    <footer>
+        <nav class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <span>|</span>
+            <a href="terms.html">Terms of Service</a>
+        </nav>
+        <p>© 2025 Daily Quote Engine. All rights reserved.</p>
+    </footer>
+
+    <!-- ========================================================
+         JAVASCRIPT
+    ========================================================= -->
+    <script src="script.js"></script>
+
+</body>
+</html>
