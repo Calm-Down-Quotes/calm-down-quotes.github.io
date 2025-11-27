@@ -28,15 +28,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Calm Down Quotes</title>
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
     <!-- SEO -->
     <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes and gentle guidance.">
-    <meta name="keywords" content="calm quotes, mindfulness quotes, anxiety relief, motivation, inspiration, wellness">
+    <meta name="keywords" content="calm quotes, mindfulness, anxiety relief, wellness, inspiration, mental reset">
     <meta name="author" content="Calm Down Quotes">
 
-    <!-- OpenGraph -->
+    <!-- OPEN GRAPH -->
     <meta property="og:title" content="Calm Down Quotes">
     <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
     <meta property="og:type" content="website">
@@ -44,22 +43,23 @@
     <meta property="og:url" content="https://calm-down-quotes.github.io/">
 
     <!-- ========================================================
-         CONTENT SECURITY POLICY — SAFE FOR ADS & ANALYTICS
+         CSP — SAFE FOR ADS, GA4, SHARE API
     ========================================================= -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline';
         script-src 
-            'self' 
+            'self'
             'unsafe-inline'
             https://www.googletagmanager.com
             https://www.google-analytics.com
             https://pagead2.googlesyndication.com
             https://pagead2.googlesyndication.com/pagead/js/;
         connect-src 'self' https://www.google-analytics.com;
-        frame-src https://*.google.com https://*.googlesyndication.com;
+        frame-src https://*.googlesyndication.com https://*.google.com;
         object-src 'none';
+        base-uri 'self';
     ">
 
     <!-- CSS -->
@@ -73,14 +73,13 @@
     ========================================================= -->
     <main class="container">
 
-        <!-- Breathing Circle -->
+        <!-- Animated Breathing Circle -->
         <div class="breathing-circle" aria-hidden="true"></div>
 
-        <!-- Title -->
         <h1>Calm Down Quotes</h1>
         <p class="subtitle">Take a breath and centre your mind</p>
 
-        <!-- Generate Button -->
+        <!-- Generate Quote -->
         <button id="quote-btn" aria-label="Generate calming quote">
             Give Me a Quote
         </button>
@@ -90,27 +89,28 @@
         ========================================================= -->
         <section id="quote-box" class="hidden" aria-live="polite">
 
-            <!-- Quote -->
             <p class="quote" id="quote-text"></p>
-
-            <!-- Author -->
             <p class="author" id="quote-author"></p>
 
-            <!-- Meaning -->
             <p class="meaning" id="quote-meaning"></p>
-
-            <!-- Instruction -->
             <p class="instruction" id="quote-instruction"></p>
 
             <!-- Copy -->
             <button id="copy-btn" class="copy-btn">Copy Quote</button>
             <span id="copy-feedback" class="copy-feedback">Copied</span>
 
-            <!-- Share Buttons -->
+            <!-- ========================================================
+                 SHARE BUTTONS
+            ========================================================= -->
             <div class="share-buttons">
-                <button id="whatsapp-btn" class="share-btn">WhatsApp</button>
-                <button id="sms-btn" class="share-btn">SMS</button>
-                <button id="messenger-btn" class="share-btn">Messenger</button>
+
+                <button id="whatsapp-btn"   class="share-btn">WhatsApp</button>
+                <button id="sms-btn"        class="share-btn">SMS</button>
+                <button id="messenger-btn"  class="share-btn">Messenger</button>
+                <button id="instagram-btn"  class="share-btn">Instagram</button>
+                <button id="pinterest-btn"  class="share-btn">Pinterest</button>
+
+                <!-- Native Share API -->
                 <button id="share-btn" class="share-btn">Share</button>
             </div>
 
