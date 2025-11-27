@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8271945337069886"
-     crossorigin="anonymous"></script>
+
+    <!-- ========================================================
+         GOOGLE ANALYTICS 4
+    ========================================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K9P7Z4CKYG');
+    </script>
+
+    <!-- ========================================================
+         GOOGLE ADSENSE (VERIFICATION + LOADER)
+    ========================================================= -->
+    <script async 
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8271945337069886"
+        crossorigin="anonymous"></script>
 
     <!-- ========================================================
          CORE META
@@ -13,7 +29,7 @@
     <title>Calm Down — Daily Quote Engine</title>
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://YOURWEBSITENAME.github.io/">
+    <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
     <!-- ========================================================
          SEO
@@ -29,36 +45,32 @@
     <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="preview.png">
-    <meta property="og:url" content="https://YOURWEBSITENAME.github.io">
+    <meta property="og:url" content="https://calm-down-quotes.github.io/">
 
     <!-- ========================================================
          SECURITY (CSP)
-         Strict, secure, GitHub Pages + AdSense compatible
+         Allows AdSense + Analytics safely
     ========================================================= -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         img-src 'self' https: data:;
         connect-src 'self';
         style-src 'self' 'unsafe-inline';
-        script-src 'self' https://pagead2.googlesyndication.com https://pagead2.googlesyndication.com/pagead/js/*;
+        script-src 
+            'self'
+            https://pagead2.googlesyndication.com
+            https://www.googletagmanager.com
+            https://www.google-analytics.com
+            https://pagead2.googlesyndication.com/pagead/js/ ;
         frame-src https://*.googlesyndication.com https://*.google.com;
         object-src 'none';
         base-uri 'self';
     ">
 
     <!-- ========================================================
-         GOOGLE ADSENSE LOADER
-    ========================================================= -->
-    <script async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR-CLIENT-ID"
-        crossorigin="anonymous">
-    </script>
-
-    <!-- ========================================================
          STYLESHEET
     ========================================================= -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -140,4 +152,5 @@
 
 </body>
 </html>
+
 
