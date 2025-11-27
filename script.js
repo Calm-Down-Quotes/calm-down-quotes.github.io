@@ -19,7 +19,7 @@ const shareBtn = document.getElementById("share-btn");
 
 
 /* ========================================================
-   LOAD QUOTES (ONCE)
+   LOAD QUOTES
 ======================================================== */
 let quotes = [];
 let quotesLoaded = false;
@@ -33,13 +33,13 @@ async function loadQuotes() {
         quotes = await response.json();
 
         if (!Array.isArray(quotes) || quotes.length === 0)
-            throw new Error("quotes.json is empty or invalid");
+            throw new Error("quotes.json is empty");
 
         quotesLoaded = true;
     } 
     catch (err) {
         console.error("Quote Load Error:", err);
-        
+
         quoteText.textContent = "Unable to load quotes";
         quoteAuthor.textContent = "";
         quoteMeaning.textContent = "Please try again later";
@@ -47,7 +47,7 @@ async function loadQuotes() {
     }
 }
 
-loadQuotes(); // LOAD ON PAGE START
+loadQuotes();
 
 
 /* ========================================================
@@ -58,24 +58,25 @@ function generateQuote() {
 
     const q = quotes[Math.floor(Math.random() * quotes.length)];
 
-    const rawQuote = q.quote?.trim() || "";
-    const rawAuthor = q.author?.trim() || "";
-    const rawMeaning = q.meaning?.trim() || "";
-    const rawInstruction = q.instruction?.trim() || "";
+    // Extract clean text fields
+    const rawQuote = (q.quote || "").trim();
+    const rawAuthor = (q.author || "").trim();
+    const rawMeaning = (q.meaning || "").trim();
+    const rawInstruction = (q.instruction || "").trim();
 
-    // Format quote cleanly: 
-    // Italic, no trailing punctuation
+    // Display cleanly (NO punctuation enforced)
     quoteText.textContent = rawQuote;
-    quoteAuthor.textContent = rawAuthor ? rawAuthor : "";
+    quoteAuthor.textContent = rawAuthor;
 
     quoteMeaning.textContent = rawMeaning;
     quoteInstruction.textContent = rawInstruction;
 
+    // Show box
     quoteBox.classList.remove("hidden");
 
-    // Restart fade animation
+    // Restart animation
     quoteBox.classList.remove("visible");
-    void quoteBox.offsetWidth;
+    void quoteBox.offsetWidth; 
     quoteBox.classList.add("visible");
 }
 
@@ -83,7 +84,7 @@ quoteBtn.addEventListener("click", generateQuote);
 
 
 /* ========================================================
-   FORMAT TEXT FOR SHARING
+   SHARE TEXT FORMATTER
 ======================================================== */
 function buildShareText() {
     const q = quoteText.textContent.trim();
@@ -101,7 +102,7 @@ ${m}
 
 ${i}
 
-Shared from Calm Down Quotes  
+Shared from Calm Down Quotes
 https://calm-down-quotes.github.io/`
     ).trim();
 }
@@ -116,6 +117,7 @@ copyBtn.addEventListener("click", async () => {
 
     try {
         await navigator.clipboard.writeText(text);
+
         copyFeedback.classList.add("visible");
         setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
     } 
@@ -132,7 +134,6 @@ copyBtn.addEventListener("click", async () => {
 whatsappBtn.addEventListener("click", () => {
     const text = encodeURIComponent(buildShareText());
     if (!text) return;
-
     window.open(`https://api.whatsapp.com/send?text=${text}`, "_blank");
 });
 
@@ -144,21 +145,18 @@ smsBtn.addEventListener("click", () => {
     const text = encodeURIComponent(buildShareText());
     if (!text) return;
 
+    // Cross-device safe
     window.location.href = `sms:?body=${text}`;
 });
 
 
 /* ========================================================
-   MESSENGER SHARE (Best possible non-app-key version)
+   MESSENGER SHARE (Corrected)
 ======================================================== */
 messengerBtn.addEventListener("click", () => {
-    const shareURL = "https://calm-down-quotes.github.io/";
-    const text = encodeURIComponent(buildShareText());
-
-    // Messenger doesn’t allow text injection directly:
-    // So we include the message in a parameter for the user.
+    const link = encodeURIComponent("https://calm-down-quotes.github.io/");
     window.open(
-        `https://www.facebook.com/dialog/send?app_id=0000000000000&link=${shareURL}&redirect_uri=${shareURL}`,
+        `https://www.messenger.com/share/?link=${link}`,
         "_blank"
     );
 });
@@ -184,7 +182,6 @@ shareBtn.addEventListener("click", async () => {
         }
     } 
     else {
-        // fallback
-        alert("Your device does not support native sharing");
+        alert("Sharing is not supported on this device");
     }
 });
