@@ -3,34 +3,7 @@
 <head>
 
     <!-- ========================================================
-         CORE META
-    ========================================================= -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Calm Down — Daily Quote Engine</title>
-    <link rel="canonical" href="https://calm-down-quotes.github.io/">
-    <meta name="theme-color" content="#0a0a0a">
-
-    <!-- ========================================================
-         SEO
-    ========================================================= -->
-    <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes and gentle guidance.">
-    <meta name="keywords" content="quotes, mindfulness, calm down, anxiety relief, daily quotes, meditation, breathing">
-    <meta name="author" content="Daily Quote Engine">
-
-    <!-- ========================================================
-         OPEN GRAPH
-    ========================================================= -->
-    <meta property="og:title" content="Calm Down — Daily Quote Engine">
-    <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://calm-down-quotes.github.io/preview.png">
-    <meta property="og:url" content="https://calm-down-quotes.github.io/">
-
-    <!-- ========================================================
-         GOOGLE ANALYTICS
+         GOOGLE ANALYTICS 4
     ========================================================= -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
     <script>
@@ -48,22 +21,51 @@
         crossorigin="anonymous"></script>
 
     <!-- ========================================================
+         CORE META
+    ========================================================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calm Down Quotes</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://calm-down-quotes.github.io/">
+
+    <!-- Mobile theme -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ========================================================
+         SEO
+    ========================================================= -->
+    <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes and gentle guidance.">
+    <meta name="keywords" content="quotes, mindfulness, calm, anxiety relief, motivation, inspiration, wellness, meditation">
+    <meta name="author" content="Calm Down Quotes">
+
+    <!-- ========================================================
+         SOCIAL (OpenGraph)
+    ========================================================= -->
+    <meta property="og:title" content="Calm Down Quotes">
+    <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://calm-down-quotes.github.io/preview.png">
+    <meta property="og:url" content="https://calm-down-quotes.github.io/">
+
+    <!-- ========================================================
          CONTENT SECURITY POLICY
     ========================================================= -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         img-src 'self' https: data:;
-        script-src
+        style-src 'self' 'unsafe-inline';
+        script-src 
             'self'
             'unsafe-inline'
             https://www.googletagmanager.com
             https://www.google-analytics.com
             https://pagead2.googlesyndication.com
             https://pagead2.googlesyndication.com/pagead/js/;
-        style-src 'self' 'unsafe-inline';
         connect-src 'self' https://www.google-analytics.com;
         frame-src https://*.googlesyndication.com https://*.google.com;
-        font-src 'self' https:;
         object-src 'none';
         base-uri 'self';
     ">
@@ -78,45 +80,41 @@
 <body>
 
     <!-- ========================================================
-         TOP AD BAR
-    ========================================================= -->
-    <div id="ad-bar">
-        <ins class="adsbygoogle"
-             style="display:block; height:60px;"
-             data-ad-client="ca-pub-8271945337069886"
-             data-ad-slot="1234567890"
-             data-ad-format="horizontal"
-             data-full-width-responsive="true"></ins>
-    </div>
-
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-    <!-- ========================================================
-         MAIN CONTENT
+         MAIN CONTENT 
+         (Vertically centered wellness layout)
     ========================================================= -->
     <main class="container">
 
+        <!-- Breathing Circle -->
         <div class="breathing-circle" aria-hidden="true"></div>
 
-        <h1>Calm Down</h1>
-        <p class="subtitle">Take a breath. Centre your mind.</p>
+        <!-- Title -->
+        <h1>Calm Down Quotes</h1>
+        <p class="subtitle">Take a breath and centre your mind</p>
 
+        <!-- Generate Quote Button -->
         <button id="quote-btn" aria-label="Generate a calming quote">
             Give Me a Quote
         </button>
 
+        <!-- Quote Box -->
         <section id="quote-box" class="hidden" aria-live="polite">
 
             <p class="quote" id="quote-text"></p>
+            <p class="author" id="quote-author"></p>
             <p class="meaning" id="quote-meaning"></p>
             <p class="instruction" id="quote-instruction"></p>
 
+            <!-- Copy Quote -->
             <button id="copy-btn" class="copy-btn">Copy Quote</button>
-            <span id="copy-feedback" class="copy-feedback">Copied!</span>
+            <span id="copy-feedback" class="copy-feedback">Copied</span>
 
+            <!-- Share Buttons -->
             <div class="share-buttons">
-                <button id="whatsapp-btn" class="share-btn">Share on WhatsApp</button>
-                <button id="sms-btn" class="share-btn">Share via SMS</button>
+                <button id="whatsapp-btn" class="share-btn">WhatsApp</button>
+                <button id="sms-btn" class="share-btn">SMS</button>
+                <button id="messenger-btn" class="share-btn">Messenger</button>
+                <button id="share-btn" class="share-btn">Share</button>
             </div>
 
         </section>
@@ -124,17 +122,16 @@
     </main>
 
     <!-- ========================================================
-         FOOTER AD
+         BOTTOM AD (Clean layout)
     ========================================================= -->
     <div class="footer-ad">
         <ins class="adsbygoogle"
              style="display:block; margin-top:20px;"
              data-ad-client="ca-pub-8271945337069886"
-             data-ad-slot="1234567891"
+             data-ad-slot="YOUR-SLOT-ID"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
     </div>
-
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
     <!-- ========================================================
@@ -146,12 +143,10 @@
             <span>|</span>
             <a href="terms.html">Terms of Service</a>
         </nav>
-        <p>© 2025 Daily Quote Engine. All rights reserved.</p>
+        <p>© 2025 Calm Down Quotes. All rights reserved.</p>
     </footer>
 
-    <!-- ========================================================
-         JAVASCRIPT
-    ========================================================= -->
+    <!-- JS -->
     <script src="script.js"></script>
 
 </body>
