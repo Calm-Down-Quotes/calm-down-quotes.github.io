@@ -21,7 +21,7 @@
         crossorigin="anonymous"></script>
 
     <!-- ========================================================
-         CORE META
+         META + SEO
     ========================================================= -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,12 +30,11 @@
 
     <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
-    <!-- SEO -->
     <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes and gentle guidance.">
-    <meta name="keywords" content="calm quotes, mindfulness, anxiety relief, wellness, inspiration, mental reset">
+    <meta name="keywords" content="calm quotes, mindfulness, anxiety relief, wellness, inspiration, reset, breathing, motivation">
     <meta name="author" content="Calm Down Quotes">
 
-    <!-- OPEN GRAPH -->
+    <!-- OpenGraph -->
     <meta property="og:title" content="Calm Down Quotes">
     <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
     <meta property="og:type" content="website">
@@ -43,7 +42,7 @@
     <meta property="og:url" content="https://calm-down-quotes.github.io/">
 
     <!-- ========================================================
-         CSP — SAFE FOR ADS, GA4, SHARE API
+         CSP — ADS + ANALYTICS SAFE
     ========================================================= -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
@@ -57,12 +56,12 @@
             https://pagead2.googlesyndication.com
             https://pagead2.googlesyndication.com/pagead/js/;
         connect-src 'self' https://www.google-analytics.com;
-        frame-src https://*.googlesyndication.com https://*.google.com;
+        frame-src https://*.google.com https://*.googlesyndication.com;
         object-src 'none';
         base-uri 'self';
     ">
 
-    <!-- CSS -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -79,7 +78,7 @@
         <h1>Calm Down Quotes</h1>
         <p class="subtitle">Take a breath and centre your mind</p>
 
-        <!-- Generate Quote -->
+        <!-- Generate Button -->
         <button id="quote-btn" aria-label="Generate calming quote">
             Give Me a Quote
         </button>
@@ -89,19 +88,23 @@
         ========================================================= -->
         <section id="quote-box" class="hidden" aria-live="polite">
 
+            <!-- Quote -->
             <p class="quote" id="quote-text"></p>
+
+            <!-- Author -->
             <p class="author" id="quote-author"></p>
 
+            <!-- Meaning -->
             <p class="meaning" id="quote-meaning"></p>
+
+            <!-- Instruction -->
             <p class="instruction" id="quote-instruction"></p>
 
-            <!-- Copy -->
+            <!-- Copy Button -->
             <button id="copy-btn" class="copy-btn">Copy Quote</button>
             <span id="copy-feedback" class="copy-feedback">Copied</span>
 
-            <!-- ========================================================
-                 SHARE BUTTONS
-            ========================================================= -->
+            <!-- Share Buttons -->
             <div class="share-buttons">
 
                 <button id="whatsapp-btn"   class="share-btn">WhatsApp</button>
@@ -110,8 +113,9 @@
                 <button id="instagram-btn"  class="share-btn">Instagram</button>
                 <button id="pinterest-btn"  class="share-btn">Pinterest</button>
 
-                <!-- Native Share API -->
+                <!-- Native Device Share -->
                 <button id="share-btn" class="share-btn">Share</button>
+
             </div>
 
         </section>
