@@ -5,7 +5,7 @@
 ======================================================== */
 const SITE_URL = "https://calm-down-quotes.github.io/";
 const PREVIEW_IMAGE_URL = `${SITE_URL}preview.png`;
-const STORAGE_KEY = "calm_down_quotes_state_v1";
+const STORAGE_KEY = "calm_down_quotes_state_v2"; // NEW VERSION FOR CLEAN STATE
 
 /* ========================================================
    DOM REFERENCES
@@ -18,7 +18,7 @@ const quoteAuthor      = document.getElementById("quote-author");
 const quoteMeaning     = document.getElementById("quote-meaning");
 const quoteInstruction = document.getElementById("quote-instruction");
 const quoteCategory    = document.getElementById("quote-category");
-const quoteTags        = document.getElementById("quote-tags");
+const tagsContainer    = document.getElementById("quote-tags");
 
 const copyBtn      = document.getElementById("copy-btn");
 const copyFeedback = document.getElementById("copy-feedback");
@@ -36,34 +36,33 @@ const instagramBtn  = document.getElementById("instagram-btn");
 let quotes       = [];
 let quotesLoaded = false;
 
-// order + pointer to avoid repeats
+// Avoid repeats
 let shuffledIndices = [];
 let currentPointer  = 0;
 
 async function loadQuotes() {
     try {
         const res = await fetch("quotes.json");
-
         if (!res.ok) throw new Error(`quotes.json unreachable (status: ${res.status})`);
 
         const data = await res.json();
-        if (!Array.isArray(data) || data.length === 0) {
-            throw new Error("quotes.json is empty or invalid.");
-        }
+        if (!Array.isArray(data) || data.length === 0)
+            throw new Error("quotes.json invalid or empty.");
 
         quotes = data;
         quotesLoaded = true;
-
         initQuoteOrder();
+
     } catch (err) {
         console.error(err);
 
-        quoteText.textContent = "Unable to load quotes.";
-        quoteMeaning.textContent = "Please check back later.";
-        quoteAuthor.textContent = "";
+        quoteText.textContent        = "Unable to load quotes.";
+        quoteMeaning.textContent     = "Please check back later.";
+        quoteAuthor.textContent      = "";
         quoteInstruction.textContent = "";
-        quoteCategory.textContent = "";
-        quoteTags.textContent = "";
+        quoteCategory.textContent    = "";
+
+        tagsContainer.innerHTML = "";
 
         quoteBox.classList.remove("hidden");
         quoteBox.classList.add("visible");
@@ -73,9 +72,9 @@ async function loadQuotes() {
 loadQuotes();
 
 /* ========================================================
-   QUOTE ORDER / STATE
+   QUOTE ORDERING SYSTEM
 ======================================================== */
-function createShuffledIndices(len) {
+function shuffleArray(len) {
     const arr = Array.from({ length: len }, (_, i) => i);
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -84,13 +83,12 @@ function createShuffledIndices(len) {
     return arr;
 }
 
-function saveQuoteState() {
+function saveState() {
     try {
-        const state = {
-            order: shuffledIndices,
-            pointer: currentPointer,
-        };
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({ order: shuffledIndices, pointer: currentPointer })
+        );
     } catch (_) {}
 }
 
@@ -100,49 +98,71 @@ function initQuoteOrder() {
         if (raw) {
             const state = JSON.parse(raw);
             if (
-                state &&
                 Array.isArray(state.order) &&
                 typeof state.pointer === "number" &&
                 state.order.length === quotes.length
             ) {
-                shuffledIndices = state.order.slice();
-                currentPointer  = Math.min(Math.max(0, state.pointer), shuffledIndices.length);
+                shuffledIndices = state.order;
+                currentPointer  = Math.min(
+                    Math.max(0, state.pointer),
+                    shuffledIndices.length
+                );
                 return;
             }
         }
     } catch (_) {}
 
-    shuffledIndices = createShuffledIndices(quotes.length);
+    shuffledIndices = shuffleArray(quotes.length);
     currentPointer  = 0;
-    saveQuoteState();
+    saveState();
+}
+
+/* ========================================================
+   RENDER TAG CHIPS
+======================================================== */
+function renderTagChips(tags) {
+    tagsContainer.innerHTML = "";
+
+    if (Array.isArray(tags)) {
+        tags.forEach(tag => {
+            const chip = document.createElement("span");
+            chip.textContent = tag;
+            chip.className = "tag-chip";
+            tagsContainer.appendChild(chip);
+        });
+    } else if (typeof tags === "string" && tags.trim() !== "") {
+        const chip = document.createElement("span");
+        chip.textContent = tags;
+        chip.className = "tag-chip";
+        tagsContainer.appendChild(chip);
+    }
 }
 
 /* ========================================================
    GENERATE QUOTE
 ======================================================== */
 function generateQuote() {
-    if (!quotesLoaded || !quotes.length) return;
+    if (!quotesLoaded || quotes.length === 0) return;
 
     if (currentPointer >= shuffledIndices.length) {
-        shuffledIndices = createShuffledIndices(quotes.length);
+        shuffledIndices = shuffleArray(quotes.length);
         currentPointer = 0;
     }
 
-    const index = shuffledIndices[currentPointer++];
-    saveQuoteState();
-
-    const q = quotes[index] || {};
+    const q = quotes[shuffledIndices[currentPointer++]];
+    saveState();
 
     quoteText.textContent        = (q.quote || "").trim();
     quoteAuthor.textContent      = (q.author || "").trim();
     quoteMeaning.textContent     = (q.meaning || "").trim();
     quoteInstruction.textContent = (q.instruction || "").trim();
     quoteCategory.textContent    = (q.category || "").trim();
-    quoteTags.textContent        = Array.isArray(q.tags) ? q.tags.join(", ") : (q.tags || "");
+
+    renderTagChips(q.tags);
 
     quoteBox.classList.remove("hidden");
 
-    // Restart animation
+    // Reset animation
     quoteBox.classList.remove("visible");
     void quoteBox.offsetWidth;
     quoteBox.classList.add("visible");
@@ -154,12 +174,12 @@ quoteBtn?.addEventListener("click", generateQuote);
    SHARE TEXT BUILDER
 ======================================================== */
 function buildShareText() {
-    const q  = quoteText?.textContent?.trim() || "";
-    const a  = quoteAuthor?.textContent?.trim() || "";
-    const m  = quoteMeaning?.textContent?.trim() || "";
-    const i  = quoteInstruction?.textContent?.trim() || "";
-    const c  = quoteCategory?.textContent?.trim() || "";
-    const tg = quoteTags?.textContent?.trim() || "";
+    const q  = quoteText.textContent.trim();
+    const a  = quoteAuthor.textContent.trim();
+    const m  = quoteMeaning.textContent.trim();
+    const i  = quoteInstruction.textContent.trim();
+    const c  = quoteCategory.textContent.trim();
+    const tags = Array.from(tagsContainer.children).map(t => t.textContent).join(", ");
 
     const parts = [
         q,
@@ -170,7 +190,7 @@ function buildShareText() {
         i,
         "",
         c ? `Category: ${c}` : "",
-        tg ? `Tags: ${tg}` : "",
+        tags ? `Tags: ${tags}` : "",
         "",
         "Shared from Calm Down Quotes",
         SITE_URL
@@ -179,9 +199,9 @@ function buildShareText() {
     return parts.join("\n");
 }
 
-function getShareTextOrWarn() {
+function mustGetShareText() {
     const text = buildShareText();
-    if (!text) {
+    if (!text.trim()) {
         alert("Please generate a quote first.");
         return null;
     }
@@ -189,10 +209,10 @@ function getShareTextOrWarn() {
 }
 
 /* ========================================================
-   COPY
+   COPY TO CLIPBOARD
 ======================================================== */
 copyBtn?.addEventListener("click", async () => {
-    const text = getShareTextOrWarn();
+    const text = mustGetShareText();
     if (!text) return;
 
     try {
@@ -200,77 +220,68 @@ copyBtn?.addEventListener("click", async () => {
 
         copyFeedback.textContent = "Copied";
         copyFeedback.classList.add("visible");
-        setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
+
+        setTimeout(() => {
+            copyFeedback.classList.remove("visible");
+        }, 1500);
 
     } catch (err) {
-        alert("Unable to copy this quote on this device.");
+        alert("Copy not supported on this device.");
     }
 });
 
 /* ========================================================
-   WHATSAPP
+   SOCIAL SHARE BUTTONS
 ======================================================== */
 whatsappBtn?.addEventListener("click", () => {
-    const text = getShareTextOrWarn();
+    const text = mustGetShareText();
     if (!text) return;
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
-                "_blank", "noopener,noreferrer");
+
+    window.open(
+        `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
+        "_blank","noopener,noreferrer"
+    );
 });
 
-/* ========================================================
-   SMS
-======================================================== */
 smsBtn?.addEventListener("click", () => {
-    const text = getShareTextOrWarn();
+    const text = mustGetShareText();
     if (!text) return;
+
     window.location.href = `sms:?body=${encodeURIComponent(text)}`;
 });
 
-/* ========================================================
-   MESSENGER
-======================================================== */
 messengerBtn?.addEventListener("click", () => {
     window.open(
         `https://www.messenger.com/share/?link=${encodeURIComponent(SITE_URL)}`,
-        "_blank",
-        "noopener,noreferrer"
+        "_blank","noopener,noreferrer"
     );
 });
 
-/* ========================================================
-   PINTEREST
-======================================================== */
 pinterestBtn?.addEventListener("click", () => {
-    const desc = getShareTextOrWarn();
-    if (!desc) return;
+    const text = mustGetShareText();
+    if (!text) return;
+
     window.open(
-        `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(SITE_URL)}&media=${encodeURIComponent(PREVIEW_IMAGE_URL)}&description=${encodeURIComponent(desc)}`,
-        "_blank",
-        "noopener,noreferrer"
+        `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(SITE_URL)}&media=${encodeURIComponent(PREVIEW_IMAGE_URL)}&description=${encodeURIComponent(text)}`,
+        "_blank","noopener,noreferrer"
     );
 });
 
-/* ========================================================
-   INSTAGRAM
-======================================================== */
 instagramBtn?.addEventListener("click", async () => {
-    const text = getShareTextOrWarn();
+    const text = mustGetShareText();
     if (!text) return;
 
     alert(
-        "Instagram requires a Story or Reel.\n\n" +
+        "Instagram only accepts text via copy/paste.\n\n" +
         "Your quote has been copied.\n" +
-        "Open Instagram and paste it on your Story."
+        "Open Instagram → Create Story → Paste."
     );
 
     try { await navigator.clipboard.writeText(text); } catch {}
 });
 
-/* ========================================================
-   NATIVE SHARE
-======================================================== */
 shareBtn?.addEventListener("click", async () => {
-    const text = getShareTextOrWarn();
+    const text = mustGetShareText();
     if (!text) return;
 
     if (navigator.share) {
@@ -282,22 +293,22 @@ shareBtn?.addEventListener("click", async () => {
             });
         } catch {}
     } else {
-        alert("Native sharing not supported on this device.");
+        alert("Your device does not support native sharing.");
     }
 });
 
 /* ========================================================
-   SWIPE FOR NEW QUOTE
+   SWIPE GESTURE
 ======================================================== */
-let startX = 0;
+let touchStartX = 0;
 
-document.addEventListener("touchstart", (e) => {
-    if (e.touches.length) startX = e.touches[0].clientX;
+document.addEventListener("touchstart", e => {
+    if (e.touches.length) touchStartX = e.touches[0].clientX;
 });
 
-document.addEventListener("touchend", (e) => {
+document.addEventListener("touchend", e => {
     if (!e.changedTouches.length) return;
-    const diff = e.changedTouches[0].clientX - startX;
+    const diff = e.changedTouches[0].clientX - touchStartX;
 
     if (Math.abs(diff) > 60) generateQuote();
 });
