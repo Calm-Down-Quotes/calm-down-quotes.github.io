@@ -3,25 +3,7 @@
 <head>
 
     <!-- ========================================================
-         GOOGLE ANALYTICS 4
-    ========================================================= -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        gtag("js", new Date());
-        gtag("config", "G-K9P7Z4CKYG");
-    </script>
-
-    <!-- ========================================================
-         GOOGLE ADSENSE
-    ========================================================= -->
-    <script async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8271945337069886"
-        crossorigin="anonymous"></script>
-
-    <!-- ========================================================
-         META + SEO
+         CORE META + SEO
     ========================================================= -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,24 +24,23 @@
     <meta property="og:url" content="https://calm-down-quotes.github.io/">
 
     <!-- ========================================================
-         CSP — ADS + ANALYTICS SAFE
+         GOOGLE ANALYTICS 4
     ========================================================= -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        img-src 'self' https: data:;
-        style-src 'self' 'unsafe-inline';
-        script-src 
-            'self'
-            'unsafe-inline'
-            https://www.googletagmanager.com
-            https://www.google-analytics.com
-            https://pagead2.googlesyndication.com
-            https://pagead2.googlesyndication.com/pagead/js/;
-        connect-src 'self' https://www.google-analytics.com;
-        frame-src https://*.google.com https://*.googlesyndication.com;
-        object-src 'none';
-        base-uri 'self';
-    ">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-K9P7Z4CKYG");
+    </script>
+
+    <!-- ========================================================
+         GOOGLE ADSENSE
+         (client ID is already correct; you ONLY change data-ad-slot below)
+    ========================================================= -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8271945337069886"
+        crossorigin="anonymous"></script>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -101,8 +82,10 @@
             <p class="instruction" id="quote-instruction"></p>
 
             <!-- Copy Button -->
-            <button id="copy-btn" class="copy-btn">Copy Quote</button>
-            <span id="copy-feedback" class="copy-feedback">Copied</span>
+            <div class="copy-row">
+                <button id="copy-btn" class="copy-btn">Copy Quote</button>
+                <span id="copy-feedback" class="copy-feedback" aria-live="polite">Copied</span>
+            </div>
 
             <!-- Share Buttons -->
             <div class="share-buttons">
@@ -114,7 +97,7 @@
                 <button id="pinterest-btn"  class="share-btn">Pinterest</button>
 
                 <!-- Native Device Share -->
-                <button id="share-btn" class="share-btn">Share</button>
+                <button id="share-btn" class="share-btn primary-share">Share</button>
 
             </div>
 
@@ -123,17 +106,21 @@
     </main>
 
     <!-- ========================================================
-         FOOTER AD
+         FOOTER AD (MANUAL AD UNIT)
+         IMPORTANT:
+         - Replace YOUR_AD_SLOT_ID_HERE with the real slot ID from AdSense
     ========================================================= -->
     <div class="footer-ad">
         <ins class="adsbygoogle"
              style="display:block; margin-top:20px;"
              data-ad-client="ca-pub-8271945337069886"
-             data-ad-slot="0000000000"
+             data-ad-slot="YOUR_AD_SLOT_ID_HERE"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
     </div>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 
     <!-- ========================================================
          FOOTER
@@ -141,7 +128,7 @@
     <footer>
         <nav class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
-            <span>|</span>
+            <span aria-hidden="true">|</span>
             <a href="terms.html">Terms of Service</a>
         </nav>
         <p>© 2025 Calm Down Quotes. All rights reserved.</p>
