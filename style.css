@@ -1,174 +1,150 @@
 /* ========================================================
-   ROOT VARIABLES
+   ROOT VARIABLES — PREMIUM CALMING PALETTE
 ======================================================== */
 :root {
-    --bg-soft: #f7fafc;
+    --bg: #f5f7fa;
+    --bg-soft: #f8fafc;
+    --bg-card: rgba(255,255,255,0.75);
+    --bg-glass: rgba(255,255,255,0.55);
+
     --text-main: #111827;
     --text-heading: #0b1120;
     --text-muted: #6b7280;
     --text-subtle: #4b5563;
     --text-secondary: #374151;
 
-    --blue-main: #2563eb;
-    --blue-main-dark: #1d4ed8;
-    --blue-soft: #e0f2fe;
-    --blue-soft-inner: #e3f2fd;
-    --teal-soft: #e0f2f1;
+    --brand-main: #2563eb;
+    --brand-main-dark: #1d4ed8;
+    --brand-soft: #dbeafe;
 
-    --radius-card: 22px;
+    --radius-card: 26px;
     --radius-pill: 999px;
 
-    --shadow-primary-1: 0 4px 14px rgba(37, 99, 235, 0.30),
-                        0 2px 6px rgba(15, 23, 42, 0.16);
-    --shadow-primary-2: 0 6px 18px rgba(37, 99, 235, 0.36),
-                        0 3px 10px rgba(15, 23, 42, 0.18);
-    --shadow-primary-3: 0 2px 8px rgba(37, 99, 235, 0.30),
-                        0 1px 4px rgba(15, 23, 42, 0.18);
-
-    --shadow-card-1: 0 8px 22px rgba(15, 23, 42, 0.06),
-                     0 2px 4px rgba(15, 23, 42, 0.04);
-
-    --shadow-share: 0 2px 5px rgba(15, 23, 42, 0.1);
+    --shadow-soft: 0 10px 26px rgba(15,23,42,0.08);
+    --shadow-card: 0 4px 20px rgba(0,0,0,0.06);
 }
 
 /* ========================================================
-   GLOBAL RESET
+   GLOBAL
 ======================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg-soft);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
     color: var(--text-main);
-    line-height: 1.55;
+    line-height: 1.6;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     opacity: 0;
-    animation: fadeIn 0.9s ease forwards;
+    animation: fadeStart 0.8s ease forwards;
 }
 
-/* Utility */
-.hidden {
-    display: none;
-}
-
-/* Fade animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
+@keyframes fadeStart {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================================================
-   MAIN LAYOUT
+   CONTAINER
 ======================================================== */
 .container {
     width: 100%;
-    max-width: 750px;
-    padding: 52px 20px 48px;
+    max-width: 780px;
+    padding: 60px 24px 40px;
     text-align: center;
-    min-height: calc(100vh - 120px);
 }
 
 /* ========================================================
-   HEADINGS
+   HEADINGS — PREMIUM TYPOGRAPHY
 ======================================================== */
 h1 {
-    font-size: clamp(26px, 5vw, 38px);
-    font-weight: 700;
+    font-size: clamp(30px, 6vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
     color: var(--text-heading);
-    margin-bottom: 14px;
-    animation: slideDown 1s ease forwards 0.25s;
-    opacity: 0;
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
 }
 
 .subtitle {
-    font-size: clamp(14px, 3.2vw, 18px);
+    font-size: clamp(15px, 3vw, 18px);
     color: var(--text-muted);
-    margin-bottom: 30px;
-    animation: fadeSoft 1.1s ease forwards 0.45s;
-    opacity: 0;
-}
-
-@keyframes fadeSoft {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
+    margin-bottom: 38px;
 }
 
 /* ========================================================
-   BREATHING CIRCLE
+   BREATHING CIRCLE — IMPROVED VISUAL
 ======================================================== */
 .breathing-circle {
-    width: clamp(70px, 15vw, 110px);
-    height: clamp(70px, 15vw, 110px);
-    margin: 0 auto 30px;
+    width: clamp(80px, 16vw, 120px);
+    height: clamp(80px, 16vw, 120px);
+
+    margin: 0 auto 36px;
     border-radius: 50%;
-    background: radial-gradient(circle, var(--blue-soft-inner), var(--teal-soft));
-    animation: breathePastel 8s ease-in-out infinite;
+
+    background: radial-gradient(circle at 40% 40%, #eaf2ff, #d7f2ef);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15),
+                0 4px 10px rgba(0,0,0,0.08);
+
+    animation: breathe 8s ease-in-out infinite;
 }
 
-@keyframes breathePastel {
-    0%   { transform: scale(0.9); }
-    40%  { transform: scale(1.1); }
-    100% { transform: scale(0.9); }
+@keyframes breathe {
+    0% { transform: scale(0.88); }
+    40% { transform: scale(1.1); }
+    100% { transform: scale(0.88); }
 }
 
 /* ========================================================
-   BUTTON
+   MAIN BUTTON — PREMIUM
 ======================================================== */
 #quote-btn {
-    padding: 14px 40px;
-    font-size: clamp(15px, 3.8vw, 17px);
+    padding: 14px 42px;
+    font-size: clamp(15px, 3.8vw, 18px);
     font-weight: 600;
     color: white;
-    background: linear-gradient(180deg, var(--blue-main), var(--blue-main-dark));
-    border-radius: 28px;
-    display: block;
-    margin: auto;
-    box-shadow: var(--shadow-primary-1);
-    transition: 0.28s ease;
+
+    background: linear-gradient(180deg, var(--brand-main), var(--brand-main-dark));
+    border-radius: var(--radius-pill);
+
+    box-shadow: 0 6px 18px rgba(37,99,235,0.28);
+    transition: 0.25s ease;
 }
 
 #quote-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-primary-2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(37,99,235,0.36);
 }
 
 #quote-btn:active {
     transform: translateY(0);
-    box-shadow: var(--shadow-primary-3);
+    box-shadow: 0 4px 14px rgba(37,99,235,0.25);
 }
 
 /* ========================================================
-   QUOTE BOX
+   QUOTE BOX — GLASSMORPHIC PREMIUM CARD
 ======================================================== */
 #quote-box {
     display: none;
-    padding: 32px 24px;
-    background: white;
-    margin-top: 36px;
+
+    padding: 40px 30px;
+    margin-top: 40px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    background: var(--bg-glass);
+    border: 1px solid rgba(255,255,255,0.45);
+
     border-radius: var(--radius-card);
-    border: 1px solid rgba(15, 23, 42, 0.05);
-    box-shadow: var(--shadow-card-1);
+    box-shadow: var(--shadow-soft);
+
     opacity: 0;
-    transform: translateY(24px);
-    transition: 0.5s ease;
+    transform: translateY(30px);
+    transition: 0.55s ease;
 }
 
 #quote-box.visible {
@@ -181,225 +157,108 @@ h1 {
    QUOTE TEXT
 ======================================================== */
 .quote {
-    font-size: clamp(20px, 4.6vw, 26px);
-    font-weight: 500;
-    color: var(--text-main);
+    font-size: clamp(22px, 4.8vw, 30px);
+    font-weight: 600;
     line-height: 1.45;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .author {
-    font-size: clamp(15px, 3.8vw, 18px);
-    color: var(--text-main);
+    font-size: clamp(16px, 4vw, 20px);
+    color: var(--text-subtle);
     font-style: italic;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
 }
 
 /* ========================================================
-   LABELS FOR MEANING / INSTRUCTION / CATEGORY / TAGS
+   INSIGHT SECTIONS
 ======================================================== */
-.meaning-label,
-.instruction-label,
-.category-label,
-.tags-label {
-    margin-top: 22px;
-    margin-bottom: 6px;
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--text-muted);
+.insight-box {
+    background: rgba(255,255,255,0.65);
+    border-radius: 20px;
+    padding: 26px 20px;
+    margin-top: 30px;
+    box-shadow: var(--shadow-card);
+}
+
+.insight-label {
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.7px;
+}
+
+.insight-section {
+    margin-bottom: 18px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 14px 0;
 }
 
 /* ========================================================
-   CONTENT SECTIONS
+   META TAGS
 ======================================================== */
-.meaning,
-.instruction,
-.category,
-.tags {
-    font-size: clamp(14px, 3.5vw, 17px);
-    color: var(--text-secondary);
-    margin-bottom: 10px;
-}
-
-.instruction {
-    font-style: italic;
-    color: var(--text-subtle);
-}
-
-.tags {
-    font-size: 14px;
-    color: var(--text-subtle);
+.meta-chip {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--brand-soft);
+    color: var(--text-heading);
+    border-radius: 12px;
+    font-size: 13px;
+    margin: 4px;
 }
 
 /* ========================================================
-   COPY BUTTON
+   SHARE / COPY
 ======================================================== */
 .copy-row {
-    margin-top: 22px;
+    margin-top: 26px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
 }
 
-.copy-btn {
-    padding: 9px 20px;
-    border-radius: var(--radius-pill);
-    background: #e5e7eb;
-    color: var(--text-main);
-    transition: 0.22s;
-}
-
-.copy-btn:hover {
-    transform: translateY(-1px);
-}
-
-.copy-feedback {
-    color: var(--blue-main);
-    font-size: 13px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.copy-feedback.visible {
-    opacity: 1;
-}
-
-/* ========================================================
-   SHARE BUTTONS
-======================================================== */
-.share-buttons {
-    margin-top: 28px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
+.copy-btn,
 .share-btn {
-    padding: 9px 18px;
-    font-size: 14px;
+    padding: 10px 18px;
     border-radius: var(--radius-pill);
-    background: var(--blue-soft);
+    font-size: 14px;
+    background: var(--brand-soft);
     color: #1e40af;
-    box-shadow: var(--shadow-share);
-    transition: 0.22s;
+    transition: 0.22s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
+.copy-btn:hover,
 .share-btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .primary-share {
-    background: var(--blue-main);
+    background: var(--brand-main);
     color: white;
-}
-
-/* ========================================================
-   ADS
-======================================================== */
-.footer-ad {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 750px;
-    margin: 26px 0 22px;
 }
 
 /* ========================================================
    FOOTER
 ======================================================== */
 footer {
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 22px;
-}
-
-.footer-links a {
-    color: var(--text-subtle);
+    margin-top: 40px;
+    margin-bottom: 20px;
     font-size: 13px;
-    text-decoration: none;
-    margin: 0 6px;
+    color: var(--text-muted);
 }
 
 /* ========================================================
    RESPONSIVE
 ======================================================== */
 @media (max-width: 600px) {
-    .container {
-        padding: 40px 16px 32px;
-    }
-    #quote-box {
-        padding: 26px 20px;
-    }
+    .container { padding: 46px 16px 32px; }
+    #quote-box { padding: 32px 22px; }
 }
-/* ========================================================
-   INSIGHT BOX (Meaning + Instruction)
-======================================================== */
-.insight-box {
-    background: #f9fafb;
-    border-radius: 18px;
-    padding: 22px 20px;
-    margin: 26px auto;
-    width: 92%;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-}
-
-.insight-section {
-    margin-bottom: 14px;
-}
-
-.insight-label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-}
-
-.divider {
-    width: 100%;
-    height: 1px;
-    background: #e5e7eb;
-    margin: 10px 0 14px;
-}
-
-/* ========================================================
-   META SECTION (Category + Tags)
-======================================================== */
-.meta-section {
-    margin-top: 18px;
-}
-
-.meta-label {
-    font-size: 13px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    letter-spacing: 0.6px;
-}
-
-.meta-chip {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--blue-soft);
-    color: var(--text-heading);
-    border-radius: 12px;
-    font-size: 13px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* TAG CHIPS */
-.tags-chip-container span {
-    display: inline-block;
-    padding: 6px 12px;
-    margin: 4px;
-    background: #eef2ff;
-    border-radius: 12px;
-    font-size: 12px;
-    color: #3730a3;
-}
-
