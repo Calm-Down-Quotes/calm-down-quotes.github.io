@@ -1,89 +1,131 @@
 /* ========================================================
-   DOM REFERENCES
+   DOM + STATE
 ======================================================== */
-const quoteBtn = document.getElementById("quote-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    const quoteBtn          = document.getElementById("quote-btn");
 
-const quoteBox = document.getElementById("quote-box");
-const quoteText = document.getElementById("quote-text");
-const quoteAuthor = document.getElementById("quote-author");
-const quoteMeaning = document.getElementById("quote-meaning");
-const quoteInstruction = document.getElementById("quote-instruction");
+    const quoteBox          = document.getElementById("quote-box");
+    const quoteText         = document.getElementById("quote-text");
+    const quoteAuthor       = document.getElementById("quote-author");
+    const quoteMeaning      = document.getElementById("quote-meaning");
+    const quoteInstruction  = document.getElementById("quote-instruction");
 
-const copyBtn = document.getElementById("copy-btn");
-const copyFeedback = document.getElementById("copy-feedback");
+    const copyBtn           = document.getElementById("copy-btn");
+    const copyFeedback      = document.getElementById("copy-feedback");
 
-const whatsappBtn = document.getElementById("whatsapp-btn");
-const smsBtn = document.getElementById("sms-btn");
-const messengerBtn = document.getElementById("messenger-btn");
-const shareBtn = document.getElementById("share-btn");
-const pinterestBtn = document.getElementById("pinterest-btn");
-const instagramBtn = document.getElementById("instagram-btn");
+    const whatsappBtn       = document.getElementById("whatsapp-btn");
+    const smsBtn            = document.getElementById("sms-btn");
+    const messengerBtn      = document.getElementById("messenger-btn");
+    const shareBtn          = document.getElementById("share-btn");
+    const pinterestBtn      = document.getElementById("pinterest-btn");
+    const instagramBtn      = document.getElementById("instagram-btn");
 
+    let quotes = [];
+    let quotesLoaded = false;
+    let hasQuote = false;
 
-/* ========================================================
-   LOAD QUOTES
-======================================================== */
-let quotes = [];
-let quotesLoaded = false;
-
-async function loadQuotes() {
-    try {
-        const res = await fetch("quotes.json", { cache: "no-store" });
-
-        if (!res.ok) throw new Error("quotes.json missing");
-
-        quotes = await res.json();
-
-        if (!Array.isArray(quotes) || quotes.length === 0)
-            throw new Error("quotes.json empty");
-
-        quotesLoaded = true;
-
-    } catch (err) {
-        console.error(err);
-        quoteText.textContent = "Unable to load quotes";
-        quoteMeaning.textContent = "Please check back later";
+    /* ========================================================
+       INITIAL UI STATE
+    ========================================================= */
+    if (quoteBtn) {
+        // While loading quotes, show a loading state
+        quoteBtn.disabled = true;
+        quoteBtn.textContent = "Loading...";
     }
-}
 
-loadQuotes();
+    /* ========================================================
+       LOAD QUOTES
+    ========================================================= */
+    async function loadQuotes() {
+        try {
+            const res = await fetch("quotes.json", { cache: "no-store" });
 
+            if (!res.ok) throw new Error("quotes.json missing or unreachable");
 
-/* ========================================================
-   GENERATE QUOTE
-======================================================== */
-function generateQuote() {
-    if (!quotesLoaded) return;
+            const data = await res.json();
 
-    const q = quotes[Math.floor(Math.random() * quotes.length)];
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error("quotes.json is empty or invalid");
+            }
 
-    quoteText.textContent = (q.quote || "").trim();
-    quoteAuthor.textContent = (q.author || "").trim();
-    quoteMeaning.textContent = (q.meaning || "").trim();
-    quoteInstruction.textContent = (q.instruction || "").trim();
+            quotes = data;
+            quotesLoaded = true;
 
-    quoteBox.classList.remove("hidden");
+            if (quoteBtn) {
+                quoteBtn.disabled = false;
+                quoteBtn.textContent = "Give Me a Quote";
+            }
+        } catch (err) {
+            console.error(err);
 
-    quoteBox.classList.remove("visible");
-    void quoteBox.offsetWidth;
-    quoteBox.classList.add("visible");
-}
+            if (quoteText) {
+                quoteText.textContent = "Unable to load quotes.";
+            }
+            if (quoteMeaning) {
+                quoteMeaning.textContent = "Please check back later.";
+            }
+            if (quoteAuthor) {
+                quoteAuthor.textContent = "";
+            }
+            if (quoteInstruction) {
+                quoteInstruction.textContent = "";
+            }
+            if (quoteBox) {
+                quoteBox.classList.remove("hidden");
+                quoteBox.classList.add("visible");
+            }
+            if (quoteBtn) {
+                quoteBtn.disabled = true;
+                quoteBtn.textContent = "Quotes Unavailable";
+            }
+        }
+    }
 
-quoteBtn.addEventListener("click", generateQuote);
+    loadQuotes();
 
+    /* ========================================================
+       GENERATE QUOTE
+    ========================================================= */
+    function generateQuote() {
+        if (!quotesLoaded || !quotes.length) return;
+        if (!quoteText || !quoteAuthor || !quoteMeaning || !quoteInstruction || !quoteBox) return;
 
-/* ========================================================
-   BUILD SHARE TEXT
-======================================================== */
-function buildShareText() {
-    const q = quoteText.textContent.trim();
-    const a = quoteAuthor.textContent.trim();
-    const m = quoteMeaning.textContent.trim();
-    const i = quoteInstruction.textContent.trim();
+        const q = quotes[Math.floor(Math.random() * quotes.length)] || {};
 
-    if (!q) return "";
+        quoteText.textContent         = (q.quote || "").trim();
+        quoteAuthor.textContent       = (q.author || "").trim();
+        quoteMeaning.textContent      = (q.meaning || "").trim();
+        quoteInstruction.textContent  = (q.instruction || "").trim();
 
-    return (
+        hasQuote = !!quoteText.textContent.trim();
+
+        quoteBox.classList.remove("hidden");
+
+        // Reset and trigger the entry animation
+        quoteBox.classList.remove("visible");
+        // Force reflow
+        void quoteBox.offsetWidth;
+        quoteBox.classList.add("visible");
+    }
+
+    if (quoteBtn) {
+        quoteBtn.addEventListener("click", generateQuote);
+    }
+
+    /* ========================================================
+       BUILD SHARE TEXT
+    ========================================================= */
+    function buildShareText() {
+        if (!hasQuote || !quoteText) return "";
+
+        const q = quoteText.textContent.trim();
+        if (!q) return "";
+
+        const a = quoteAuthor ? quoteAuthor.textContent.trim() : "";
+        const m = quoteMeaning ? quoteMeaning.textContent.trim() : "";
+        const i = quoteInstruction ? quoteInstruction.textContent.trim() : "";
+
+        return (
 `${q}
 ${a}
 
@@ -93,125 +135,161 @@ ${i}
 
 Shared from Calm Down Quotes
 https://calm-down-quotes.github.io/`
-    ).trim();
-}
-
-
-/* ========================================================
-   COPY TO CLIPBOARD
-======================================================== */
-copyBtn.addEventListener("click", async () => {
-    const text = buildShareText();
-    if (!text) return;
-
-    try {
-        await navigator.clipboard.writeText(text);
-        copyFeedback.classList.add("visible");
-        setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
-    } catch (err) {
-        alert("Unable to copy");
+        ).trim();
     }
-});
 
+    /* ========================================================
+       COPY TO CLIPBOARD
+    ========================================================= */
+    if (copyBtn && copyFeedback) {
+        copyBtn.addEventListener("click", async () => {
+            const text = buildShareText();
+            if (!text) return;
 
-/* ========================================================
-   WHATSAPP
-======================================================== */
-whatsappBtn.addEventListener("click", () => {
-    const encoded = encodeURIComponent(buildShareText());
-    window.open(`https://api.whatsapp.com/send?text=${encoded}`, "_blank");
-});
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    // Fallback for older browsers
+                    const textarea = document.createElement("textarea");
+                    textarea.value = text;
+                    textarea.setAttribute("readonly", "");
+                    textarea.style.position = "absolute";
+                    textarea.style.left = "-9999px";
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(textarea);
+                }
 
-
-/* ========================================================
-   SMS
-======================================================== */
-smsBtn.addEventListener("click", () => {
-    const encoded = encodeURIComponent(buildShareText());
-    window.location.href = `sms:?body=${encoded}`;
-});
-
-
-/* ========================================================
-   FACEBOOK MESSENGER
-======================================================== */
-messengerBtn.addEventListener("click", () => {
-    const link = encodeURIComponent("https://calm-down-quotes.github.io/");
-    window.open(
-        `https://www.messenger.com/share/?link=${link}`,
-        "_blank"
-    );
-});
-
-
-/* ========================================================
-   PINTEREST SHARE
-======================================================== */
-pinterestBtn?.addEventListener("click", () => {
-    const description = encodeURIComponent(buildShareText());
-    const url = encodeURIComponent("https://calm-down-quotes.github.io/");
-    const img = encodeURIComponent("https://calm-down-quotes.github.io/preview.png");
-
-    window.open(
-        `https://pinterest.com/pin/create/button/?url=${url}&media=${img}&description=${description}`,
-        "_blank"
-    );
-});
-
-
-/* ========================================================
-   INSTAGRAM STORY SHARE (Mobile-Friendly Fallback)
-======================================================== */
-instagramBtn?.addEventListener("click", () => {
-    const text = buildShareText();
-
-    alert(
-        "Instagram only allows photo/video story uploads.\n\nYour quote has been copied.\nOpen Instagram → Create Story → Paste text manually."
-    );
-
-    navigator.clipboard.writeText(text).catch(() => {});
-});
-
-
-/* ========================================================
-   NATIVE SHARE (Mobile)
-======================================================== */
-shareBtn.addEventListener("click", async () => {
-    const text = buildShareText();
-
-    if (navigator.share) {
-        try {
-            await navigator.share({
-                title: "Calm Down Quote",
-                text: text,
-                url: "https://calm-down-quotes.github.io/"
-            });
-        } 
-        catch (_) {}
-    } else {
-        alert("Sharing not supported on this device");
+                copyFeedback.classList.add("visible");
+                setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
+            } catch (err) {
+                console.error("Copy failed:", err);
+                alert("Unable to copy this quote on this device.");
+            }
+        });
     }
-});
 
+    /* ========================================================
+       WHATSAPP
+    ========================================================= */
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener("click", () => {
+            const text = buildShareText();
+            if (!text) return;
+            const encoded = encodeURIComponent(text);
+            window.open(`https://api.whatsapp.com/send?text=${encoded}`, "_blank", "noopener");
+        });
+    }
 
-/* ========================================================
-   SWIPE LEFT / RIGHT FOR NEW QUOTE
-======================================================== */
-let startX = 0;
+    /* ========================================================
+       SMS
+    ========================================================= */
+    if (smsBtn) {
+        smsBtn.addEventListener("click", () => {
+            const text = buildShareText();
+            if (!text) return;
+            const encoded = encodeURIComponent(text);
+            window.location.href = `sms:?body=${encoded}`;
+        });
+    }
 
-document.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-});
+    /* ========================================================
+       FACEBOOK MESSENGER
+    ========================================================= */
+    if (messengerBtn) {
+        messengerBtn.addEventListener("click", () => {
+            const link = encodeURIComponent("https://calm-down-quotes.github.io/");
+            window.open(
+                `https://www.messenger.com/share/?link=${link}`,
+                "_blank",
+                "noopener"
+            );
+        });
+    }
 
-document.addEventListener("touchend", (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
+    /* ========================================================
+       PINTEREST SHARE
+    ========================================================= */
+    if (pinterestBtn) {
+        pinterestBtn.addEventListener("click", () => {
+            const description = encodeURIComponent(buildShareText());
+            if (!description) return;
 
-    if (Math.abs(diff) < 60) return;
+            const url = encodeURIComponent("https://calm-down-quotes.github.io/");
+            const img = encodeURIComponent("https://calm-down-quotes.github.io/preview.png");
 
-    if (diff < 0) {
+            window.open(
+                `https://pinterest.com/pin/create/button/?url=${url}&media=${img}&description=${description}`,
+                "_blank",
+                "noopener"
+            );
+        });
+    }
+
+    /* ========================================================
+       INSTAGRAM STORY SHARE (Copy + Instructions)
+    ========================================================= */
+    if (instagramBtn) {
+        instagramBtn.addEventListener("click", () => {
+            const text = buildShareText();
+            if (!text) return;
+
+            alert(
+                "Instagram only allows photo/video story uploads.\n\n" +
+                "Your quote will be copied. Then:\n" +
+                "1. Open Instagram\n" +
+                "2. Create a Story or Reel\n" +
+                "3. Paste the text onto the screen."
+            );
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).catch(() => {});
+            }
+        });
+    }
+
+    /* ========================================================
+       NATIVE SHARE (Mobile)
+    ========================================================= */
+    if (shareBtn) {
+        shareBtn.addEventListener("click", async () => {
+            const text = buildShareText();
+            if (!text) return;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: "Calm Down Quote",
+                        text: text,
+                        url: "https://calm-down-quotes.github.io/"
+                    });
+                } catch (_) {
+                    // User cancelled or share failed; no need to alert.
+                }
+            } else {
+                alert("Native sharing is not supported on this device.");
+            }
+        });
+    }
+
+    /* ========================================================
+       SWIPE LEFT / RIGHT FOR NEW QUOTE
+    ========================================================= */
+    let startX = 0;
+
+    document.addEventListener("touchstart", (e) => {
+        if (!e.touches || !e.touches.length) return;
+        startX = e.touches[0].clientX;
+    });
+
+    document.addEventListener("touchend", (e) => {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+
+        if (Math.abs(diff) < 60) return; // small movement, ignore
         generateQuote();
-    } else {
-        generateQuote();
-    }
+    });
 });
