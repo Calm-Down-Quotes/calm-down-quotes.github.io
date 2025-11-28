@@ -10,13 +10,15 @@ const STORAGE_KEY = "calm_down_quotes_state_v1";
 /* ========================================================
    DOM REFERENCES
 ======================================================== */
-const quoteBtn         = document.getElementById("quote-btn");
+const quoteBtn = document.getElementById("quote-btn");
 
 const quoteBox         = document.getElementById("quote-box");
 const quoteText        = document.getElementById("quote-text");
 const quoteAuthor      = document.getElementById("quote-author");
 const quoteMeaning     = document.getElementById("quote-meaning");
 const quoteInstruction = document.getElementById("quote-instruction");
+const quoteCategory    = document.getElementById("quote-category");
+const quoteTags        = document.getElementById("quote-tags");
 
 const copyBtn      = document.getElementById("copy-btn");
 const copyFeedback = document.getElementById("copy-feedback");
@@ -27,7 +29,6 @@ const messengerBtn  = document.getElementById("messenger-btn");
 const shareBtn      = document.getElementById("share-btn");
 const pinterestBtn  = document.getElementById("pinterest-btn");
 const instagramBtn  = document.getElementById("instagram-btn");
-
 
 /* ========================================================
    LOAD QUOTES
@@ -43,31 +44,29 @@ async function loadQuotes() {
     try {
         const res = await fetch("quotes.json");
 
-        if (!res.ok) {
-            throw new Error(`quotes.json unreachable (status: ${res.status})`);
-        }
+        if (!res.ok) throw new Error(`quotes.json unreachable (status: ${res.status})`);
 
         const data = await res.json();
         if (!Array.isArray(data) || data.length === 0) {
             throw new Error("quotes.json is empty or invalid.");
         }
 
-        quotes       = data;
+        quotes = data;
         quotesLoaded = true;
 
         initQuoteOrder();
     } catch (err) {
         console.error(err);
 
-        if (quoteText)        quoteText.textContent        = "Unable to load quotes.";
-        if (quoteMeaning)     quoteMeaning.textContent     = "Please check back later.";
-        if (quoteAuthor)      quoteAuthor.textContent      = "";
-        if (quoteInstruction) quoteInstruction.textContent = "";
+        quoteText.textContent = "Unable to load quotes.";
+        quoteMeaning.textContent = "Please check back later.";
+        quoteAuthor.textContent = "";
+        quoteInstruction.textContent = "";
+        quoteCategory.textContent = "";
+        quoteTags.textContent = "";
 
-        if (quoteBox) {
-            quoteBox.classList.remove("hidden");
-            quoteBox.classList.add("visible");
-        }
+        quoteBox.classList.remove("hidden");
+        quoteBox.classList.add("visible");
     }
 }
 
@@ -76,10 +75,8 @@ loadQuotes();
 /* ========================================================
    QUOTE ORDER / STATE
 ======================================================== */
-
 function createShuffledIndices(len) {
     const arr = Array.from({ length: len }, (_, i) => i);
-    // Fisher–Yates shuffle
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -91,16 +88,13 @@ function saveQuoteState() {
     try {
         const state = {
             order: shuffledIndices,
-            pointer: currentPointer
+            pointer: currentPointer,
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch (_) {
-        // ignore if storage not available
-    }
+    } catch (_) {}
 }
 
 function initQuoteOrder() {
-    // try to restore existing order
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
@@ -112,34 +106,26 @@ function initQuoteOrder() {
                 state.order.length === quotes.length
             ) {
                 shuffledIndices = state.order.slice();
-                currentPointer  = Math.min(
-                    Math.max(0, state.pointer),
-                    shuffledIndices.length
-                );
+                currentPointer  = Math.min(Math.max(0, state.pointer), shuffledIndices.length);
                 return;
             }
         }
-    } catch (_) {
-        // fall back to new order
-    }
+    } catch (_) {}
 
-    // no valid saved state – start fresh
     shuffledIndices = createShuffledIndices(quotes.length);
     currentPointer  = 0;
     saveQuoteState();
 }
 
 /* ========================================================
-   GENERATE QUOTE (NO REPEATS UNTIL CYCLE DONE)
+   GENERATE QUOTE
 ======================================================== */
 function generateQuote() {
     if (!quotesLoaded || !quotes.length) return;
-    if (!quoteText || !quoteAuthor || !quoteMeaning || !quoteInstruction || !quoteBox) return;
 
-    // If we've used every quote once, reshuffle and start a new cycle
-    if (!shuffledIndices.length || currentPointer >= shuffledIndices.length) {
+    if (currentPointer >= shuffledIndices.length) {
         shuffledIndices = createShuffledIndices(quotes.length);
-        currentPointer  = 0;
+        currentPointer = 0;
     }
 
     const index = shuffledIndices[currentPointer++];
@@ -151,31 +137,29 @@ function generateQuote() {
     quoteAuthor.textContent      = (q.author || "").trim();
     quoteMeaning.textContent     = (q.meaning || "").trim();
     quoteInstruction.textContent = (q.instruction || "").trim();
+    quoteCategory.textContent    = (q.category || "").trim();
+    quoteTags.textContent        = Array.isArray(q.tags) ? q.tags.join(", ") : (q.tags || "");
 
-    // Ensure box is shown
     quoteBox.classList.remove("hidden");
 
     // Restart animation
     quoteBox.classList.remove("visible");
-    void quoteBox.offsetWidth; // Force reflow
+    void quoteBox.offsetWidth;
     quoteBox.classList.add("visible");
 }
 
 quoteBtn?.addEventListener("click", generateQuote);
 
-
 /* ========================================================
-   BUILD / ENSURE SHARE TEXT
+   SHARE TEXT BUILDER
 ======================================================== */
 function buildShareText() {
-    if (!quoteText) return "";
-
-    const q = (quoteText.textContent || "").trim();
-    if (!q) return "";
-
-    const a = quoteAuthor      ? (quoteAuthor.textContent || "").trim()      : "";
-    const m = quoteMeaning     ? (quoteMeaning.textContent || "").trim()     : "";
-    const i = quoteInstruction ? (quoteInstruction.textContent || "").trim() : "";
+    const q  = quoteText?.textContent?.trim() || "";
+    const a  = quoteAuthor?.textContent?.trim() || "";
+    const m  = quoteMeaning?.textContent?.trim() || "";
+    const i  = quoteInstruction?.textContent?.trim() || "";
+    const c  = quoteCategory?.textContent?.trim() || "";
+    const tg = quoteTags?.textContent?.trim() || "";
 
     const parts = [
         q,
@@ -185,8 +169,11 @@ function buildShareText() {
         "",
         i,
         "",
+        c ? `Category: ${c}` : "",
+        tg ? `Tags: ${tg}` : "",
+        "",
         "Shared from Calm Down Quotes",
-        SITE_URL.replace(/\/+$/, "/")
+        SITE_URL
     ].filter(Boolean);
 
     return parts.join("\n");
@@ -201,43 +188,24 @@ function getShareTextOrWarn() {
     return text;
 }
 
-
 /* ========================================================
-   COPY TO CLIPBOARD
+   COPY
 ======================================================== */
 copyBtn?.addEventListener("click", async () => {
     const text = getShareTextOrWarn();
     if (!text) return;
 
     try {
-        if (navigator.clipboard?.writeText) {
-            await navigator.clipboard.writeText(text);
-        } else {
-            const textarea = document.createElement("textarea");
-            textarea.value = text;
-            textarea.setAttribute("readonly", "");
-            textarea.style.position = "absolute";
-            textarea.style.left = "-9999px";
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textarea);
-        }
+        await navigator.clipboard.writeText(text);
 
-        if (copyFeedback) {
-            copyFeedback.textContent = "Copied";
-            copyFeedback.classList.add("visible");
+        copyFeedback.textContent = "Copied";
+        copyFeedback.classList.add("visible");
+        setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
 
-            setTimeout(() => {
-                copyFeedback.classList.remove("visible");
-            }, 1500);
-        }
     } catch (err) {
-        console.error("Copy failed:", err);
         alert("Unable to copy this quote on this device.");
     }
 });
-
 
 /* ========================================================
    WHATSAPP
@@ -245,15 +213,9 @@ copyBtn?.addEventListener("click", async () => {
 whatsappBtn?.addEventListener("click", () => {
     const text = getShareTextOrWarn();
     if (!text) return;
-
-    const encoded = encodeURIComponent(text);
-    window.open(
-        `https://api.whatsapp.com/send?text=${encoded}`,
-        "_blank",
-        "noopener,noreferrer"
-    );
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
+                "_blank", "noopener,noreferrer");
 });
-
 
 /* ========================================================
    SMS
@@ -261,73 +223,51 @@ whatsappBtn?.addEventListener("click", () => {
 smsBtn?.addEventListener("click", () => {
     const text = getShareTextOrWarn();
     if (!text) return;
-
-    const encoded = encodeURIComponent(text);
-    window.location.href = `sms:?body=${encoded}`;
+    window.location.href = `sms:?body=${encodeURIComponent(text)}`;
 });
 
-
 /* ========================================================
-   FACEBOOK MESSENGER
+   MESSENGER
 ======================================================== */
 messengerBtn?.addEventListener("click", () => {
-    const link = encodeURIComponent(SITE_URL);
     window.open(
-        `https://www.messenger.com/share/?link=${link}`,
+        `https://www.messenger.com/share/?link=${encodeURIComponent(SITE_URL)}`,
         "_blank",
         "noopener,noreferrer"
     );
 });
-
 
 /* ========================================================
    PINTEREST
 ======================================================== */
 pinterestBtn?.addEventListener("click", () => {
-    const description = buildShareText();
-    if (!description) {
-        alert("Please generate a quote first.");
-        return;
-    }
-
-    const url = encodeURIComponent(SITE_URL);
-    const img = encodeURIComponent(PREVIEW_IMAGE_URL);
-
+    const desc = getShareTextOrWarn();
+    if (!desc) return;
     window.open(
-        `https://pinterest.com/pin/create/button/?url=${url}&media=${img}&description=${encodeURIComponent(description)}`,
+        `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(SITE_URL)}&media=${encodeURIComponent(PREVIEW_IMAGE_URL)}&description=${encodeURIComponent(desc)}`,
         "_blank",
         "noopener,noreferrer"
     );
 });
 
-
 /* ========================================================
-   INSTAGRAM (COPY + INSTRUCTIONS)
+   INSTAGRAM
 ======================================================== */
 instagramBtn?.addEventListener("click", async () => {
     const text = getShareTextOrWarn();
     if (!text) return;
 
     alert(
-        "Instagram only allows photo/video story uploads.\n\n" +
-        "Your quote will be copied. Then:\n" +
-        "1. Open Instagram\n" +
-        "2. Create a Story or Reel\n" +
-        "3. Paste the text onto the screen."
+        "Instagram requires a Story or Reel.\n\n" +
+        "Your quote has been copied.\n" +
+        "Open Instagram and paste it on your Story."
     );
 
-    if (navigator.clipboard?.writeText) {
-        try {
-            await navigator.clipboard.writeText(text);
-        } catch {
-            // Silent fail – user still got the instructions.
-        }
-    }
+    try { await navigator.clipboard.writeText(text); } catch {}
 });
 
-
 /* ========================================================
-   NATIVE SHARE (MOBILE)
+   NATIVE SHARE
 ======================================================== */
 shareBtn?.addEventListener("click", async () => {
     const text = getShareTextOrWarn();
@@ -340,31 +280,24 @@ shareBtn?.addEventListener("click", async () => {
                 text,
                 url: SITE_URL
             });
-        } catch {
-            // user cancelled or share failed silently
-        }
+        } catch {}
     } else {
-        alert("Native sharing is not supported on this device.");
+        alert("Native sharing not supported on this device.");
     }
 });
 
-
 /* ========================================================
-   SWIPE LEFT / RIGHT FOR NEW QUOTE
+   SWIPE FOR NEW QUOTE
 ======================================================== */
 let startX = 0;
 
 document.addEventListener("touchstart", (e) => {
-    if (!e.touches?.length) return;
-    startX = e.touches[0].clientX;
+    if (e.touches.length) startX = e.touches[0].clientX;
 });
 
 document.addEventListener("touchend", (e) => {
-    if (!e.changedTouches?.length) return;
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
+    if (!e.changedTouches.length) return;
+    const diff = e.changedTouches[0].clientX - startX;
 
-    if (Math.abs(diff) < 60) return;
-
-    generateQuote();
+    if (Math.abs(diff) > 60) generateQuote();
 });
