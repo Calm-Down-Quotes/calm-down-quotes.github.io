@@ -5,6 +5,7 @@
 ======================================================== */
 const SITE_URL = "https://calm-down-quotes.github.io/";
 const PREVIEW_IMAGE_URL = `${SITE_URL}preview.png`;
+const STORAGE_KEY = "calm_down_quotes_state_v1";
 
 /* ========================================================
    DOM REFERENCES
@@ -33,11 +34,13 @@ const instagramBtn  = document.getElementById("instagram-btn");
 ======================================================== */
 let quotes       = [];
 let quotesLoaded = false;
-let lastIndex    = -1;      // to avoid repeating same quote
+
+// order + pointer to avoid repeats
+let shuffledIndices = [];
+let currentPointer  = 0;
 
 async function loadQuotes() {
     try {
-        // Allow browser caching for better performance on repeat visits.
         const res = await fetch("quotes.json");
 
         if (!res.ok) {
@@ -51,6 +54,8 @@ async function loadQuotes() {
 
         quotes       = data;
         quotesLoaded = true;
+
+        initQuoteOrder();
     } catch (err) {
         console.error(err);
 
@@ -68,24 +73,77 @@ async function loadQuotes() {
 
 loadQuotes();
 
+/* ========================================================
+   QUOTE ORDER / STATE
+======================================================== */
+
+function createShuffledIndices(len) {
+    const arr = Array.from({ length: len }, (_, i) => i);
+    // Fisher–Yates shuffle
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function saveQuoteState() {
+    try {
+        const state = {
+            order: shuffledIndices,
+            pointer: currentPointer
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (_) {
+        // ignore if storage not available
+    }
+}
+
+function initQuoteOrder() {
+    // try to restore existing order
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+            const state = JSON.parse(raw);
+            if (
+                state &&
+                Array.isArray(state.order) &&
+                typeof state.pointer === "number" &&
+                state.order.length === quotes.length
+            ) {
+                shuffledIndices = state.order.slice();
+                currentPointer  = Math.min(
+                    Math.max(0, state.pointer),
+                    shuffledIndices.length
+                );
+                return;
+            }
+        }
+    } catch (_) {
+        // fall back to new order
+    }
+
+    // no valid saved state – start fresh
+    shuffledIndices = createShuffledIndices(quotes.length);
+    currentPointer  = 0;
+    saveQuoteState();
+}
 
 /* ========================================================
-   GENERATE QUOTE (ENSURE DIFFERENT)
+   GENERATE QUOTE (NO REPEATS UNTIL CYCLE DONE)
 ======================================================== */
 function generateQuote() {
     if (!quotesLoaded || !quotes.length) return;
     if (!quoteText || !quoteAuthor || !quoteMeaning || !quoteInstruction || !quoteBox) return;
 
-    // Pick an index different from the last one (if possible)
-    let index;
-    if (quotes.length === 1) {
-        index = 0;
-    } else {
-        do {
-            index = Math.floor(Math.random() * quotes.length);
-        } while (index === lastIndex && quotes.length > 1);
+    // If we've used every quote once, reshuffle and start a new cycle
+    if (!shuffledIndices.length || currentPointer >= shuffledIndices.length) {
+        shuffledIndices = createShuffledIndices(quotes.length);
+        currentPointer  = 0;
     }
-    lastIndex = index;
+
+    const index = shuffledIndices[currentPointer++];
+    saveQuoteState();
 
     const q = quotes[index] || {};
 
@@ -99,8 +157,7 @@ function generateQuote() {
 
     // Restart animation
     quoteBox.classList.remove("visible");
-    // Force reflow to restart CSS transition
-    void quoteBox.offsetWidth;
+    void quoteBox.offsetWidth; // Force reflow
     quoteBox.classList.add("visible");
 }
 
@@ -129,7 +186,7 @@ function buildShareText() {
         i,
         "",
         "Shared from Calm Down Quotes",
-        SITE_URL.replace(/\/+$/, "/")  // ensure trailing slash only once
+        SITE_URL.replace(/\/+$/, "/")
     ].filter(Boolean);
 
     return parts.join("\n");
@@ -168,7 +225,6 @@ copyBtn?.addEventListener("click", async () => {
         }
 
         if (copyFeedback) {
-            // Ensure text is present for visual + screen-reader feedback
             copyFeedback.textContent = "Copied";
             copyFeedback.classList.add("visible");
 
@@ -207,7 +263,6 @@ smsBtn?.addEventListener("click", () => {
     if (!text) return;
 
     const encoded = encodeURIComponent(text);
-    // SMS URL schemes vary by platform; this is the broadest safe form.
     window.location.href = `sms:?body=${encoded}`;
 });
 
@@ -309,7 +364,7 @@ document.addEventListener("touchend", (e) => {
     const endX = e.changedTouches[0].clientX;
     const diff = endX - startX;
 
-    if (Math.abs(diff) < 60) return;   // small swipe, ignore
+    if (Math.abs(diff) < 60) return;
 
     generateQuote();
 });
