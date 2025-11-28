@@ -1,4 +1,37 @@
 /* ========================================================
+   ROOT VARIABLES
+======================================================== */
+:root {
+    --bg-soft: #f7fafc;
+    --text-main: #111827;
+    --text-heading: #0b1120;
+    --text-muted: #6b7280;
+    --text-subtle: #4b5563;
+    --text-secondary: #374151;
+
+    --blue-main: #2563eb;
+    --blue-main-dark: #1d4ed8;
+    --blue-soft: #e0f2fe;
+    --blue-soft-inner: #e3f2fd;
+    --teal-soft: #e0f2f1;
+
+    --radius-card: 22px;
+    --radius-pill: 999px;
+
+    --shadow-primary-1: 0 4px 14px rgba(37, 99, 235, 0.30),
+                        0 2px 6px rgba(15, 23, 42, 0.16);
+    --shadow-primary-2: 0 6px 18px rgba(37, 99, 235, 0.36),
+                        0 3px 10px rgba(15, 23, 42, 0.18);
+    --shadow-primary-3: 0 2px 8px rgba(37, 99, 235, 0.30),
+                        0 1px 4px rgba(15, 23, 42, 0.18);
+
+    --shadow-card-1: 0 8px 22px rgba(15, 23, 42, 0.06),
+                     0 2px 4px rgba(15, 23, 42, 0.04);
+
+    --shadow-share: 0 2px 5px rgba(15, 23, 42, 0.1);
+}
+
+/* ========================================================
    GLOBAL RESET
 ======================================================== */
 * {
@@ -14,8 +47,8 @@ html {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #f7fafc;              /* soft, neutral background */
-    color: #111827;                   /* dark slate text */
+    background: var(--bg-soft);
+    color: var(--text-main);
     line-height: 1.55;
 
     display: flex;
@@ -24,20 +57,32 @@ body {
 
     opacity: 0;
     animation: fadeIn 0.9s ease forwards;
+    will-change: opacity, transform;
 
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
 
-/* Hide utility */
+/* Generic hide utility */
+/* Removed !important so more specific rules (e.g. #quote-box.visible) can override */
 .hidden {
-    display: none !important;
+    display: none;
 }
 
 /* Intro fade */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
 }
 
 /* ========================================================
@@ -62,7 +107,7 @@ body {
 h1 {
     font-size: clamp(26px, 5vw, 38px);
     font-weight: 700;
-    color: #0b1120;                   /* deep navy */
+    color: var(--text-heading);
     letter-spacing: -0.5px;
     margin-bottom: 14px;
 
@@ -77,7 +122,7 @@ h1 {
 
 .subtitle {
     font-size: clamp(14px, 3.2vw, 18px);
-    color: #6b7280;                   /* neutral grey */
+    color: var(--text-muted);
     margin-bottom: 30px;
 
     opacity: 0;
@@ -98,16 +143,13 @@ h1 {
     margin: 0 auto 30px;
     border-radius: 50%;
 
-    background: radial-gradient(
-        circle,
-        #e3f2fd 0%,                 /* light blue */
-        #e0f2f1 100%                /* soft teal */
-    );
+    background: radial-gradient(circle, var(--blue-soft-inner) 0%, var(--teal-soft) 100%);
     box-shadow:
         0 0 32px rgba(15, 52, 96, 0.16),
         0 0 18px rgba(15, 118, 110, 0.12);
 
     animation: breathePastel 8s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
 @keyframes breathePastel {
@@ -115,6 +157,21 @@ h1 {
     30%  { transform: scale(1.12); opacity: 1; }
     70%  { transform: scale(0.95); opacity: 0.95; }
     100% { transform: scale(0.9);  opacity: 0.9; }
+}
+
+/* ========================================================
+   BUTTON BASE
+======================================================== */
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible {
+    outline: 2px solid var(--blue-main);
+    outline-offset: 2px;
 }
 
 /* ========================================================
@@ -126,30 +183,21 @@ h1 {
     font-weight: 600;
     color: #f9fafb;
 
-    background: linear-gradient(180deg, #2563eb, #1d4ed8); /* calm blue */
+    background: linear-gradient(180deg, var(--blue-main), var(--blue-main-dark));
     border-radius: 28px;
-    border: none;
-    cursor: pointer;
 
-    box-shadow:
-        0 4px 14px rgba(37, 99, 235, 0.30),
-        0 2px 6px rgba(15, 23, 42, 0.16);
-
+    box-shadow: var(--shadow-primary-1);
     transition: transform 0.24s ease, box-shadow 0.28s ease;
 }
 
 #quote-btn:hover {
     transform: translateY(-1px);
-    box-shadow:
-        0 6px 18px rgba(37, 99, 235, 0.36),
-        0 3px 10px rgba(15, 23, 42, 0.18);
+    box-shadow: var(--shadow-primary-2);
 }
 
 #quote-btn:active {
     transform: translateY(0);
-    box-shadow:
-        0 2px 8px rgba(37, 99, 235, 0.30),
-        0 1px 4px rgba(15, 23, 42, 0.18);
+    box-shadow: var(--shadow-primary-3);
 }
 
 /* ========================================================
@@ -161,16 +209,15 @@ h1 {
     background: #ffffff;
 
     margin-top: 36px;
-    border-radius: 22px;
+    border-radius: var(--radius-card);
     border: 1px solid rgba(15, 23, 42, 0.05);
 
-    box-shadow:
-        0 8px 22px rgba(15, 23, 42, 0.06),
-        0 2px 4px rgba(15, 23, 42, 0.04);
+    box-shadow: var(--shadow-card-1);
 
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: opacity, transform;
 }
 
 #quote-box.visible {
@@ -192,7 +239,7 @@ h1 {
     font-size: clamp(20px, 4.6vw, 26px);
     font-style: italic;
     font-weight: 500;
-    color: #111827;
+    color: var(--text-main);
     line-height: 1.45;
     margin-bottom: 12px;
 }
@@ -200,7 +247,7 @@ h1 {
 .author {
     font-size: clamp(15px, 3.8vw, 18px);
     font-weight: 600;
-    color: #111827;
+    color: var(--text-main);
     margin-bottom: 22px;
 }
 
@@ -209,14 +256,14 @@ h1 {
 ======================================================== */
 .meaning {
     font-size: clamp(15px, 3.6vw, 18px);
-    color: #374151;
+    color: var(--text-secondary);
     margin-bottom: 14px;
 }
 
 .instruction {
     font-size: clamp(14px, 3.4vw, 16px);
     font-style: italic;
-    color: #4b5563;
+    color: var(--text-subtle);
 }
 
 /* ========================================================
@@ -233,12 +280,10 @@ h1 {
 .copy-btn {
     padding: 9px 20px;
     font-size: 14px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
+    border-radius: var(--radius-pill);
 
-    background: #e5e7eb;            /* neutral grey */
-    color: #111827;
+    background: #e5e7eb;
+    color: var(--text-main);
 
     transition: opacity 0.22s, transform 0.18s;
 }
@@ -250,7 +295,7 @@ h1 {
 
 .copy-feedback {
     font-size: 13px;
-    color: #2563eb;
+    color: var(--blue-main);
     opacity: 0;
     margin-top: 4px;
     transition: opacity 0.3s ease;
@@ -274,14 +319,12 @@ h1 {
 .share-btn {
     padding: 9px 18px;
     font-size: 14px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
+    border-radius: var(--radius-pill);
 
-    background: #e0f2fe;            /* soft blue */
-    color: #1e40af;                 /* mid blue */
+    background: var(--blue-soft);
+    color: #1e40af;
 
-    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.1);
+    box-shadow: var(--shadow-share);
     transition: opacity 0.22s, transform 0.18s;
 }
 
@@ -290,9 +333,8 @@ h1 {
     transform: translateY(-1px);
 }
 
-/* Primary share button (native share) */
 .primary-share {
-    background: #2563eb;
+    background: var(--blue-main);
     color: #f9fafb;
 }
 
@@ -314,7 +356,7 @@ h1 {
 footer {
     text-align: center;
     font-size: 12px;
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 22px;
     padding: 0 16px;
 }
@@ -325,7 +367,7 @@ footer {
 
 .footer-links a {
     margin: 0 6px;
-    color: #4b5563;
+    color: var(--text-subtle);
     font-size: 13px;
     text-decoration: none;
 }
