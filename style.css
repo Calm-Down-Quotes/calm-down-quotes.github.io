@@ -232,12 +232,10 @@ button:focus-visible {
     margin-right: auto;
 }
 
-/* ========================================================
-   QUOTE + AUTHOR
-======================================================== */
+/* QUOTE + AUTHOR */
 .quote {
     font-size: clamp(20px, 4.6vw, 26px);
-    font-style: italic;
+    font-style: normal;         /* was italic */
     font-weight: 500;
     color: var(--text-main);
     line-height: 1.45;
@@ -246,7 +244,8 @@ button:focus-visible {
 
 .author {
     font-size: clamp(15px, 3.8vw, 18px);
-    font-weight: 600;
+    font-style: italic;         /* make author italic */
+    font-weight: 500;           /* optional: slightly softer weight */
     color: var(--text-main);
     margin-bottom: 22px;
 }
@@ -421,4 +420,5 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
+
 
