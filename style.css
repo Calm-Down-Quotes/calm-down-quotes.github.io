@@ -1,5 +1,5 @@
 /* ========================================================
-   CALM APP — DESIGN SYSTEM V3 (PERFECTED)
+   CALM APP — DESIGN SYSTEM V4 (PIXEL-PERFECT)
 ======================================================== */
 
 /* Premium font stack (safe to use on GitHub Pages) */
@@ -10,27 +10,25 @@
     --bg-1: #f5f8ff;
     --bg-2: #eff4ff;
 
-    /* Auras */
     --aura-1: rgba(167, 197, 255, 0.5);
     --aura-2: rgba(125, 211, 252, 0.4);
 
     /* Text */
-    --t-heading: #020617;
-    --t-body: #1f2937;
-    --t-muted: #6b7280;
-    --t-subtle: #94a3b8;
+    --t-heading: #020617;   /* Slate 950 */
+    --t-body: #1f2937;      /* Gray 800 */
+    --t-muted: #6b7280;     /* Gray 500 */
+    --t-subtle: #94a3b8;    /* Slate 400 */
 
     /* Brand */
-    --brand-1: #3b82f6;
-    --brand-2: #2563eb;
+    --brand-1: #3b82f6;     /* Blue 500 */
+    --brand-2: #2563eb;     /* Blue 600 */
 
     /* Radii */
     --r-card: 26px;
     --r-pill: 999px;
 
     /* Shadows */
-    --shadow-soft: 0 18px 55px rgba(15, 23, 42, 0.12),
-                   0 4px 12px rgba(15, 23, 42, 0.04);
+    --shadow-soft: 0 18px 55px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
     --shadow-btn: 0 12px 28px rgba(37, 99, 235, 0.4);
 
     /* Motion */
@@ -172,7 +170,7 @@ h1 {
 }
 
 /* ========================================================
-   PRIMARY CTA
+   PRIMARY CTA BUTTON
 ======================================================== */
 #quote-btn {
     padding: 14px 54px;
@@ -258,7 +256,6 @@ a:focus-visible {
     opacity: 0;
     transform: translateY(24px);
     transition: 0.35s ease;
-
     overflow: hidden;
     z-index: 0;
 }
@@ -269,7 +266,8 @@ a:focus-visible {
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+        135deg,
         rgba(59,130,246,0.18),
         rgba(56,189,248,0.12),
         rgba(248,250,252,0.0)
@@ -278,14 +276,14 @@ a:focus-visible {
     z-index: -2;
 }
 
-/* Big faint quote mark */
+/* Faint decorative quote mark */
 #quote-box::after {
-    content: "““";
+    content: "“";
     position: absolute;
-    top: 18px;
-    right: 28px;
+    top: -32px;
+    right: 36px;
     font-family: "Georgia", serif;
-    font-size: 70px;
+    font-size: 110px;
     color: rgba(148, 163, 184, 0.16);
     pointer-events: none;
     z-index: -1;
@@ -306,18 +304,17 @@ a:focus-visible {
 ======================================================== */
 .quote {
     font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: clamp(22px, 3vw, 30px);
+    font-size: clamp(20px, 5.2vw, 28px);
     font-weight: 700;
-    font-style: normal;
     color: var(--t-heading);
     line-height: 1.45;
     letter-spacing: -0.04em;
-
     max-width: 36rem;
     margin: 0 auto 14px;
     position: relative;
 }
 
+/* Subtle divider under quote */
 .quote::after {
     content: "";
     display: block;
@@ -345,7 +342,7 @@ a:focus-visible {
     margin-bottom: 18px;
 }
 
-/* Detail text */
+/* Core body text inside the card */
 .meaning,
 .instruction,
 .category,
@@ -353,12 +350,15 @@ a:focus-visible {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 14px;
     line-height: 1.7;
-    color: var(--t-body);
+    color: #111827;   /* slightly darker for better contrast */
     max-width: 42rem;
     margin: 0 auto;
 }
 
-/* Labels */
+/* ========================================================
+   LABELS & TAGS
+======================================================== */
+.section-heading,
 .meaning-label,
 .instruction-label,
 .category-label {
@@ -377,7 +377,7 @@ a:focus-visible {
     margin-top: 24px;
 }
 
-/* Tag chips (future use) */
+/* Tag chip style (for whenever they’re shown) */
 .tag-chip {
     display: inline-flex;
     align-items: center;
@@ -400,11 +400,10 @@ a:focus-visible {
 .tag-chip:hover {
     transform: translateY(-2px);
     background: rgba(219, 234, 254, 0.98);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1),
-                0 1px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1), 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-/* Hide tags visually but keep for JS/share text */
+/* Hidden tags container (used only for JS/share text) */
 .tags-label,
 #quote-tags {
     display: none;
@@ -418,7 +417,7 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px; /* slightly tighter for perfect grouping */
 }
 
 .share-buttons {
@@ -426,47 +425,41 @@ a:focus-visible {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
-/* Base style for Copy + visible Share */
+/* Base style for copy + primary share */
 .copy-btn,
 .primary-share {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     min-width: 220px;
     padding: 10px 22px;
     font-size: 13px;
     font-weight: 600;
-
     border-radius: var(--r-pill);
     border: 1px solid rgba(148, 163, 184, 0.45);
     cursor: pointer;
-
     background: linear-gradient(
         135deg,
         rgba(255,255,255,0.97),
         rgba(226,232,255,0.97)
     );
     color: var(--t-body);
-
     box-shadow:
         0 10px 24px rgba(15, 23, 42, 0.14),
         0 1px 0 rgba(255,255,255,0.9);
-
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-
     transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* Only primary visible share */
+/* Hide platform-specific share buttons visually */
 .share-btn:not(.primary-share) {
     display: none;
 }
 
+/* Hover states */
 .copy-btn:hover,
 .primary-share:hover {
     transform: translateY(-2px);
@@ -475,7 +468,7 @@ a:focus-visible {
         0 1px 0 rgba(255,255,255,1);
 }
 
-/* Primary Share styling */
+/* Blue primary share */
 .primary-share {
     background: radial-gradient(circle at 20% 0, #60a5fa, var(--brand-2));
     color: #ffffff;
@@ -492,11 +485,10 @@ a:focus-visible {
         0 1px 0 rgba(255,255,255,0.95);
 }
 
-/* Copy feedback */
+/* Copy feedback text */
 .copy-feedback {
     display: inline-block;
     opacity: 0;
-    margin-left: 0;
     margin-top: 2px;
     color: var(--brand-2);
     font-size: 12px;
@@ -548,7 +540,7 @@ a:focus-visible {
     margin-top: 4px;
 }
 
-/* Default links */
+/* Default link style */
 a {
     color: var(--brand-2);
     text-decoration: none;
@@ -559,7 +551,7 @@ a:hover {
 }
 
 /* ========================================================
-   RESPONSIVE
+   RESPONSIVE TUNING
 ======================================================== */
 @media (max-width: 900px) {
     #quote-box {
@@ -586,6 +578,14 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+    .breathing-circle {
+        margin: 0 auto 24px;
+    }
+
+    .hero {
+        margin-bottom: 18px;
+    }
+
     h1 {
         font-size: 26px;
     }
@@ -598,10 +598,12 @@ a:hover {
     #quote-btn {
         width: 100%;
         max-width: 320px;
+        margin-bottom: 18px;
     }
 
     #quote-box {
-        padding: 26px 18px 22px;
+        padding: 24px 18px 20px;
+        margin-top: 18px;
         border-radius: 22px;
     }
 
@@ -610,9 +612,6 @@ a:hover {
     }
 
     .copy-row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         gap: 8px;
     }
 
@@ -627,7 +626,7 @@ a:hover {
 }
 
 /* ========================================================
-   REDUCED MOTION
+   REDUCED MOTION ACCESSIBILITY
 ======================================================== */
 @media (prefers-reduced-motion: reduce) {
     body {
