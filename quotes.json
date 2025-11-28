@@ -1198,5 +1198,612 @@
     "author": "Anonymous",
     "meaning": "Gentle reminders like this invite your attention back to the present moment, where calm becomes possible again.",
     "instruction": "Let this line be a cue to pause, breathe slowly, and feel where you are right now."
+  },
+  {
+    "quote": "In the midst of movement and chaos, keep stillness inside of you.",
+    "author": "Deepak Chopra",
+    "meaning": "Calm does not depend on a quiet environment. It is a practice of finding a steady point within yourself, even when life is noisy.",
+    "instruction": "Notice one quiet place inside yourself, such as your breath, and rest your attention there for a moment."
+  },
+  {
+    "quote": "Keep your face always toward the sunshine, and shadows will fall behind you.",
+    "author": "Walt Whitman",
+    "meaning": "Where you place your focus changes how life feels. Choosing to look toward hope shrinks the power of fear.",
+    "instruction": "Bring to mind one thing that gives you hope today and let your thoughts rest on it briefly."
+  },
+  {
+    "quote": "Our anxiety does not come from thinking about the future, but from wanting to control it.",
+    "author": "Kahlil Gibran",
+    "meaning": "The need to control every outcome locks you into tension. Accepting uncertainty makes space for calm.",
+    "instruction": "Identify one future outcome you are gripping tightly and practice loosening your hold on it."
+  },
+  {
+    "quote": "Rule number one is, don’t sweat the small stuff. Rule number two is, it’s all small stuff.",
+    "author": "Robert Eliot",
+    "meaning": "Most of what feels huge in the moment is temporary and manageable. Perspective reduces unnecessary stress.",
+    "instruction": "When something small irritates you today, quietly remind yourself that it is all small stuff."
+  },
+  {
+    "quote": "Present fears are less than horrible imaginings.",
+    "author": "William Shakespeare",
+    "meaning": "Your mind can create scenarios that feel worse than reality. Recognising this helps you question exaggerated fears.",
+    "instruction": "When you worry, ask yourself whether the story in your mind is actually happening right now."
+  },
+  {
+    "quote": "There is more to life than increasing its speed.",
+    "author": "Mahatma Gandhi",
+    "meaning": "Constant rushing keeps your body in survival mode. Slowing down allows you to actually live the moments you are in.",
+    "instruction": "Intentionally do one task today at a slower pace than usual and notice how your body feels."
+  },
+  {
+    "quote": "Peace comes from within. Do not seek it without.",
+    "author": "Buddha",
+    "meaning": "Lasting calm is built by how you think and respond, not by perfect external conditions.",
+    "instruction": "Take a few breaths and look for a small sense of peace inside you rather than outside you."
+  },
+  {
+    "quote": "Don’t let your mind bully your body into believing it must carry the burden of its worries.",
+    "author": "Astrid Alauda",
+    "meaning": "When thoughts are heavy, your body follows. Separating worry from physical reality helps you release tension.",
+    "instruction": "Notice one part of your body holding stress and consciously let it soften."
+  },
+  {
+    "quote": "Almost everything will work again if you unplug it for a few minutes, including you.",
+    "author": "Anne Lamott",
+    "meaning": "Rest and short breaks restore clarity. Stepping away briefly is often more effective than pushing harder.",
+    "instruction": "Schedule one short unplugged pause today, even if it is only a few minutes."
+  },
+  {
+    "quote": "Sometimes the most important thing in a whole day is the rest we take between two deep breaths.",
+    "author": "Etty Hillesum",
+    "meaning": "Tiny pauses can carry surprising importance. A single conscious breath can change your inner state.",
+    "instruction": "Take two slow breaths and allow the pause between them to really count."
+  },
+  {
+    "quote": "If you want to conquer the anxiety of life, live in the moment, live in the breath.",
+    "author": "Amit Ray",
+    "meaning": "Anxiety pulls you into the future and past. Your breath anchors you in the only place you can act: now.",
+    "instruction": "Bring your full attention to one inhale and one exhale, feeling them from start to finish."
+  },
+  {
+    "quote": "You don’t have to control your thoughts; you just have to stop letting them control you.",
+    "author": "Dan Millman",
+    "meaning": "Thoughts will appear on their own. Calm comes from choosing which ones you follow.",
+    "instruction": "When an anxious thought appears, see if you can watch it without obeying it."
+  },
+  {
+    "quote": "Nothing can bring you peace but yourself.",
+    "author": "Ralph Waldo Emerson",
+    "meaning": "Only you can choose the attitudes and responses that create inner calm. No one else can do this work for you.",
+    "instruction": "Ask yourself what inner choice would bring you a little more peace in this moment."
+  },
+  {
+    "quote": "Worry often gives a small thing a big shadow.",
+    "author": "Swedish Proverb",
+    "meaning": "Anxiety magnifies problems beyond their real size. Seeing this clearly helps you step back.",
+    "instruction": "Think of one worry and imagine shrinking its shadow to match its true size."
+  },
+  {
+    "quote": "No storm can last forever.",
+    "author": "Unknown",
+    "meaning": "Every difficult season has an end, even if you cannot see it yet. Remembering this softens panic.",
+    "instruction": "Tell yourself, this is temporary, when you feel overwhelmed today."
+  },
+  {
+    "quote": "Surrender to what is. Let go of what was. Have faith in what will be.",
+    "author": "Sonia Ricotti",
+    "meaning": "Clinging to the past and fighting the present intensifies stress. Trust allows your body and mind to relax.",
+    "instruction": "Choose one thing you cannot change and practice releasing your grip on it."
+  },
+  {
+    "quote": "The time to relax is when you don’t have time for it.",
+    "author": "Sydney J. Harris",
+    "meaning": "When you feel too busy to pause, your nervous system likely needs rest the most.",
+    "instruction": "Even on a packed day, give yourself a short, deliberate pause to breathe."
+  },
+  {
+    "quote": "You wouldn’t worry so much about what others think of you if you realised how seldom they do.",
+    "author": "Eleanor Roosevelt",
+    "meaning": "Social anxiety often exaggerates how closely you are being watched. Others are usually focused on themselves.",
+    "instruction": "When you feel self-conscious, remind yourself that most people are busy thinking about their own lives."
+  },
+  {
+    "quote": "Life is very interesting. In the end, some of your greatest pains become your greatest strengths.",
+    "author": "Drew Barrymore",
+    "meaning": "Painful experiences can later become sources of resilience and wisdom. This perspective softens fear.",
+    "instruction": "Recall one hard experience that later made you stronger and honour the strength it gave you."
+  },
+  {
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Theodore Roosevelt",
+    "meaning": "Calm grows when you focus on your next realistic step, not on everything you cannot control.",
+    "instruction": "Ask yourself, what is one small thing I can do right now with what I have."
+  },
+  {
+    "quote": "Sometimes the most productive thing you can do is relax.",
+    "author": "Mark Black",
+    "meaning": "Rest is a strategic choice, not laziness. It renews the energy you need to move forward.",
+    "instruction": "Allow yourself a brief period of rest today without calling it wasted time."
+  },
+  {
+    "quote": "Fear is a natural reaction to moving closer to the truth.",
+    "author": "Pema Chödrön",
+    "meaning": "Discomfort can be a sign of growth, not a sign that you are doing something wrong.",
+    "instruction": "Notice one area where fear might be pointing to something important rather than blocking you."
+  },
+  {
+    "quote": "Sometimes the most courageous thing you can do is just show up.",
+    "author": "Brené Brown",
+    "meaning": "You do not need to be perfect to be brave. Simply being present in a hard moment is an act of courage.",
+    "instruction": "Acknowledge one situation where you showed up even though you felt anxious."
+  },
+  {
+    "quote": "Do not anticipate trouble, or worry about what may never happen. Keep in the sunlight.",
+    "author": "Benjamin Franklin",
+    "meaning": "Much of your worry is about events that may never arrive. Bringing your attention back to what is good now eases anxiety.",
+    "instruction": "Name one thing in your life that is actually okay today and let yourself feel it."
+  },
+  {
+    "quote": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+    "author": "Nelson Mandela",
+    "meaning": "Your value is not measured by how perfectly you avoid mistakes, but by your willingness to get back up.",
+    "instruction": "Think of one setback you have recovered from and let it remind you of your resilience."
+  },
+  {
+    "quote": "Courage is resistance to fear, mastery of fear, not absence of fear.",
+    "author": "Mark Twain",
+    "meaning": "Being calm or brave does not mean you feel no fear. It means you act wisely even while fear is present.",
+    "instruction": "Notice fear today and choose one small action you can take alongside it."
+  },
+  {
+    "quote": "Sometimes the biggest act of faith is to rest.",
+    "author": "Unknown",
+    "meaning": "Stopping for a while means trusting that life will not fall apart if you care for yourself.",
+    "instruction": "Allow yourself a moment of rest without planning or problem solving."
+  },
+  {
+    "quote": "Nothing is permanent in this wicked world, not even our troubles.",
+    "author": "Charlie Chaplin",
+    "meaning": "Every difficulty will eventually change form or pass. Remembering this keeps despair from taking over.",
+    "instruction": "When you feel stuck, remind yourself that this feeling will not last forever."
+  },
+  {
+    "quote": "You can’t stop the waves, but you can learn to surf.",
+    "author": "Jon Kabat-Zinn",
+    "meaning": "Life will continue to bring challenges. Learning skills to ride them is more realistic than trying to avoid them.",
+    "instruction": "Choose one coping skill you want to practice instead of trying to stop every wave."
+  },
+  {
+    "quote": "The greatest weapon against stress is our ability to choose one thought over another.",
+    "author": "William James",
+    "meaning": "You cannot always choose what happens, but you can choose which thoughts you feed.",
+    "instruction": "When you catch a stressful thought, gently replace it with one that is calmer and more balanced."
+  },
+  {
+    "quote": "Courage doesn’t always roar. Sometimes courage is the quiet voice at the end of the day saying, I will try again tomorrow.",
+    "author": "Mary Anne Radmacher",
+    "meaning": "Calm, persistent effort is a form of bravery. You do not need dramatic actions to be courageous.",
+    "instruction": "Tell yourself, I can try again tomorrow, about one thing that feels heavy today."
+  },
+  {
+    "quote": "Within you is a stillness and a sanctuary to which you can retreat at any time and be yourself.",
+    "author": "Hermann Hesse",
+    "meaning": "You carry a quiet inner space that does not depend on outside approval or noise.",
+    "instruction": "Close your eyes briefly and imagine stepping into a peaceful inner room that is just for you."
+  },
+  {
+    "quote": "Sometimes you just have to bow to the mystery.",
+    "author": "Ram Dass",
+    "meaning": "Not everything can be solved or understood immediately. Accepting this reduces mental strain.",
+    "instruction": "Think of one confusing situation and allow yourself to not have all the answers right now."
+  },
+  {
+    "quote": "Anxiety is a thin stream of fear trickling through the mind. If encouraged, it cuts a channel into which all other thoughts are drained.",
+    "author": "Arthur Somers Roche",
+    "meaning": "Feeding anxious thoughts can turn them into the main focus of your mind. Redirecting them early keeps perspective.",
+    "instruction": "When you notice the first trickle of worry, gently shift your attention to something grounding."
+  },
+  {
+    "quote": "Nothing is either good or bad, but thinking makes it so.",
+    "author": "William Shakespeare",
+    "meaning": "Events themselves are neutral until you interpret them. Your meaning-making shapes your emotional response.",
+    "instruction": "Take one situation and see if you can imagine a different, less harsh interpretation."
+  },
+  {
+    "quote": "The art of being wise is the art of knowing what to overlook.",
+    "author": "William James",
+    "meaning": "You do not need to react to everything. Choosing what to ignore protects your calm.",
+    "instruction": "Decide on one thing today that you will deliberately overlook instead of engaging with."
+  },
+  {
+    "quote": "Almost all of our unhappiness comes from our inability to sit quietly in a room alone.",
+    "author": "Blaise Pascal",
+    "meaning": "Stillness can feel uncomfortable at first, but it is often where you find clarity and peace.",
+    "instruction": "Spend a short time sitting quietly without distractions and simply notice what arises."
+  },
+  {
+    "quote": "He who is brave is free.",
+    "author": "Seneca",
+    "meaning": "Facing fears rather than running from them creates inner freedom. Avoidance strengthens anxiety.",
+    "instruction": "Take one small action today that moves gently toward something you have been avoiding."
+  },
+  {
+    "quote": "When I let go of what I am, I become what I might be.",
+    "author": "Lao Tzu",
+    "meaning": "Releasing rigid ideas about yourself creates space for growth and new possibilities.",
+    "instruction": "Notice one old story you tell about yourself and imagine who you might be without it."
+  },
+  {
+    "quote": "Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests.",
+    "author": "Philippians 4:6",
+    "meaning": "Turning worries into intentional requests or prayers can transform scattered fear into grounded trust.",
+    "instruction": "Take one worry and express it as a simple request for help, support, or guidance."
+  },
+  {
+    "quote": "Nothing external to you has any power over you.",
+    "author": "Ralph Waldo Emerson",
+    "meaning": "Your response matters more than the event. Remembering this brings some control back to you.",
+    "instruction": "In a stressful moment, ask yourself what kind of response would feel most aligned with who you want to be."
+  },
+  {
+    "quote": "The greatest mistake we make is living in constant fear that we will make one.",
+    "author": "John C. Maxwell",
+    "meaning": "Fear of errors can paralyse you more than the errors themselves. Accepting imperfection calms your mind.",
+    "instruction": "Allow yourself to make a small, imperfect move toward something that matters."
+  },
+  {
+    "quote": "There is no trouble so great or grave that cannot be much diminished by a nice cup of tea.",
+    "author": "Bernard-Paul Heroux",
+    "meaning": "Simple, grounding rituals can soften even heavy feelings. Small comforts matter.",
+    "instruction": "Create one small calming ritual today, like a warm drink or a short walk."
+  },
+  {
+    "quote": "Sometimes the most important conversation is the one you have with yourself.",
+    "author": "Unknown",
+    "meaning": "Your inner dialogue shapes your emotional state. A kind conversation with yourself can settle your nervous system.",
+    "instruction": "Say one reassuring sentence to yourself that you wish someone else would say."
+  },
+  {
+    "quote": "The greatest gift you can give yourself is a little bit of your own attention.",
+    "author": "Anthony J. D’Angelo",
+    "meaning": "Checking in with yourself prevents stress from building silently in the background.",
+    "instruction": "Pause and ask yourself, what do I need right now, and listen honestly."
+  },
+  {
+    "quote": "Act as if what you do makes a difference. It does.",
+    "author": "William James",
+    "meaning": "Believing that your small actions matter encourages calm, steady effort instead of helplessness.",
+    "instruction": "Choose one small helpful action and do it with the assumption that it genuinely matters."
+  },
+  {
+    "quote": "The only pressure I’m under is the pressure I’ve put on myself.",
+    "author": "Mark Messier",
+    "meaning": "A lot of stress comes from internal expectations rather than external demands. Adjusting them releases tension.",
+    "instruction": "Notice one expectation you are placing on yourself and experiment with softening it."
+  },
+  {
+    "quote": "Sometimes letting things go is an act of far greater power than defending or hanging on.",
+    "author": "Eckhart Tolle",
+    "meaning": "Releasing a fight can be more powerful than winning it. Letting go frees your energy and attention.",
+    "instruction": "Identify one argument, memory, or worry you can gently loosen your hold on today."
+  },
+  {
+    "quote": "Step by step and the thing is done.",
+    "author": "Charles Atlas",
+    "meaning": "Breaking tasks into small steps removes the heavy feeling of being overwhelmed.",
+    "instruction": "Pick one problem and write down the very next tiny step instead of thinking about the whole thing."
+  },
+  {
+    "quote": "There is calmness to a life lived in gratitude, a quiet joy.",
+    "author": "Ralph H. Blum",
+    "meaning": "Gratitude shifts your focus from what is missing to what is present, which naturally softens anxiety.",
+    "instruction": "List three things you are grateful for, no matter how small or ordinary."
+  },
+  {
+    "quote": "You can’t always control what goes on outside, but you can always control what goes on inside.",
+    "author": "Wayne Dyer",
+    "meaning": "Outer chaos does not have to become inner chaos. Your inner choices are your real power.",
+    "instruction": "In a tense moment, focus on calming your breath instead of trying to fix everything around you."
+  },
+  {
+    "quote": "Be still, and know that I am God.",
+    "author": "Bible, Psalm 46:10",
+    "meaning": "This verse invites you to pause your frantic thoughts and remember that something greater than your worries holds your life.",
+    "instruction": "Take one slow breath and silently repeat: Be still, and know that I am God."
+  },
+  {
+    "quote": "Cast all your anxiety on Him, because He cares for you.",
+    "author": "Bible, 1 Peter 5:7",
+    "meaning": "You are not expected to carry every fear alone. You are invited to hand your worries over to a God who cares.",
+    "instruction": "Picture one worry in your hands and imagine placing it into God’s hands as you exhale."
+  },
+  {
+    "quote": "Come to Me, all you who are weary and burdened, and I will give you rest.",
+    "author": "Bible, Matthew 11:28",
+    "meaning": "Jesus speaks directly to tired and overwhelmed hearts, offering a deeper kind of rest than distraction or escape.",
+    "instruction": "Acknowledge one area of weariness and whisper, I bring this to You, even if it’s only for a moment."
+  },
+  {
+    "quote": "Peace I leave with you; My peace I give you.",
+    "author": "Bible, John 14:27",
+    "meaning": "This peace is not dependent on circumstances. It’s a gift of inner steadiness that can exist even when life feels chaotic.",
+    "instruction": "Place your hand on your chest and quietly ask to receive that peace for whatever you’re facing today."
+  },
+  {
+    "quote": "The Lord is my shepherd; I lack nothing.",
+    "author": "Bible, Psalm 23:1",
+    "meaning": "Seeing God as a shepherd reminds you that you are guided, guarded, and provided for, even when the path feels unclear.",
+    "instruction": "When anxiety rises, quietly say: I am being led; I am not abandoned."
+  },
+  {
+    "quote": "Even though I walk through the darkest valley, I will fear no evil, for You are with me.",
+    "author": "Bible, Psalm 23:4",
+    "meaning": "The promise is not the absence of valleys, but the presence of God inside them. You never walk them alone.",
+    "instruction": "In a tough moment, tell yourself: I am walking through this, not staying in it forever."
+  },
+  {
+    "quote": "Do not worry about tomorrow, for tomorrow will worry about itself.",
+    "author": "Bible, Matthew 6:34",
+    "meaning": "Jesus redirects your attention from imagined futures to the strength and grace available for today.",
+    "instruction": "When future fears appear, gently repeat: Today is enough for me to carry."
+  },
+  {
+    "quote": "The Lord is near to the brokenhearted and saves those who are crushed in spirit.",
+    "author": "Bible, Psalm 34:18",
+    "meaning": "God moves closer, not further away, when you are hurting. Your pain draws His compassion rather than His rejection.",
+    "instruction": "If your heart feels heavy, simply say: Be near to me in this, and take one slow breath."
+  },
+  {
+    "quote": "Trust in the Lord with all your heart and lean not on your own understanding.",
+    "author": "Bible, Proverbs 3:5",
+    "meaning": "You are invited to rest in a wisdom bigger than your own. You don’t need every answer to be held securely.",
+    "instruction": "Notice one situation you can’t figure out and quietly say: I will lean on You here, not only on myself."
+  },
+  {
+    "quote": "When I am afraid, I put my trust in You.",
+    "author": "Bible, Psalm 56:3",
+    "meaning": "Fear isn’t denied; it is redirected. The verse shows you where to turn when anxiety appears.",
+    "instruction": "When fear shows up, name it, then say: I choose to trust You with this."
+  },
+  {
+    "quote": "Verily, in the remembrance of Allah do hearts find rest.",
+    "author": "Qur'an, 13:28",
+    "meaning": "True rest comes from turning your mind toward God, not from endless distractions or overthinking.",
+    "instruction": "Repeat a short remembrance of Allah quietly and let your heart rest on those words for a moment."
+  },
+  {
+    "quote": "Allah does not burden a soul beyond what it can bear.",
+    "author": "Qur'an, 2:286",
+    "meaning": "Your trials are not random or limitless. There is wisdom and measure in what you face.",
+    "instruction": "When life feels too heavy, remind yourself: This burden has a limit, and I am not left alone with it."
+  },
+  {
+    "quote": "Indeed, with hardship comes ease.",
+    "author": "Qur'an, 94:6",
+    "meaning": "Every hardship carries the seed of relief within it. No difficult state is permanent in God’s sight.",
+    "instruction": "Think of a past hardship that eventually eased, and let it remind you that this one will shift too."
+  },
+  {
+    "quote": "So remember Me; I will remember you.",
+    "author": "Qur'an, 2:152",
+    "meaning": "Your remembrance of Allah is met with His attention and care. Your turning to Him is never ignored.",
+    "instruction": "Take a few seconds to remember Allah sincerely and trust that you are being remembered too."
+  },
+  {
+    "quote": "And rely upon Allah; sufficient is Allah as Disposer of affairs.",
+    "author": "Qur'an, 33:3",
+    "meaning": "You are encouraged to act responsibly, then rest in trust that Allah ultimately manages what you cannot control.",
+    "instruction": "Choose one situation to hand over in your heart, saying: I rely on You in this matter."
+  },
+  {
+    "quote": "Say, Never will we be struck except by what Allah has decreed for us; He is our protector.",
+    "author": "Qur'an, 9:51",
+    "meaning": "Nothing reaches you except through God’s knowledge and care. This perspective softens fear of the unknown.",
+    "instruction": "When you feel exposed, whisper: Nothing reaches me except what You allow and can transform."
+  },
+  {
+    "quote": "Do not despair of the mercy of Allah.",
+    "author": "Qur'an, 39:53",
+    "meaning": "Even when you feel you’ve gone too far or failed too often, divine mercy remains open and wider than your mistakes.",
+    "instruction": "Bring one regret to mind and quietly say: Your mercy is greater than this."
+  },
+  {
+    "quote": "And He is with you wherever you are.",
+    "author": "Qur'an, 57:4",
+    "meaning": "God’s presence does not depend on place or mood. You are never outside His awareness.",
+    "instruction": "In a lonely or anxious moment, remind yourself: I am seen and accompanied, even here."
+  },
+  {
+    "quote": "Tie your camel and trust in Allah.",
+    "author": "Prophet Muhammad (Hadith)",
+    "meaning": "You are called both to take practical steps and to place your trust in Allah beyond what you can control.",
+    "instruction": "Do one sensible action about what worries you, then consciously release the outcome to Allah."
+  },
+  {
+    "quote": "Amazing is the affair of the believer, for everything that happens is good for him.",
+    "author": "Prophet Muhammad (Hadith)",
+    "meaning": "For a person of faith, both ease and difficulty can become paths to growth and reward.",
+    "instruction": "Look at one current difficulty and gently ask: How might this hold some hidden good for me?"
+  },
+  {
+    "quote": "Yoga is the stilling of the fluctuations of the mind.",
+    "author": "Yoga Sutras of Patanjali, 1.2",
+    "meaning": "The goal of yoga is inner quiet, not just physical posture. Calm begins when your thoughts stop tossing you around.",
+    "instruction": "Notice your thoughts for a moment and imagine them settling, like ripples fading on a lake."
+  },
+  {
+    "quote": "Perform your duty without attachment to the results.",
+    "author": "Bhagavad Gita, 2:47",
+    "meaning": "Anxiety lessens when you focus on doing the next right thing instead of obsessing over outcomes.",
+    "instruction": "Choose one task and commit to doing it well, while gently letting go of how it will turn out."
+  },
+  {
+    "quote": "Be serene in success and failure; this equanimity is yoga.",
+    "author": "Bhagavad Gita, 2:48",
+    "meaning": "True balance is not depending on constant success to feel okay. Calm comes from staying steady regardless of results.",
+    "instruction": "Think of one recent success and one setback, and breathe the same calm breath over both."
+  },
+  {
+    "quote": "When meditation is mastered, the mind is unwavering like the flame of a lamp in a windless place.",
+    "author": "Bhagavad Gita, 6:19",
+    "meaning": "With practice, your attention can grow steady, no longer blown around by every passing thought.",
+    "instruction": "Take a few breaths picturing your mind as a calm, steady flame that does not flicker with each worry."
+  },
+  {
+    "quote": "The mind is restless, but it can be trained by practice and detachment.",
+    "author": "Bhagavad Gita, 6:35",
+    "meaning": "You are not stuck with a wild mind forever. Patient practice and gently letting go of clinging slowly tame it.",
+    "instruction": "When your mind races, remind yourself: This is trainable, and each small practice helps."
+  },
+  {
+    "quote": "That which is real never ceases to be; that which is unreal has no true existence.",
+    "author": "Bhagavad Gita, 2:16",
+    "meaning": "Much of what you fear is temporary appearance. The deepest reality beneath you is more stable than your passing thoughts.",
+    "instruction": "Bring to mind one fear and quietly say: This feeling is temporary; something deeper in me remains steady."
+  },
+  {
+    "quote": "When a person responds to the joys and sorrows of others as if they were his own, he has attained the highest state of union.",
+    "author": "Bhagavad Gita, 6:32",
+    "meaning": "Calm grows when you are compassionately connected, not isolated in your own worries.",
+    "instruction": "Think of someone else’s struggle and silently wish them peace, sharing some of the kindness you need yourself."
+  },
+  {
+    "quote": "He who has conquered himself is a greater hero than he who has conquered a thousand men in battle.",
+    "author": "Hindu proverb / Gita-inspired teaching",
+    "meaning": "Inner mastery is more powerful than external victories. Calming your reactions is a form of real strength.",
+    "instruction": "Choose one inner reaction to work with gently instead of trying to control everything around you."
+  },
+  {
+    "quote": "As you think, so you become.",
+    "author": "Hindu teaching (Gita theme)",
+    "meaning": "Your repeated thoughts shape your character and mood. Calm thoughts slowly build a calmer life.",
+    "instruction": "Select one steady, reassuring thought and repeat it softly a few times today."
+  },
+  {
+    "quote": "He who is calm and even-minded in pain and pleasure is fit for immortality.",
+    "author": "Bhagavad Gita, 2:15",
+    "meaning": "Equanimity is a sign of deep spiritual maturity. It comes from seeing beyond temporary highs and lows.",
+    "instruction": "Notice one pleasant and one unpleasant feeling today, and observe both without clinging or resisting."
+  },
+  {
+    "quote": "Peace comes from within. Do not seek it without.",
+    "author": "Buddha",
+    "meaning": "Lasting calm is grown inside your own mind and heart, not hunted in external circumstances.",
+    "instruction": "Take a breath and gently look inward, asking: What can I soften inside myself right now?"
+  },
+  {
+    "quote": "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.",
+    "author": "Buddha",
+    "meaning": "Anxiety often lives in what was or what might be. The present moment is where relief is actually possible.",
+    "instruction": "Bring your attention to one sound, one sight, or one physical sensation happening right now."
+  },
+  {
+    "quote": "The mind is everything. What you think, you become.",
+    "author": "Buddha",
+    "meaning": "Your inner dialogue slowly shapes how you feel and who you grow into.",
+    "instruction": "Notice one repeating thought and ask if it leads you toward who you want to become."
+  },
+  {
+    "quote": "Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
+    "author": "Buddha",
+    "meaning": "Clinging to anger hurts you first. Letting go is an act of self-protection, not weakness.",
+    "instruction": "Bring one small resentment to mind and experiment with loosening your grip on it, just a little."
+  },
+  {
+    "quote": "Just as a solid rock is not shaken by the storm, the wise are not moved by praise or blame.",
+    "author": "Dhammapada",
+    "meaning": "Calm grows when your sense of self isn’t constantly pushed around by other people’s opinions.",
+    "instruction": "When praised or criticised, notice the feeling but imagine yourself as a steady rock beneath the waves."
+  },
+  {
+    "quote": "You yourself, as much as anybody in the entire universe, deserve your love and affection.",
+    "author": "Buddha (attributed)",
+    "meaning": "You are not excluded from compassion. Treating yourself with kindness settles the nervous system.",
+    "instruction": "Place a hand over your heart and silently offer yourself the same kindness you would give a close friend."
+  },
+  {
+    "quote": "Drop by drop the jar is filled.",
+    "author": "Dhammapada",
+    "meaning": "Small, consistent practices of calm eventually create real change. You don’t need a dramatic breakthrough.",
+    "instruction": "Choose one tiny calming habit and repeat it today, trusting that each repetition is a drop in the jar."
+  },
+  {
+    "quote": "Nothing can harm you as much as your own unguarded thoughts.",
+    "author": "Buddha",
+    "meaning": "Unquestioned thoughts can create more suffering than outside events. Guarding the mind is a protective act.",
+    "instruction": "When a harsh thought appears, pause and ask: Is this true, and is it helpful to hold onto?"
+  },
+  {
+    "quote": "If you can, help others; if you cannot do that, at least do not harm them.",
+    "author": "Dalai Lama",
+    "meaning": "A simple ethic of kindness reduces conflict and inner agitation. Non-harm toward others also calms you.",
+    "instruction": "Choose one small act of kindness today, or simply hold back from one unhelpful reaction."
+  },
+  {
+    "quote": "Let go of what has passed. Let go of what may come. Let go of what is happening now. Do not try to control anything.",
+    "author": "Buddhist teaching (attributed)",
+    "meaning": "Releasing your grip on constant control opens space for ease. Life can be met, not forced.",
+    "instruction": "Pick one situation and experiment with loosening your need to control every detail."
+  },
+  {
+    "quote": "Nature does not hurry, yet everything is accomplished.",
+    "author": "Lao Tzu, Tao Te Ching",
+    "meaning": "The natural world moves steadily without rushing. You can drop urgency and still move forward.",
+    "instruction": "Slow one task down and imagine you are moving at the pace of nature, not of panic."
+  },
+  {
+    "quote": "A journey of a thousand miles begins with a single step.",
+    "author": "Lao Tzu",
+    "meaning": "Overwhelm fades when you focus on the next step instead of the entire path.",
+    "instruction": "Identify one small, concrete action you can take today and do only that for now."
+  },
+  {
+    "quote": "Tension is who you think you should be. Relaxation is who you are.",
+    "author": "Chinese proverb",
+    "meaning": "Trying to live up to an image creates strain. Letting yourself be real allows your body and mind to soften.",
+    "instruction": "Notice one way you are performing today and gently release some of that pressure."
+  },
+  {
+    "quote": "He who conquers himself is the mightiest warrior.",
+    "author": "Confucian / traditional proverb",
+    "meaning": "Mastering your reactions and impulses is a deeper victory than defeating any external opponent.",
+    "instruction": "Choose one emotional reaction to meet with patience instead of letting it rule you."
+  },
+  {
+    "quote": "When there is no enemy within, the enemies outside cannot hurt you.",
+    "author": "African proverb",
+    "meaning": "Inner peace and self-respect protect you from being destroyed by outside negativity.",
+    "instruction": "Notice one harsh inner voice and practice answering it with a calmer, kinder one."
+  },
+  {
+    "quote": "Talk does not cook rice.",
+    "author": "Chinese proverb",
+    "meaning": "Overthinking alone changes nothing. Calm grows when thoughts are paired with small, grounded actions.",
+    "instruction": "When you catch yourself looping in worry, switch to one simple, practical action you can take."
+  },
+  {
+    "quote": "If you are in a hurry, go the long way round.",
+    "author": "Japanese proverb",
+    "meaning": "Sometimes the slower, more careful path saves you from future stress and mistakes.",
+    "instruction": "Choose the steady, thorough option once today instead of the rushed shortcut."
+  },
+  {
+    "quote": "A bird does not sing because it has an answer, it sings because it has a song.",
+    "author": "Traditional proverb",
+    "meaning": "You do not need to solve everything to be allowed moments of joy and expression.",
+    "instruction": "Allow yourself one small moment of enjoyment today without needing a reason or a result."
+  },
+  {
+    "quote": "When the heart is at peace, the body is healthy.",
+    "author": "Chinese proverb",
+    "meaning": "Inner calm and physical wellbeing are deeply connected. Caring for your mind is also caring for your body.",
+    "instruction": "Offer yourself one calming habit today as medicine for your whole system."
+  },
+  {
+    "quote": "A gentle wind can calm the sea.",
+    "author": "Traditional saying",
+    "meaning": "Small, soft changes in attitude and behaviour can soothe even large inner storms over time.",
+    "instruction": "Choose one gentle thought or action and let it be the soft wind for your inner sea today."
   }
 ]
+
