@@ -1,3 +1,11 @@
+"use strict";
+
+/* ========================================================
+   CONSTANTS
+======================================================== */
+const SITE_URL = "https://calm-down-quotes.github.io/";
+const PREVIEW_IMAGE_URL = `${SITE_URL}preview.png`;
+
 /* ========================================================
    DOM REFERENCES
 ======================================================== */
@@ -29,23 +37,28 @@ let lastIndex    = -1;      // to avoid repeating same quote
 
 async function loadQuotes() {
     try {
-        const res = await fetch("quotes.json", { cache: "no-store" });
+        // Allow browser caching for better performance on repeat visits.
+        const res = await fetch("quotes.json");
 
-        if (!res.ok) throw new Error("quotes.json missing or unreachable");
+        if (!res.ok) {
+            throw new Error(`quotes.json unreachable (status: ${res.status})`);
+        }
 
         const data = await res.json();
         if (!Array.isArray(data) || data.length === 0) {
-            throw new Error("quotes.json empty or invalid");
+            throw new Error("quotes.json is empty or invalid.");
         }
 
         quotes       = data;
         quotesLoaded = true;
     } catch (err) {
         console.error(err);
+
         if (quoteText)        quoteText.textContent        = "Unable to load quotes.";
         if (quoteMeaning)     quoteMeaning.textContent     = "Please check back later.";
         if (quoteAuthor)      quoteAuthor.textContent      = "";
         if (quoteInstruction) quoteInstruction.textContent = "";
+
         if (quoteBox) {
             quoteBox.classList.remove("hidden");
             quoteBox.classList.add("visible");
@@ -70,7 +83,7 @@ function generateQuote() {
     } else {
         do {
             index = Math.floor(Math.random() * quotes.length);
-        } while (index === lastIndex);
+        } while (index === lastIndex && quotes.length > 1);
     }
     lastIndex = index;
 
@@ -81,11 +94,13 @@ function generateQuote() {
     quoteMeaning.textContent     = (q.meaning || "").trim();
     quoteInstruction.textContent = (q.instruction || "").trim();
 
+    // Ensure box is shown
     quoteBox.classList.remove("hidden");
 
     // Restart animation
     quoteBox.classList.remove("visible");
-    void quoteBox.offsetWidth;  // force reflow
+    // Force reflow to restart CSS transition
+    void quoteBox.offsetWidth;
     quoteBox.classList.add("visible");
 }
 
@@ -93,29 +108,40 @@ quoteBtn?.addEventListener("click", generateQuote);
 
 
 /* ========================================================
-   BUILD SHARE TEXT
+   BUILD / ENSURE SHARE TEXT
 ======================================================== */
 function buildShareText() {
     if (!quoteText) return "";
 
-    const q = quoteText.textContent.trim();
+    const q = (quoteText.textContent || "").trim();
     if (!q) return "";
 
-    const a = quoteAuthor      ? quoteAuthor.textContent.trim()      : "";
-    const m = quoteMeaning     ? quoteMeaning.textContent.trim()     : "";
-    const i = quoteInstruction ? quoteInstruction.textContent.trim() : "";
+    const a = quoteAuthor      ? (quoteAuthor.textContent || "").trim()      : "";
+    const m = quoteMeaning     ? (quoteMeaning.textContent || "").trim()     : "";
+    const i = quoteInstruction ? (quoteInstruction.textContent || "").trim() : "";
 
-    return (
-`${q}
-${a}
+    const parts = [
+        q,
+        a,
+        "",
+        m,
+        "",
+        i,
+        "",
+        "Shared from Calm Down Quotes",
+        SITE_URL.replace(/\/+$/, "/")  // ensure trailing slash only once
+    ].filter(Boolean);
 
-${m}
+    return parts.join("\n");
+}
 
-${i}
-
-Shared from Calm Down Quotes
-https://calm-down-quotes.github.io/`
-    ).trim();
+function getShareTextOrWarn() {
+    const text = buildShareText();
+    if (!text) {
+        alert("Please generate a quote first.");
+        return null;
+    }
+    return text;
 }
 
 
@@ -123,7 +149,7 @@ https://calm-down-quotes.github.io/`
    COPY TO CLIPBOARD
 ======================================================== */
 copyBtn?.addEventListener("click", async () => {
-    const text = buildShareText();
+    const text = getShareTextOrWarn();
     if (!text) return;
 
     try {
@@ -142,8 +168,13 @@ copyBtn?.addEventListener("click", async () => {
         }
 
         if (copyFeedback) {
+            // Ensure text is present for visual + screen-reader feedback
+            copyFeedback.textContent = "Copied";
             copyFeedback.classList.add("visible");
-            setTimeout(() => copyFeedback.classList.remove("visible"), 1500);
+
+            setTimeout(() => {
+                copyFeedback.classList.remove("visible");
+            }, 1500);
         }
     } catch (err) {
         console.error("Copy failed:", err);
@@ -156,10 +187,15 @@ copyBtn?.addEventListener("click", async () => {
    WHATSAPP
 ======================================================== */
 whatsappBtn?.addEventListener("click", () => {
-    const text = buildShareText();
+    const text = getShareTextOrWarn();
     if (!text) return;
+
     const encoded = encodeURIComponent(text);
-    window.open(`https://api.whatsapp.com/send?text=${encoded}`, "_blank", "noopener");
+    window.open(
+        `https://api.whatsapp.com/send?text=${encoded}`,
+        "_blank",
+        "noopener,noreferrer"
+    );
 });
 
 
@@ -167,9 +203,11 @@ whatsappBtn?.addEventListener("click", () => {
    SMS
 ======================================================== */
 smsBtn?.addEventListener("click", () => {
-    const text = buildShareText();
+    const text = getShareTextOrWarn();
     if (!text) return;
+
     const encoded = encodeURIComponent(text);
+    // SMS URL schemes vary by platform; this is the broadest safe form.
     window.location.href = `sms:?body=${encoded}`;
 });
 
@@ -178,11 +216,11 @@ smsBtn?.addEventListener("click", () => {
    FACEBOOK MESSENGER
 ======================================================== */
 messengerBtn?.addEventListener("click", () => {
-    const link = encodeURIComponent("https://calm-down-quotes.github.io/");
+    const link = encodeURIComponent(SITE_URL);
     window.open(
         `https://www.messenger.com/share/?link=${link}`,
         "_blank",
-        "noopener"
+        "noopener,noreferrer"
     );
 });
 
@@ -191,16 +229,19 @@ messengerBtn?.addEventListener("click", () => {
    PINTEREST
 ======================================================== */
 pinterestBtn?.addEventListener("click", () => {
-    const description = encodeURIComponent(buildShareText());
-    if (!description) return;
+    const description = buildShareText();
+    if (!description) {
+        alert("Please generate a quote first.");
+        return;
+    }
 
-    const url = encodeURIComponent("https://calm-down-quotes.github.io/");
-    const img = encodeURIComponent("https://calm-down-quotes.github.io/preview.png");
+    const url = encodeURIComponent(SITE_URL);
+    const img = encodeURIComponent(PREVIEW_IMAGE_URL);
 
     window.open(
-        `https://pinterest.com/pin/create/button/?url=${url}&media=${img}&description=${description}`,
+        `https://pinterest.com/pin/create/button/?url=${url}&media=${img}&description=${encodeURIComponent(description)}`,
         "_blank",
-        "noopener"
+        "noopener,noreferrer"
     );
 });
 
@@ -208,8 +249,8 @@ pinterestBtn?.addEventListener("click", () => {
 /* ========================================================
    INSTAGRAM (COPY + INSTRUCTIONS)
 ======================================================== */
-instagramBtn?.addEventListener("click", () => {
-    const text = buildShareText();
+instagramBtn?.addEventListener("click", async () => {
+    const text = getShareTextOrWarn();
     if (!text) return;
 
     alert(
@@ -221,7 +262,11 @@ instagramBtn?.addEventListener("click", () => {
     );
 
     if (navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(text).catch(() => {});
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch {
+            // Silent fail – user still got the instructions.
+        }
     }
 });
 
@@ -230,7 +275,7 @@ instagramBtn?.addEventListener("click", () => {
    NATIVE SHARE (MOBILE)
 ======================================================== */
 shareBtn?.addEventListener("click", async () => {
-    const text = buildShareText();
+    const text = getShareTextOrWarn();
     if (!text) return;
 
     if (navigator.share) {
@@ -238,7 +283,7 @@ shareBtn?.addEventListener("click", async () => {
             await navigator.share({
                 title: "Calm Down Quote",
                 text,
-                url: "https://calm-down-quotes.github.io/"
+                url: SITE_URL
             });
         } catch {
             // user cancelled or share failed silently
