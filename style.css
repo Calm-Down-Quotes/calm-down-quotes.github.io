@@ -415,3 +415,10 @@ footer {
         padding: 36px 32px;
     }
 }
+/* Center the main button in the flex column */
+#quote-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
