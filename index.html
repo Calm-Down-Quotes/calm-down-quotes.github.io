@@ -11,15 +11,15 @@
 
     <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
-    <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes and gentle guidance.">
-    <meta name="keywords" content="calm quotes, mindfulness, anxiety relief, wellness, inspiration, reset, breathing, motivation">
+    <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes, deeper meanings, and gentle guidance.">
+    <meta name="keywords" content="calm quotes, mindfulness, anxiety relief, wellness, inspiration, reset, breathing, motivation, quote meanings, self-care">
     <meta name="author" content="Calm Down Quotes">
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="#000000">
 
     <!-- OpenGraph -->
     <meta property="og:title" content="Calm Down Quotes">
-    <meta property="og:description" content="Reset your mind with calming quotes and gentle guidance.">
+    <meta property="og:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://calm-down-quotes.github.io/preview.png">
     <meta property="og:url" content="https://calm-down-quotes.github.io/">
@@ -28,7 +28,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Calm Down Quotes">
-    <meta name="twitter:description" content="Reset your mind with calming quotes and gentle guidance.">
+    <meta name="twitter:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
     <meta name="twitter:image" content="https://calm-down-quotes.github.io/preview.png">
 
     <!-- Structured Data -->
@@ -38,7 +38,7 @@
       "@type": "WebSite",
       "name": "Calm Down Quotes",
       "url": "https://calm-down-quotes.github.io/",
-      "description": "A calming, minimalist space to reset your thoughts with powerful quotes and gentle guidance.",
+      "description": "A calming, minimalist space to reset your thoughts with powerful quotes, deeper meanings, and gentle guidance.",
       "inLanguage": "en"
     }
     </script>
@@ -56,7 +56,6 @@
 
     <!-- ========================================================
          GOOGLE ADSENSE
-         (client ID is already correct; ONLY data-ad-slot changes)
     ========================================================= -->
     <script async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8271945337069886"
@@ -68,12 +67,9 @@
 </head>
 <body>
 
-    <!-- ========================================================
-         MAIN CONTENT
-    ========================================================= -->
     <main class="container">
 
-        <!-- Animated Breathing Circle -->
+        <!-- Breathing Animation -->
         <div class="breathing-circle" aria-hidden="true"></div>
 
         <h1>Calm Down Quotes</h1>
@@ -84,29 +80,31 @@
             Give Me a Quote
         </button>
 
-        <!-- ========================================================
-             QUOTE CARD
-        ========================================================= -->
+        <!-- Quote Box -->
         <section id="quote-box" class="hidden" aria-live="polite">
-            <!-- Quote -->
-            <p class="quote" id="quote-text"></p>
 
-            <!-- Author -->
+            <p class="quote" id="quote-text"></p>
             <p class="author" id="quote-author"></p>
 
-            <!-- Meaning -->
+            <p class="meaning-label">Meaning</p>
             <p class="meaning" id="quote-meaning"></p>
 
-            <!-- Instruction -->
+            <p class="instruction-label">Try This</p>
             <p class="instruction" id="quote-instruction"></p>
 
-            <!-- Copy Button -->
+            <p class="category-label">Category</p>
+            <p class="category" id="quote-category"></p>
+
+            <p class="tags-label">Tags</p>
+            <p class="tags" id="quote-tags"></p>
+
+            <!-- Copy -->
             <div class="copy-row">
                 <button id="copy-btn" class="copy-btn" type="button">Copy Quote</button>
-                <span id="copy-feedback" class="copy-feedback" aria-live="polite" aria-atomic="true"></span>
+                <span id="copy-feedback" class="copy-feedback" aria-live="polite"></span>
             </div>
 
-            <!-- Share Buttons -->
+            <!-- Share -->
             <div class="share-buttons">
                 <button id="whatsapp-btn"   class="share-btn" type="button">WhatsApp</button>
                 <button id="sms-btn"        class="share-btn" type="button">SMS</button>
@@ -114,7 +112,6 @@
                 <button id="instagram-btn"  class="share-btn" type="button">Instagram</button>
                 <button id="pinterest-btn"  class="share-btn" type="button">Pinterest</button>
 
-                <!-- Native Device Share -->
                 <button id="share-btn" class="share-btn primary-share" type="button">Share</button>
             </div>
 
@@ -123,37 +120,31 @@
     </main>
 
     <!-- ========================================================
-         FOOTER AD (MANUAL AD UNIT)
-         IMPORTANT:
-         - Replace YOUR_AD_SLOT_ID_HERE with the real slot ID from AdSense
+         FOOTER AD
     ========================================================= -->
     <div class="footer-ad">
         <ins class="adsbygoogle"
-             style="display:block; margin-top:20px;"
-             data-ad-client="ca-pub-8271945337069886"
-             data-ad-slot="4350335788"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+            style="display:block; margin-top:20px;"
+            data-ad-client="ca-pub-8271945337069886"
+            data-ad-slot="4350335788"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
     </div>
+
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 
-    <!-- ========================================================
-         FOOTER
-    ========================================================= -->
     <footer>
-        <nav class="footer-links" aria-label="Legal links">
+        <nav class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
-            <span aria-hidden="true">|</span>
+            <span>|</span>
             <a href="terms.html">Terms of Service</a>
         </nav>
         <p>© 2025 Calm Down Quotes. All rights reserved.</p>
     </footer>
 
-    <!-- JS -->
     <script src="script.js" defer></script>
 
 </body>
 </html>
-
