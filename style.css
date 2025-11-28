@@ -420,5 +420,14 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
+/* Force quote non-italic, author italic */
+p.quote#quote-text {
+    font-style: normal !important;
+}
+
+p.author#quote-author {
+    font-style: italic !important;
+}
+
 
 
