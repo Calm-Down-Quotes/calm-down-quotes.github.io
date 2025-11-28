@@ -1,7 +1,2844 @@
 [
-  /* ==============================
-     AFRICAN PROVERBS (20)
-  =============================== */
+  {
+    "quote": "The happiness of your life depends upon the quality of your thoughts.",
+    "author": "Marcus Aurelius",
+    "meaning": "Your inner peace deepens when you choose thoughts that support calm instead of stress.",
+    "instruction": "Choose one calming thought and return to it today.",
+    "category": "Calm & Stillness",
+    "tags": ["stoic", "mind", "clarity", "stillness"]
+  },
+  {
+    "quote": "He suffers more than necessary who suffers before it is necessary.",
+    "author": "Seneca",
+    "meaning": "Most suffering comes from imagining problems that haven't happened.",
+    "instruction": "Ask yourself: 'Is this problem happening right now?'",
+    "category": "Anxiety Relief",
+    "tags": ["anxiety", "fear", "stoicism"]
+  },
+  {
+    "quote": "We should always be asking ourselves: 'Is this something that is, or is not, in my control?'",
+    "author": "Epictetus",
+    "meaning": "Peace begins when you stop carrying things that aren't yours to carry.",
+    "instruction": "Release one worry outside your control.",
+    "category": "Calm & Stillness",
+    "tags": ["control", "resilience", "stoic"]
+  },
+  {
+    "quote": "The whole future lies in uncertainty; live immediately.",
+    "author": "Seneca",
+    "meaning": "Anxiety fades when you focus on what is in front of you.",
+    "instruction": "Do one small thing that grounds you in the present moment.",
+    "category": "Mindfulness & Presence",
+    "tags": ["present", "mindfulness", "stoic"]
+  },
+  {
+    "quote": "If you are distressed by anything external, the pain is not due to the thing itself but to your estimate of it.",
+    "author": "Marcus Aurelius",
+    "meaning": "The way you interpret an event affects you more than the event itself.",
+    "instruction": "Challenge one stressful interpretation today.",
+    "category": "Strength & Resilience",
+    "tags": ["mindset", "clarity", "stoicism"]
+  },
+
+  {
+    "quote": "Nothing is more honorable than a grateful heart.",
+    "author": "Seneca",
+    "meaning": "Gratitude grounds the mind in what is working instead of what is missing.",
+    "instruction": "Name one simple thing you appreciate right now.",
+    "category": "Healing & Hope",
+    "tags": ["gratitude", "healing", "softness"]
+  },
+  {
+    "quote": "Do not spoil what you have by desiring what you have not.",
+    "author": "Epicurus",
+    "meaning": "Contentment begins with recognising the value of what is already here.",
+    "instruction": "Look around and remind yourself what is already enough.",
+    "category": "Calm & Stillness",
+    "tags": ["contentment", "gratitude", "calm"]
+  },
+  {
+    "quote": "Nature does not hurry, yet everything is accomplished.",
+    "author": "Lao Tzu",
+    "meaning": "There is no need to rush; calm consistency is powerful.",
+    "instruction": "Slow your breathing for the next five seconds.",
+    "category": "Mindfulness & Presence",
+    "tags": ["tao", "calmness", "nature"]
+  },
+  {
+    "quote": "Peace comes from within. Do not seek it without.",
+    "author": "Buddha",
+    "meaning": "Lasting peace is something you cultivate internally, not something you find outside.",
+    "instruction": "Pause and place your attention on your breathing.",
+    "category": "Calm & Stillness",
+    "tags": ["buddha", "peace", "inner calm"]
+  },
+  {
+    "quote": "You, yourself, as much as anybody in the entire universe, deserve your love and affection.",
+    "author": "Buddha",
+    "meaning": "Self-kindness is not optional; it is a foundation for healing.",
+    "instruction": "Tell yourself one gentle sentence.",
+    "category": "Healing & Hope",
+    "tags": ["self-love", "compassion", "healing"]
+  },
+
+  {
+    "quote": "Let go, or be dragged.",
+    "author": "Zen Proverb",
+    "meaning": "Holding onto what hurts only intensifies the suffering.",
+    "instruction": "Identify one thing to gently let go of today.",
+    "category": "Anxiety Relief",
+    "tags": ["zen", "letting go", "anxiety"]
+  },
+  {
+    "quote": "Sitting quietly, doing nothing, spring comes and the grass grows by itself.",
+    "author": "Zen Proverb",
+    "meaning": "Life unfolds naturally without constant force or effort.",
+    "instruction": "Sit still for 15 seconds and simply breathe.",
+    "category": "Mindfulness & Presence",
+    "tags": ["zen", "stillness", "presence"]
+  },
+  {
+    "quote": "The obstacle is the path.",
+    "author": "Zen Proverb",
+    "meaning": "Challenges are not blocks; they are teachers.",
+    "instruction": "Reflect on what your current challenge is guiding you toward.",
+    "category": "Strength & Resilience",
+    "tags": ["zen", "growth", "strength"]
+  },
+  {
+    "quote": "When the student is ready, the teacher will appear.",
+    "author": "Zen Proverb",
+    "meaning": "Clarity comes when the mind becomes open to seeing it.",
+    "instruction": "Take one slow breath and open yourself to insight.",
+    "category": "Spiritual Peace",
+    "tags": ["zen", "awareness", "clarity"]
+  },
+  {
+    "quote": "The wound is the place where the light enters you.",
+    "author": "Rumi",
+    "meaning": "Pain opens pathways for transformation and understanding.",
+    "instruction": "Allow one emotion to exist without judging it.",
+    "category": "Healing & Hope",
+    "tags": ["rumi", "healing", "growth"]
+  },
+
+  {
+    "quote": "Raise your words, not voice. It is rain that grows flowers, not thunder.",
+    "author": "Rumi",
+    "meaning": "Gentle communication creates harmony, not force.",
+    "instruction": "Speak calmly in your next difficult interaction.",
+    "category": "Calm & Stillness",
+    "tags": ["rumi", "softness", "calm"]
+  },
+  {
+    "quote": "Respond to every call that excites your spirit.",
+    "author": "Rumi",
+    "meaning": "Your intuition points you toward expansion and growth.",
+    "instruction": "Follow one uplifting instinct today.",
+    "category": "Strength & Resilience",
+    "tags": ["intuition", "motivation", "rumi"]
+  },
+  {
+    "quote": "Act without expectation.",
+    "author": "Lao Tzu",
+    "meaning": "Peace comes from doing without needing a result.",
+    "instruction": "Do one small task today purely for its own sake.",
+    "category": "Mindfulness & Presence",
+    "tags": ["tao", "presence", "acceptance"]
+  },
+  {
+    "quote": "Be not afraid of going slowly; be afraid only of standing still.",
+    "author": "Chinese Proverb",
+    "meaning": "Steady progress is more important than speed.",
+    "instruction": "Take one small step forward today.",
+    "category": "Strength & Resilience",
+    "tags": ["progress", "proverb", "patience"]
+  },
+  {
+    "quote": "When the heart is at ease, the body is healthy.",
+    "author": "Chinese Proverb",
+    "meaning": "Emotional calm directly supports physical well-being.",
+    "instruction": "Relax your shoulders and take a deep breath.",
+    "category": "Calm & Stillness",
+    "tags": ["health", "ease", "calm"]
+  },
+  {
+    "quote": "Tension is who you think you should be. Relaxation is who you are.",
+    "author": "Chinese Proverb",
+    "meaning": "Inner pressure comes from trying to meet imagined expectations; calm appears when you return to yourself.",
+    "instruction": "Let your next exhale be slower than your inhale.",
+    "category": "Anxiety Relief",
+    "tags": ["relaxation", "ease", "proverb"]
+  },
+  {
+    "quote": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+    "author": "Walt Whitman",
+    "meaning": "Your focus shapes your emotional world more than circumstances do.",
+    "instruction": "Think of one hopeful outcome for your day.",
+    "category": "Healing & Hope",
+    "tags": ["hope", "light", "renewal"]
+  },
+  {
+    "quote": "Adopt the pace of nature: her secret is patience.",
+    "author": "Ralph Waldo Emerson",
+    "meaning": "Nature shows that calm, slow growth creates strong foundations.",
+    "instruction": "Slow down one action today and let it feel natural.",
+    "category": "Mindfulness & Presence",
+    "tags": ["nature", "patience", "presence"]
+  },
+  {
+    "quote": "Nothing can bring you peace but yourself.",
+    "author": "Ralph Waldo Emerson",
+    "meaning": "External conditions come and go; inner peace is self-made.",
+    "instruction": "Take one quiet moment to reconnect with yourself.",
+    "category": "Spiritual Peace",
+    "tags": ["inner peace", "spiritual", "calm"]
+  },
+  {
+    "quote": "The greatest wealth is to live content with little.",
+    "author": "Plato",
+    "meaning": "Simplicity frees you from the weight of endless wants.",
+    "instruction": "Appreciate something small and ordinary today.",
+    "category": "Calm & Stillness",
+    "tags": ["contentment", "simplicity"]
+  },
+  {
+    "quote": "Be gentle with yourself; you are doing the best you can.",
+    "author": "Unknown",
+    "meaning": "Self-compassion nurtures healing and reduces unnecessary pressure.",
+    "instruction": "Say one kind sentence to yourself.",
+    "category": "Healing & Hope",
+    "tags": ["self-care", "healing", "compassion"]
+  },
+  {
+    "quote": "Anxiety is nothing but repeatedly experiencing failure in advance.",
+    "author": "Seth Godin",
+    "meaning": "Worry is the mind practicing negative outcomes that haven't happened.",
+    "instruction": "Replace one fearful prediction with a neutral one.",
+    "category": "Anxiety Relief",
+    "tags": ["anxiety", "fear", "mindset"]
+  },
+  {
+    "quote": "The quieter you become, the more you can hear.",
+    "author": "Ram Dass",
+    "meaning": "Silence strengthens clarity and awareness.",
+    "instruction": "Sit in stillness for ten seconds.",
+    "category": "Mindfulness & Presence",
+    "tags": ["silence", "clarity", "presence"]
+  },
+  {
+    "quote": "Let whatever comes, come. Let whatever stays, stay. Let whatever goes, go.",
+    "author": "Papaji",
+    "meaning": "Acceptance reduces suffering and allows life to flow naturally.",
+    "instruction": "Let go of one expectation today.",
+    "category": "Spiritual Peace",
+    "tags": ["acceptance", "letting go", "flow"]
+  },
+  {
+    "quote": "You are allowed to rest. You are allowed to slow down.",
+    "author": "Unknown",
+    "meaning": "Rest is a necessary part of healing and growth.",
+    "instruction": "Allow yourself five slow breaths.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "healing", "slow"]
+  },
+
+  {
+    "quote": "Do not let the behavior of others destroy your inner peace.",
+    "author": "Dalai Lama",
+    "meaning": "Protecting your peace is an act of self-respect.",
+    "instruction": "Detach emotionally from one negative interaction.",
+    "category": "Strength & Resilience",
+    "tags": ["peace", "boundaries", "strength"]
+  },
+  {
+    "quote": "There is no path to peace. Peace is the path.",
+    "author": "Buddha",
+    "meaning": "Peace is created moment by moment through your intentions.",
+    "instruction": "Do one peaceful action today.",
+    "category": "Spiritual Peace",
+    "tags": ["peace", "presence", "buddha"]
+  },
+  {
+    "quote": "When you realize nothing is lacking, the whole world belongs to you.",
+    "author": "Lao Tzu",
+    "meaning": "Abundance is a mindset, not a possession.",
+    "instruction": "Find one thing you already have that brings joy.",
+    "category": "Calm & Stillness",
+    "tags": ["abundance", "tao", "gratitude"]
+  },
+  {
+    "quote": "Silence is a source of great strength.",
+    "author": "Lao Tzu",
+    "meaning": "Inner quiet increases clarity and emotional power.",
+    "instruction": "Pause for a moment of silence before your next decision.",
+    "category": "Strength & Resilience",
+    "tags": ["silence", "tao", "strength"]
+  },
+  {
+    "quote": "Wherever you go, go with all your heart.",
+    "author": "Confucius",
+    "meaning": "Presence and sincerity bring peace to every action.",
+    "instruction": "Give your full attention to the next thing you do.",
+    "category": "Mindfulness & Presence",
+    "tags": ["presence", "heart", "focus"]
+  },
+
+  {
+    "quote": "Everything has beauty, but not everyone sees it.",
+    "author": "Confucius",
+    "meaning": "Calm appears when you look beyond the surface.",
+    "instruction": "Find one small detail of beauty today.",
+    "category": "Healing & Hope",
+    "tags": ["beauty", "hope", "awareness"]
+  },
+  {
+    "quote": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius",
+    "meaning": "Consistency matters more than speed.",
+    "instruction": "Continue one thing today at your own pace.",
+    "category": "Strength & Resilience",
+    "tags": ["progress", "perseverance"]
+  },
+  {
+    "quote": "Act with kindness, but do not expect gratitude.",
+    "author": "Confucius",
+    "meaning": "True kindness comes from intention, not reward.",
+    "instruction": "Do one kind act without telling anyone.",
+    "category": "Spiritual Peace",
+    "tags": ["kindness", "humility"]
+  },
+  {
+    "quote": "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.",
+    "author": "Buddha",
+    "meaning": "Attention in the present dissolves regret and fear.",
+    "instruction": "Bring your focus back to what you are doing right now.",
+    "category": "Mindfulness & Presence",
+    "tags": ["present", "mindfulness", "focus"]
+  },
+  {
+    "quote": "Three things cannot be long hidden: the sun, the moon, and the truth.",
+    "author": "Buddha",
+    "meaning": "Truth always rises into clarity when the mind becomes still.",
+    "instruction": "Be honest about one emotion you are holding.",
+    "category": "Calm & Stillness",
+    "tags": ["truth", "clarity", "buddha"]
+  },
+
+  {
+    "quote": "The mind is everything. What you think you become.",
+    "author": "Buddha",
+    "meaning": "Your thoughts create your emotional reality.",
+    "instruction": "Choose one intentional thought today.",
+    "category": "Strength & Resilience",
+    "tags": ["thoughts", "mind", "focus"]
+  },
+  {
+    "quote": "Your task is not to seek for love, but to find all the barriers within yourself that you have built against it.",
+    "author": "Rumi",
+    "meaning": "Healing often means softening the defenses built from past pain.",
+    "instruction": "Notice one area where you hold emotional tension.",
+    "category": "Healing & Hope",
+    "tags": ["rumi", "healing", "love"]
+  },
+  {
+    "quote": "What you seek is seeking you.",
+    "author": "Rumi",
+    "meaning": "Your deepest desires align with the path meant for you.",
+    "instruction": "Pay attention to what keeps calling your heart.",
+    "category": "Spiritual Peace",
+    "tags": ["destiny", "rumi", "soul"]
+  },
+  {
+    "quote": "The soul always knows what to do to heal itself. The challenge is to silence the mind.",
+    "author": "Caroline Myss",
+    "meaning": "Inner wisdom becomes clearer when mental noise settles.",
+    "instruction": "Take a slow breath and allow quietness to form.",
+    "category": "Calm & Stillness",
+    "tags": ["healing", "inner wisdom", "silence"]
+  },
+  {
+    "quote": "There is a crack in everything. That's how the light gets in.",
+    "author": "Leonard Cohen",
+    "meaning": "Your imperfections allow growth, connection, and healing.",
+    "instruction": "Accept one flaw with gentleness.",
+    "category": "Healing & Hope",
+    "tags": ["hope", "healing", "light"]
+  },
+  {
+    "quote": "The only way out is through.",
+    "author": "Robert Frost",
+    "meaning": "Peace grows when you face challenges instead of avoiding them.",
+    "instruction": "Identify one thing you're avoiding and take a tiny step toward it.",
+    "category": "Strength & Resilience",
+    "tags": ["courage", "resilience", "progress"]
+  },
+  {
+    "quote": "This too shall pass.",
+    "author": "Persian Proverb",
+    "meaning": "All things—pain included—are temporary.",
+    "instruction": "Remind yourself that the moment you're in is not permanent.",
+    "category": "Anxiety Relief",
+    "tags": ["impermanence", "hope", "calm"]
+  },
+  {
+    "quote": "When you let go of what you are, you become what you might be.",
+    "author": "Lao Tzu",
+    "meaning": "Letting go of rigid identity opens the door to growth.",
+    "instruction": "Release one self-imposed expectation.",
+    "category": "Healing & Hope",
+    "tags": ["tao", "growth", "identity"]
+  },
+  {
+    "quote": "The best time to plant a tree was 20 years ago. The second best time is now.",
+    "author": "Chinese Proverb",
+    "meaning": "It’s never too late to begin again.",
+    "instruction": "Start one small thing you’ve been delaying.",
+    "category": "Strength & Resilience",
+    "tags": ["action", "progress", "proverb"]
+  },
+  {
+    "quote": "You must learn to let go. Release the stress. You were never in control anyway.",
+    "author": "Steve Maraboli",
+    "meaning": "Trying to control everything only amplifies anxiety.",
+    "instruction": "Soften your grip on one stressful thought.",
+    "category": "Anxiety Relief",
+    "tags": ["stress", "release", "calm"]
+  },
+
+  {
+    "quote": "The soul becomes dyed with the color of its thoughts.",
+    "author": "Marcus Aurelius",
+    "meaning": "Your mindset colors your emotional world.",
+    "instruction": "Choose one thought today that aligns with peace.",
+    "category": "Calm & Stillness",
+    "tags": ["stoic", "mind", "peace"]
+  },
+  {
+    "quote": "Difficulties strengthen the mind, as labor does the body.",
+    "author": "Seneca",
+    "meaning": "Challenges build psychological resilience.",
+    "instruction": "Reframe one difficulty as a source of strength.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "growth", "stoicism"]
+  },
+  {
+    "quote": "Sometimes the most important thing in a whole day is the rest we take between two deep breaths.",
+    "author": "Etty Hillesum",
+    "meaning": "Short moments of stillness restore balance.",
+    "instruction": "Take two slow breaths in a row right now.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "breath", "presence"]
+  },
+  {
+    "quote": "Worry does not empty tomorrow of its sorrow. It empties today of its strength.",
+    "author": "Corrie Ten Boom",
+    "meaning": "Anxiety drains your present energy.",
+    "instruction": "Bring your focus back to the task in front of you.",
+    "category": "Anxiety Relief",
+    "tags": ["worry", "strength", "present"]
+  },
+  {
+    "quote": "If you want others to be happy, practice compassion. If you want to be happy, practice compassion.",
+    "author": "Dalai Lama",
+    "meaning": "Compassion calms your heart and connects you to others.",
+    "instruction": "Offer one gentle gesture to someone today.",
+    "category": "Spiritual Peace",
+    "tags": ["compassion", "peace", "kindness"]
+  },
+
+  {
+    "quote": "Do every act of your life as though it were the last.",
+    "author": "Marcus Aurelius",
+    "meaning": "Presence makes even simple actions meaningful.",
+    "instruction": "Do your next task with full attention.",
+    "category": "Mindfulness & Presence",
+    "tags": ["present", "attention", "stoicism"]
+  },
+  {
+    "quote": "The greatest weapon against stress is our ability to choose one thought over another.",
+    "author": "William James",
+    "meaning": "You can reclaim your calm by redirecting your focus.",
+    "instruction": "Replace one stressful thought with a supportive one.",
+    "category": "Anxiety Relief",
+    "tags": ["thoughts", "stress", "choice"]
+  },
+  {
+    "quote": "Sometimes letting things go is an act of far greater power than defending or hanging on.",
+    "author": "Eckhart Tolle",
+    "meaning": "Releasing heavy things is a sign of inner strength, not weakness.",
+    "instruction": "Let go of one thing you can’t control.",
+    "category": "Healing & Hope",
+    "tags": ["letting go", "healing", "strength"]
+  },
+  {
+    "quote": "Realize deeply that the present moment is all you ever have.",
+    "author": "Eckhart Tolle",
+    "meaning": "Peace grows when you fully occupy the now.",
+    "instruction": "Bring your focus into your body for five seconds.",
+    "category": "Mindfulness & Presence",
+    "tags": ["presence", "now", "awareness"]
+  },
+  {
+    "quote": "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+    "author": "Ralph Waldo Emerson",
+    "meaning": "Your inner strength is greater than your circumstances.",
+    "instruction": "Remember one time you overcame something difficult.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "inner power", "resilience"]
+  },
+
+  {
+    "quote": "Look at the birds of the air; they do not sow or reap... yet your heavenly Father feeds them.",
+    "author": "Matthew 6:26",
+    "meaning": "Life supports you more than you realise; trust loosens fear.",
+    "instruction": "Release one fear by taking a slow exhale.",
+    "category": "Spiritual Peace",
+    "tags": ["faith", "trust", "calm"]
+  },
+  {
+    "quote": "Be faithful in small things because it is in them that your strength lies.",
+    "author": "Mother Teresa",
+    "meaning": "Small acts of care and love create a deep sense of purpose.",
+    "instruction": "Do one small act of kindness.",
+    "category": "Healing & Hope",
+    "tags": ["kindness", "purpose", "care"]
+  },
+  {
+    "quote": "The journey is the reward.",
+    "author": "Chinese Proverb",
+    "meaning": "Peace comes from appreciating the process, not chasing the outcome.",
+    "instruction": "Focus on the step you're in, not the destination.",
+    "category": "Mindfulness & Presence",
+    "tags": ["journey", "presence", "proverb"]
+  },
+  {
+    "quote": "When you feel the worst, that is when you need to give yourself the most love.",
+    "author": "Unknown",
+    "meaning": "Hard emotions are signs you need gentleness, not pressure.",
+    "instruction": "Offer yourself one comforting thought.",
+    "category": "Healing & Hope",
+    "tags": ["self-love", "healing", "comfort"]
+  },
+  {
+    "quote": "An ounce of calm is worth more than a pound of anxiety.",
+    "author": "English Proverb",
+    "meaning": "Calm thinking leads to better decisions and better days.",
+    "instruction": "Pause before reacting to something stressful.",
+    "category": "Calm & Stillness",
+    "tags": ["calm", "clarity", "proverb"]
+  },
+
+  {
+    "quote": "Sometimes the smallest step in the right direction becomes the biggest step of your life.",
+    "author": "Naeem Callaway",
+    "meaning": "Big changes start from small, gentle beginnings.",
+    "instruction": "Take one small step toward something meaningful.",
+    "category": "Strength & Resilience",
+    "tags": ["progress", "momentum", "strength"]
+  },
+  {
+    "quote": "When you can't control what's happening, challenge yourself to control how you respond.",
+    "author": "Unknown",
+    "meaning": "Your response is your power, even when circumstances are not.",
+    "instruction": "Choose one calm response today.",
+    "category": "Anxiety Relief",
+    "tags": ["control", "calm", "response"]
+  },
+  {
+    "quote": "To understand the immeasurable, the mind must be extraordinarily quiet.",
+    "author": "Jiddu Krishnamurti",
+    "meaning": "Deep insight comes from silence, not noise.",
+    "instruction": "Sit quietly for ten seconds and observe your breath.",
+    "category": "Mindfulness & Presence",
+    "tags": ["silence", "awareness", "presence"]
+  },
+  {
+    "quote": "You cannot stop the waves, but you can learn to surf.",
+    "author": "Jon Kabat-Zinn",
+    "meaning": "Life brings challenges; mindfulness helps you move with them instead of resisting.",
+    "instruction": "Accept one challenge without fighting it.",
+    "category": "Strength & Resilience",
+    "tags": ["mindfulness", "adaptation", "resilience"]
+  },
+  {
+    "quote": "Your calm mind is the ultimate weapon against your challenges.",
+    "author": "Bryant McGill",
+    "meaning": "Composure gives you clarity, power, and emotional stability.",
+    "instruction": "Bring awareness to your breathing when faced with stress.",
+    "category": "Calm & Stillness",
+    "tags": ["calm", "strength", "clarity"]
+  },
+  {
+    "quote": "Peace begins when expectation ends.",
+    "author": "Sri Chinmoy",
+    "meaning": "Most tension comes from demanding outcomes instead of allowing life to unfold.",
+    "instruction": "Release one expectation you’ve been holding tightly.",
+    "category": "Calm & Stillness",
+    "tags": ["peace", "expectations", "calm"]
+  },
+  {
+    "quote": "Nothing ever goes away until it has taught us what we need to know.",
+    "author": "Pema Chödrön",
+    "meaning": "Recurring emotions often contain lessons waiting to be understood.",
+    "instruction": "Ask yourself what your current struggle is teaching you.",
+    "category": "Healing & Hope",
+    "tags": ["healing", "emotions", "growth"]
+  },
+  {
+    "quote": "The only thing that is ultimately real about your journey is the step you are taking at this moment.",
+    "author": "Eckhart Tolle",
+    "meaning": "Presence gives your life meaning and reduces overwhelming thoughts.",
+    "instruction": "Focus deeply on the next single step you take.",
+    "category": "Mindfulness & Presence",
+    "tags": ["presence", "now", "mindfulness"]
+  },
+  {
+    "quote": "Every moment is a fresh beginning.",
+    "author": "T.S. Eliot",
+    "meaning": "No matter what happened before, you can start again right now.",
+    "instruction": "Reset your posture, your breath, or your thoughts in this moment.",
+    "category": "Healing & Hope",
+    "tags": ["fresh start", "renewal", "hope"]
+  },
+  {
+    "quote": "Almost everything will work again if you unplug it for a few minutes… including you.",
+    "author": "Anne Lamott",
+    "meaning": "Rest and brief pauses restore clarity and emotional stability.",
+    "instruction": "Step away from your screen and breathe deeply twice.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "pause", "reset"]
+  },
+
+  {
+    "quote": "Smile, breathe, and go slowly.",
+    "author": "Thich Nhat Hanh",
+    "meaning": "Gentleness toward yourself invites peace into your body and mind.",
+    "instruction": "Slow your next three breaths and soften your face.",
+    "category": "Mindfulness & Presence",
+    "tags": ["breathing", "gentleness", "mindfulness"]
+  },
+  {
+    "quote": "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.",
+    "author": "Thich Nhat Hanh",
+    "meaning": "Breathing gives stability in moments of emotional fluctuation.",
+    "instruction": "Inhale for four seconds, exhale for four seconds.",
+    "category": "Anxiety Relief",
+    "tags": ["breath", "calm", "anxiety"]
+  },
+  {
+    "quote": "If your compassion does not include yourself, it is incomplete.",
+    "author": "Jack Kornfield",
+    "meaning": "Self-kindness is the missing piece in most healing journeys.",
+    "instruction": "Say something forgiving to yourself right now.",
+    "category": "Healing & Hope",
+    "tags": ["self-love", "forgiveness", "compassion"]
+  },
+  {
+    "quote": "You don’t have to solve everything today.",
+    "author": "Unknown",
+    "meaning": "Taking things one piece at a time reduces anxiety and overwhelm.",
+    "instruction": "Do only the next doable task.",
+    "category": "Anxiety Relief",
+    "tags": ["overwhelm", "calm", "slow"]
+  },
+  {
+    "quote": "Breathe. You’re home.",
+    "author": "Thich Nhat Hanh",
+    "meaning": "A single mindful breath can return you to stillness.",
+    "instruction": "Take one full, intentional breath.",
+    "category": "Spiritual Peace",
+    "tags": ["breathing", "presence", "peace"]
+  },
+
+  {
+    "quote": "Where there is ruin, there is hope for treasure.",
+    "author": "Rumi",
+    "meaning": "Your lowest moments often become the foundation for transformation.",
+    "instruction": "Look for one opportunity hidden inside your challenge.",
+    "category": "Healing & Hope",
+    "tags": ["rumi", "hope", "transformation"]
+  },
+  {
+    "quote": "You are not a drop in the ocean. You are the entire ocean in a drop.",
+    "author": "Rumi",
+    "meaning": "Your inner world holds more depth and potential than you realise.",
+    "instruction": "Recognize one inner strength you often overlook.",
+    "category": "Spiritual Peace",
+    "tags": ["oneness", "strength", "rumi"]
+  },
+  {
+    "quote": "Let silence take you to the core of life.",
+    "author": "Rumi",
+    "meaning": "Stillness reveals truths that noise hides.",
+    "instruction": "Spend ten seconds in complete silence.",
+    "category": "Calm & Stillness",
+    "tags": ["silence", "stillness", "rumi"]
+  },
+  {
+    "quote": "Set your life on fire. Seek those who fan your flames.",
+    "author": "Rumi",
+    "meaning": "Your peace and strength grow when you surround yourself with supportive people.",
+    "instruction": "Reach out to someone who lifts your spirit.",
+    "category": "Strength & Resilience",
+    "tags": ["community", "growth", "support"]
+  },
+  {
+    "quote": "The universe is not outside of you. Look inside yourself; everything you want, you already are.",
+    "author": "Rumi",
+    "meaning": "Fulfillment is found through inner exploration, not external pursuit.",
+    "instruction": "Reflect on one quality you already possess in abundance.",
+    "category": "Mindfulness & Presence",
+    "tags": ["self-awareness", "inner world", "rumi"]
+  },
+
+  {
+    "quote": "You only lose what you cling to.",
+    "author": "Buddha",
+    "meaning": "Attachment creates anxiety; acceptance creates peace.",
+    "instruction": "Relax your grip on one outcome.",
+    "category": "Anxiety Relief",
+    "tags": ["attachment", "release", "buddha"]
+  },
+  {
+    "quote": "In the end, only three things matter: how well we have lived, how well we have loved, and how well we have let go.",
+    "author": "Buddha",
+    "meaning": "Letting go is as important as love and action.",
+    "instruction": "Let go of a small resentment today.",
+    "category": "Healing & Hope",
+    "tags": ["letting go", "wisdom", "buddha"]
+  },
+  {
+    "quote": "Your worst enemy cannot harm you as much as your own unguarded thoughts.",
+    "author": "Buddha",
+    "meaning": "Your inner dialogue shapes your emotional experience.",
+    "instruction": "Replace one harsh thought with a compassionate one.",
+    "category": "Strength & Resilience",
+    "tags": ["thoughts", "mind", "buddha"]
+  },
+  {
+    "quote": "To understand everything is to forgive everything.",
+    "author": "Buddha",
+    "meaning": "Understanding dissolves anger and brings compassion.",
+    "instruction": "Consider one situation from another viewpoint.",
+    "category": "Spiritual Peace",
+    "tags": ["forgiveness", "compassion", "buddha"]
+  },
+  {
+    "quote": "The trouble is, you think you have time.",
+    "author": "Buddha",
+    "meaning": "Life is fragile—presence makes each moment meaningful.",
+    "instruction": "Fully engage with the moment you are in right now.",
+    "category": "Mindfulness & Presence",
+    "tags": ["presence", "time", "awareness"]
+  },
+
+  {
+    "quote": "He who fears he will suffer already suffers what he fears.",
+    "author": "Michel de Montaigne",
+    "meaning": "Fear creates suffering before anything happens.",
+    "instruction": "Interrupt one fear cycle by focusing on what is real.",
+    "category": "Anxiety Relief",
+    "tags": ["fear", "mind", "clarity"]
+  },
+  {
+    "quote": "A calm mind brings inner strength and self-confidence.",
+    "author": "Dalai Lama",
+    "meaning": "Inner stability gives rise to courage and clear action.",
+    "instruction": "Breathe deeply to soften your emotional state.",
+    "category": "Strength & Resilience",
+    "tags": ["calm", "confidence", "peace"]
+  },
+  {
+    "quote": "Pain is inevitable. Suffering is optional.",
+    "author": "Haruki Murakami",
+    "meaning": "You cannot avoid discomfort, but you can influence your mental response.",
+    "instruction": "Label one emotion without judging it.",
+    "category": "Healing & Hope",
+    "tags": ["pain", "healing", "awareness"]
+  },
+  {
+    "quote": "It is during our darkest moments that we must focus to see the light.",
+    "author": "Aristotle",
+    "meaning": "Hope becomes most powerful when times are hard.",
+    "instruction": "Identify one small source of light in your current situation.",
+    "category": "Healing & Hope",
+    "tags": ["hope", "light", "strength"]
+  },
+  {
+    "quote": "The primary cause of unhappiness is never the situation but your thoughts about it.",
+    "author": "Eckhart Tolle",
+    "meaning": "Mental interpretation determines emotional reaction.",
+    "instruction": "Observe one stressful thought without believing it.",
+    "category": "Anxiety Relief",
+    "tags": ["thoughts", "mind", "interpretation"]
+  },
+
+  {
+    "quote": "The best way out is always through.",
+    "author": "Robert Frost",
+    "meaning": "Avoidance prolongs suffering; facing reality brings relief.",
+    "instruction": "Confront one avoided task with gentleness.",
+    "category": "Strength & Resilience",
+    "tags": ["action", "courage", "growth"]
+  },
+  {
+    "quote": "No mud, no lotus.",
+    "author": "Thich Nhat Hanh",
+    "meaning": "Beautiful things grow from difficult conditions.",
+    "instruction": "Acknowledge one challenge as part of your growth.",
+    "category": "Healing & Hope",
+    "tags": ["growth", "healing", "mindfulness"]
+  },
+  {
+    "quote": "Wherever you stand, be the soul of that place.",
+    "author": "Rumi",
+    "meaning": "Your presence can uplift any environment.",
+    "instruction": "Bring warmth into your next interaction.",
+    "category": "Spiritual Peace",
+    "tags": ["presence", "energy", "rumi"]
+  },
+  {
+    "quote": "Do not go where the path may lead. Go instead where there is no path and leave a trail.",
+    "author": "Ralph Waldo Emerson",
+    "meaning": "True peace comes from walking your own authentic path.",
+    "instruction": "Do something today that aligns with your true self.",
+    "category": "Strength & Resilience",
+    "tags": ["authenticity", "courage", "individuality"]
+  },
+  {
+    "quote": "You are stronger than you think.",
+    "author": "Unknown",
+    "meaning": "Most people underestimate their inner resilience.",
+    "instruction": "Recall a time you overcame something difficult.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "inner power", "courage"]
+  },
+  {
+    "quote": "Peace is not the absence of conflict, but the ability to cope with it.",
+    "author": "Mahatma Gandhi",
+    "meaning": "Inner stability allows you to remain calm even in difficult situations.",
+    "instruction": "Take one slow breath before responding to conflict.",
+    "category": "Strength & Resilience",
+    "tags": ["peace", "conflict", "strength"]
+  },
+  {
+    "quote": "The one who has mastered themselves, has mastered the world.",
+    "author": "Buddha",
+    "meaning": "Self-regulation and inner calm are more powerful than controlling external events.",
+    "instruction": "Notice and soften your next emotional reaction.",
+    "category": "Spiritual Peace",
+    "tags": ["self-mastery", "inner peace", "buddha"]
+  },
+  {
+    "quote": "Stillness is where creativity and solutions are found.",
+    "author": "Eckhart Tolle",
+    "meaning": "Answers appear naturally when the mind becomes quiet.",
+    "instruction": "Sit in silence for ten seconds before solving a problem.",
+    "category": "Calm & Stillness",
+    "tags": ["stillness", "creativity", "clarity"]
+  },
+  {
+    "quote": "You are exactly where you need to be. Trust the timing of your life.",
+    "author": "Unknown",
+    "meaning": "Life unfolds at the pace that supports your growth.",
+    "instruction": "Release one worry about being 'behind'.",
+    "category": "Healing & Hope",
+    "tags": ["trust", "timing", "hope"]
+  },
+  {
+    "quote": "Sometimes all you need is a deep breath and a softer perspective.",
+    "author": "Unknown",
+    "meaning": "Changing your viewpoint can reduce tension instantly.",
+    "instruction": "Pause and breathe deeply once.",
+    "category": "Anxiety Relief",
+    "tags": ["breath", "calm", "perspective"]
+  },
+
+  {
+    "quote": "Quiet the mind and the soul will speak.",
+    "author": "Ma Jaya Sati Bhagavati",
+    "meaning": "Your deeper wisdom appears when mental noise fades.",
+    "instruction": "Spend ten seconds listening inwardly.",
+    "category": "Spiritual Peace",
+    "tags": ["soul", "silence", "inner wisdom"]
+  },
+  {
+    "quote": "You will never be able to escape from your heart, so it’s better to listen to what it has to say.",
+    "author": "Paulo Coelho",
+    "meaning": "Ignoring your inner truth only delays clarity.",
+    "instruction": "Notice one honest feeling today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["heart", "truth", "awareness"]
+  },
+  {
+    "quote": "Nothing is permanent. Everything is subject to change. Being is always becoming.",
+    "author": "Buddha",
+    "meaning": "Impermanence allows change, growth, and emotional release.",
+    "instruction": "Acknowledge one thing in your life that is shifting.",
+    "category": "Healing & Hope",
+    "tags": ["impermanence", "change", "buddha"]
+  },
+  {
+    "quote": "Worry is a misuse of imagination.",
+    "author": "Dan Zadra",
+    "meaning": "Your mind can create possibility or fear; you choose the direction.",
+    "instruction": "Imagine one positive outcome instead of a negative one.",
+    "category": "Anxiety Relief",
+    "tags": ["imagination", "worry", "mind"]
+  },
+  {
+    "quote": "Do not let yesterday take up too much of today.",
+    "author": "Will Rogers",
+    "meaning": "Holding onto the past steals your present peace.",
+    "instruction": "Release one thought from yesterday.",
+    "category": "Mindfulness & Presence",
+    "tags": ["present", "past", "awareness"]
+  },
+
+  {
+    "quote": "One breath at a time. That is how peace enters.",
+    "author": "Unknown",
+    "meaning": "Calmness grows through small, steady breaths.",
+    "instruction": "Take a slow inhale and slow exhale.",
+    "category": "Calm & Stillness",
+    "tags": ["breathing", "calm", "slow"]
+  },
+  {
+    "quote": "Your peace is more important than driving yourself crazy trying to understand why something happened the way it did.",
+    "author": "Unknown",
+    "meaning": "Not all mysteries need solving to find closure.",
+    "instruction": "Let go of the need to understand one confusing situation.",
+    "category": "Healing & Hope",
+    "tags": ["peace", "acceptance", "closure"]
+  },
+  {
+    "quote": "The sun will rise and we will try again.",
+    "author": "Unknown",
+    "meaning": "Every day gives you permission to begin anew.",
+    "instruction": "Choose one simple intention for tomorrow.",
+    "category": "Healing & Hope",
+    "tags": ["renewal", "hope", "new day"]
+  },
+  {
+    "quote": "Surrender to what is. Let go of what was. Have faith in what will be.",
+    "author": "Sonia Ricotti",
+    "meaning": "Acceptance frees you from resistance and fear.",
+    "instruction": "Accept one thing exactly as it is.",
+    "category": "Spiritual Peace",
+    "tags": ["acceptance", "faith", "presence"]
+  },
+  {
+    "quote": "It’s okay to be tired. It’s okay to rest. You’re allowed to take a break.",
+    "author": "Unknown",
+    "meaning": "Your body and emotions need recovery to stay balanced.",
+    "instruction": "Rest for one minute today without guilt.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "self-care", "pause"]
+  },
+
+  {
+    "quote": "Storms make trees take deeper roots.",
+    "author": "Dolly Parton",
+    "meaning": "Difficulty strengthens your foundation and character.",
+    "instruction": "Recognize one way a challenge has made you stronger.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "growth", "roots"]
+  },
+  {
+    "quote": "The more tranquil a man becomes, the greater is his success, his influence, his power for good.",
+    "author": "James Allen",
+    "meaning": "True power comes from steadiness, not aggression.",
+    "instruction": "Practice a calm tone when speaking today.",
+    "category": "Spiritual Peace",
+    "tags": ["tranquility", "influence", "peace"]
+  },
+  {
+    "quote": "Be like water. Flow, adapt, and remain soft.",
+    "author": "Bruce Lee",
+    "meaning": "Flexibility reduces emotional resistance and stress.",
+    "instruction": "Adapt gently to one unexpected moment today.",
+    "category": "Calm & Stillness",
+    "tags": ["water", "flow", "adaptability"]
+  },
+  {
+    "quote": "Do not anticipate trouble, or worry about what may never happen.",
+    "author": "Benjamin Franklin",
+    "meaning": "Most fears are imagined, not real.",
+    "instruction": "Identify one worry and label it as 'future, not now'.",
+    "category": "Anxiety Relief",
+    "tags": ["worry", "mind", "future"]
+  },
+  {
+    "quote": "All the suffering, stress, and addiction comes from not realizing you already are what you are looking for.",
+    "author": "Jon Kabat-Zinn",
+    "meaning": "Peace emerges when you stop chasing and begin noticing.",
+    "instruction": "Acknowledge one good quality you already possess.",
+    "category": "Spiritual Peace",
+    "tags": ["mindfulness", "awareness", "self-realization"]
+  },
+
+  {
+    "quote": "You can’t calm the storm. What you can do is calm yourself. The storm will pass.",
+    "author": "Unknown",
+    "meaning": "Inner calm stabilizes you during difficult times.",
+    "instruction": "Place one hand on your chest and breathe slowly.",
+    "category": "Strength & Resilience",
+    "tags": ["storm", "calm", "inner peace"]
+  },
+  {
+    "quote": "You don’t have to have it all figured out to move forward.",
+    "author": "Unknown",
+    "meaning": "Progress does not require perfection or certainty.",
+    "instruction": "Take one small imperfect step.",
+    "category": "Healing & Hope",
+    "tags": ["progress", "growth", "hope"]
+  },
+  {
+    "quote": "If the ocean can calm itself, so can you. We are both salt water mixed with air.",
+    "author": "Nayyirah Waheed",
+    "meaning": "Your nature is fluid and capable of returning to stillness.",
+    "instruction": "Imagine your breath flowing like waves.",
+    "category": "Calm & Stillness",
+    "tags": ["ocean", "calm", "breath"]
+  },
+  {
+    "quote": "Do small things with great love.",
+    "author": "Mother Teresa",
+    "meaning": "Tiny acts of love create massive emotional impact.",
+    "instruction": "Do one small thoughtful act today.",
+    "category": "Healing & Hope",
+    "tags": ["love", "kindness", "care"]
+  },
+  {
+    "quote": "Nothing can dim the light which shines from within.",
+    "author": "Maya Angelou",
+    "meaning": "Your inner strength persists despite external difficulty.",
+    "instruction": "Recall one inner quality you rely on.",
+    "category": "Strength & Resilience",
+    "tags": ["light", "strength", "inner power"]
+  },
+
+  {
+    "quote": "The quieter the mind, the stronger the heart becomes.",
+    "author": "Unknown",
+    "meaning": "Calmness allows emotional strength to emerge.",
+    "instruction": "Slow your inhale and lengthen your exhale.",
+    "category": "Calm & Stillness",
+    "tags": ["stillness", "strength", "heart"]
+  },
+  {
+    "quote": "Learn to sit with your discomfort. It is the doorway to growth.",
+    "author": "Unknown",
+    "meaning": "Comfort with emotion allows healing and resilience.",
+    "instruction": "Sit with one feeling for five seconds without resisting it.",
+    "category": "Strength & Resilience",
+    "tags": ["growth", "discomfort", "healing"]
+  },
+  {
+    "quote": "You become what you repeatedly focus on.",
+    "author": "James Clear",
+    "meaning": "Your attention shapes your emotional landscape.",
+    "instruction": "Focus intentionally on one supportive thought.",
+    "category": "Mindfulness & Presence",
+    "tags": ["focus", "habits", "mind"]
+  },
+  {
+    "quote": "You deserve a life that feels as good on the inside as it looks on the outside.",
+    "author": "Unknown",
+    "meaning": "Emotional alignment brings lasting peace.",
+    "instruction": "Do one thing that nourishes your inner world.",
+    "category": "Healing & Hope",
+    "tags": ["deserving", "inner peace", "self-care"]
+  },
+  {
+    "quote": "A gentle mind is a powerful mind.",
+    "author": "Unknown",
+    "meaning": "Softness increases clarity and emotional control.",
+    "instruction": "Respond more gently to one situation today.",
+    "category": "Spiritual Peace",
+    "tags": ["gentleness", "power", "clarity"]
+  },
+  {
+    "quote": "Let the waters settle and you will see the moon and stars mirrored in your own being.",
+    "author": "Rumi",
+    "meaning": "Clarity naturally appears when your mind becomes still.",
+    "instruction": "Take ten seconds to let your breath settle.",
+    "category": "Calm & Stillness",
+    "tags": ["rumi", "stillness", "clarity"]
+  },
+  {
+    "quote": "Light tomorrow with today.",
+    "author": "Elizabeth Barrett Browning",
+    "meaning": "Your small actions today shape your future peace.",
+    "instruction": "Do one action that makes tomorrow easier.",
+    "category": "Healing & Hope",
+    "tags": ["future", "hope", "light"]
+  },
+  {
+    "quote": "Be patient. Everything comes to you in the right moment.",
+    "author": "Unknown",
+    "meaning": "Rushing creates anxiety; patience builds trust and calm.",
+    "instruction": "Pause before your next action.",
+    "category": "Mindfulness & Presence",
+    "tags": ["patience", "timing", "calm"]
+  },
+  {
+    "quote": "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven.",
+    "author": "John Milton",
+    "meaning": "Your interpretation shapes your emotional reality.",
+    "instruction": "Reframe one negative interpretation today.",
+    "category": "Strength & Resilience",
+    "tags": ["mindset", "interpretation", "clarity"]
+  },
+  {
+    "quote": "Sometimes the wisest thing you can do is nothing.",
+    "author": "Unknown",
+    "meaning": "Stillness often reveals more than action.",
+    "instruction": "Give yourself permission to pause.",
+    "category": "Calm & Stillness",
+    "tags": ["pause", "silence", "wisdom"]
+  },
+
+  {
+    "quote": "We shape clay into a pot, but it is the emptiness inside that holds whatever we want.",
+    "author": "Lao Tzu",
+    "meaning": "The space you hold within yourself creates peace.",
+    "instruction": "Allow yourself one moment of mental quiet.",
+    "category": "Spiritual Peace",
+    "tags": ["tao", "emptiness", "inner space"]
+  },
+  {
+    "quote": "If you surrender to the wind, you can ride it.",
+    "author": "Toni Morrison",
+    "meaning": "Acceptance allows you to move with life instead of resisting it.",
+    "instruction": "Accept one thing you cannot change today.",
+    "category": "Healing & Hope",
+    "tags": ["acceptance", "flow", "strength"]
+  },
+  {
+    "quote": "There is no path to happiness. Happiness is the path.",
+    "author": "Buddha",
+    "meaning": "Joy is found in how you walk, not where you arrive.",
+    "instruction": "Do one small thing joyfully today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["happiness", "presence", "buddha"]
+  },
+  {
+    "quote": "When you arise in the morning, think of what a privilege it is to be alive.",
+    "author": "Marcus Aurelius",
+    "meaning": "Gratitude grounds you and reduces daily stress.",
+    "instruction": "Acknowledge one blessing in your morning.",
+    "category": "Calm & Stillness",
+    "tags": ["stoic", "morning", "gratitude"]
+  },
+  {
+    "quote": "The greatest prayer is patience.",
+    "author": "Buddha",
+    "meaning": "Patience brings emotional stability and deep peace.",
+    "instruction": "Slow your internal tempo for a few seconds.",
+    "category": "Spiritual Peace",
+    "tags": ["patience", "peace", "buddha"]
+  },
+
+  {
+    "quote": "Sometimes you need to talk to a three-year-old so you can understand life again.",
+    "author": "Unknown",
+    "meaning": "Simplicity reconnects you with joy and perspective.",
+    "instruction": "Simplify one complicated thought.",
+    "category": "Healing & Hope",
+    "tags": ["simplicity", "perspective", "calm"]
+  },
+  {
+    "quote": "If it costs you your peace, it is too expensive.",
+    "author": "Unknown",
+    "meaning": "Anything that destroys your calm is not worth keeping.",
+    "instruction": "Remove one small source of stress today.",
+    "category": "Strength & Resilience",
+    "tags": ["boundaries", "peace", "self-respect"]
+  },
+  {
+    "quote": "Speak only if it improves upon the silence.",
+    "author": "Mahatma Gandhi",
+    "meaning": "Silence often carries more strength than noise.",
+    "instruction": "Pause before responding to someone today.",
+    "category": "Calm & Stillness",
+    "tags": ["silence", "speech", "wisdom"]
+  },
+  {
+    "quote": "Anxiety happens when you think you have to figure out everything all at once.",
+    "author": "Unknown",
+    "meaning": "Breaking life into smaller pieces brings relief.",
+    "instruction": "Only focus on the next 5 minutes.",
+    "category": "Anxiety Relief",
+    "tags": ["anxiety", "overwhelm", "slow"]
+  },
+  {
+    "quote": "The world belongs to the calm.",
+    "author": "Unknown",
+    "meaning": "Composure creates clarity and influence.",
+    "instruction": "Carry yourself gently through your next task.",
+    "category": "Strength & Resilience",
+    "tags": ["calm", "control", "clarity"]
+  },
+
+  {
+    "quote": "The quieter you become, the more you are able to hear.",
+    "author": "Rumi",
+    "meaning": "Only stillness can reveal true understanding.",
+    "instruction": "Spend one breath listening inwardly.",
+    "category": "Spiritual Peace",
+    "tags": ["rumi", "silence", "hearing"]
+  },
+  {
+    "quote": "Let whatever you do today be enough.",
+    "author": "Unknown",
+    "meaning": "Perfection is unnecessary; effort is enough.",
+    "instruction": "Stop pushing yourself beyond your capacity today.",
+    "category": "Healing & Hope",
+    "tags": ["enough", "self-care", "compassion"]
+  },
+  {
+    "quote": "Do not let the behavior of others destroy your inner peace.",
+    "author": "Dalai Lama",
+    "meaning": "Your calm should not depend on other people's moods.",
+    "instruction": "Detach from someone’s negativity today.",
+    "category": "Strength & Resilience",
+    "tags": ["peace", "boundaries", "calm"]
+  },
+  {
+    "quote": "The moon does not fight. It reflects the light.",
+    "author": "Deng Ming-Dao",
+    "meaning": "Softness and acceptance create natural influence.",
+    "instruction": "Respond to conflict with calm presence.",
+    "category": "Spiritual Peace",
+    "tags": ["moon", "softness", "acceptance"]
+  },
+  {
+    "quote": "Your breath is your sanctuary.",
+    "author": "Unknown",
+    "meaning": "Your breathing can immediately re-center your emotions.",
+    "instruction": "Return to your breath whenever you feel overwhelmed.",
+    "category": "Calm & Stillness",
+    "tags": ["breath", "sanctuary", "calm"]
+  },
+
+  {
+    "quote": "Don’t hate the situation… learn from it.",
+    "author": "Unknown",
+    "meaning": "Every difficulty holds a lesson for your growth.",
+    "instruction": "Find one lesson in your current challenge.",
+    "category": "Strength & Resilience",
+    "tags": ["growth", "learning", "resilience"]
+  },
+  {
+    "quote": "You cannot grow unless you step outside your comfort zone.",
+    "author": "Unknown",
+    "meaning": "Discomfort is the price of strength.",
+    "instruction": "Do one small thing that stretches you.",
+    "category": "Strength & Resilience",
+    "tags": ["growth", "courage", "comfort zone"]
+  },
+  {
+    "quote": "Let yourself feel what you feel. That is how emotions move.",
+    "author": "Unknown",
+    "meaning": "Avoiding emotions traps them; feeling them frees them.",
+    "instruction": "Let one emotion exist without suppressing it.",
+    "category": "Healing & Hope",
+    "tags": ["emotions", "healing", "processing"]
+  },
+  {
+    "quote": "If speaking kindly to plants helps them grow, imagine what speaking kindly to yourself can do.",
+    "author": "Unknown",
+    "meaning": "Self-talk shapes your health and mood.",
+    "instruction": "Say one kind sentence to yourself right now.",
+    "category": "Healing & Hope",
+    "tags": ["self-talk", "kindness", "growth"]
+  },
+  {
+    "quote": "The soul always knows what to do to heal itself. The challenge is to silence the mind.",
+    "author": "Caroline Myss",
+    "meaning": "Your inner wisdom emerges when your mind quiets.",
+    "instruction": "Sit quietly for a few seconds before making a decision.",
+    "category": "Spiritual Peace",
+    "tags": ["healing", "inner wisdom", "silence"]
+  },
+
+  {
+    "quote": "Rest is not a luxury. It is a responsibility.",
+    "author": "Unknown",
+    "meaning": "Your body and mind require rest to function well.",
+    "instruction": "Build a short rest into your day.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "self-care", "balance"]
+  },
+  {
+    "quote": "You can be a masterpiece and a work in progress at the same time.",
+    "author": "Sophia Bush",
+    "meaning": "You don’t need to be perfect to be worthy.",
+    "instruction": "Recognize both your strength and your growth.",
+    "category": "Healing & Hope",
+    "tags": ["growth", "self-worth", "progress"]
+  },
+  {
+    "quote": "Be kind, for everyone you meet is fighting a hard battle.",
+    "author": "Ian Maclaren",
+    "meaning": "Compassion softens conflict and builds connection.",
+    "instruction": "Show small kindness to someone today.",
+    "category": "Spiritual Peace",
+    "tags": ["kindness", "compassion", "awareness"]
+  },
+  {
+    "quote": "Don't fill your mind with worry. Empty it of everything but peace.",
+    "author": "Unknown",
+    "meaning": "Overthinking clutters your mind; calmness clears it.",
+    "instruction": "Let go of one unnecessary worry.",
+    "category": "Anxiety Relief",
+    "tags": ["peace", "worry", "calm"]
+  },
+  {
+    "quote": "You carry so much love in your heart. Give some to yourself.",
+    "author": "Unknown",
+    "meaning": "Self-love is essential for emotional balance.",
+    "instruction": "Do something gentle for yourself today.",
+    "category": "Healing & Hope",
+    "tags": ["self-love", "healing", "care"]
+  },
+  {
+    "quote": "Be gentle with yourself. You’re doing the best you can.",
+    "author": "Unknown",
+    "meaning": "Self-compassion reduces shame, anxiety, and emotional tension.",
+    "instruction": "Speak to yourself the way you would speak to someone you care about.",
+    "category": "Healing & Hope",
+    "tags": ["gentleness", "compassion", "self-care"]
+  },
+  {
+    "quote": "What you think, you become. What you feel, you attract. What you imagine, you create.",
+    "author": "Buddha",
+    "meaning": "Your inner world shapes your outer experience.",
+    "instruction": "Choose one thought you want to embody today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["thoughts", "creation", "buddha"]
+  },
+  {
+    "quote": "Sometimes the most courageous thing you can do is be still.",
+    "author": "Unknown",
+    "meaning": "Stillness is a form of strength, not weakness.",
+    "instruction": "Pause intentionally before your next decision.",
+    "category": "Calm & Stillness",
+    "tags": ["stillness", "courage", "peace"]
+  },
+  {
+    "quote": "Don’t let your mind bully your body into stress.",
+    "author": "Unknown",
+    "meaning": "Overthinking creates physical tension and emotional pain.",
+    "instruction": "Relax your shoulders and take a slow breath.",
+    "category": "Anxiety Relief",
+    "tags": ["stress", "mind-body", "calm"]
+  },
+  {
+    "quote": "Let the past go. A soft heart does not mean a weak mind.",
+    "author": "Unknown",
+    "meaning": "Forgiving yourself brings emotional strength.",
+    "instruction": "Release one regret today.",
+    "category": "Healing & Hope",
+    "tags": ["past", "forgiveness", "softness"]
+  },
+
+  {
+    "quote": "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.",
+    "author": "Buddha",
+    "meaning": "Peace exists only in the now.",
+    "instruction": "Bring your attention back to your breath.",
+    "category": "Mindfulness & Presence",
+    "tags": ["present", "mindfulness", "buddha"]
+  },
+  {
+    "quote": "What you seek is seeking you.",
+    "author": "Rumi",
+    "meaning": "Your desires align with something already pulling you forward.",
+    "instruction": "Move one step closer to what you want.",
+    "category": "Spiritual Peace",
+    "tags": ["rumi", "destiny", "alignment"]
+  },
+  {
+    "quote": "Reality is created by the mind. We can change our reality by changing our mind.",
+    "author": "Plato",
+    "meaning": "Your perception shapes your experience.",
+    "instruction": "Shift one negative thought to something neutral.",
+    "category": "Strength & Resilience",
+    "tags": ["mind", "reality", "perception"]
+  },
+  {
+    "quote": "Sometimes the hardest thing to do is to do nothing.",
+    "author": "Unknown",
+    "meaning": "Not acting can be a form of wisdom and patience.",
+    "instruction": "Sit without acting on your next impulse.",
+    "category": "Calm & Stillness",
+    "tags": ["patience", "stillness", "restraint"]
+  },
+  {
+    "quote": "The moment you accept what troubles you, the door will open.",
+    "author": "Rumi",
+    "meaning": "Acceptance dissolves emotional resistance.",
+    "instruction": "Accept one troubling thought without fighting it.",
+    "category": "Healing & Hope",
+    "tags": ["rumi", "acceptance", "peace"]
+  },
+
+  {
+    "quote": "To pay attention, this is our endless and proper work.",
+    "author": "Mary Oliver",
+    "meaning": "Presence is the foundation of a meaningful life.",
+    "instruction": "Focus completely on one small task today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["attention", "presence", "awareness"]
+  },
+  {
+    "quote": "Let your faith be bigger than your fear.",
+    "author": "Unknown",
+    "meaning": "Trust reduces anxiety and expands courage.",
+    "instruction": "Replace one fearful thought with trust.",
+    "category": "Spiritual Peace",
+    "tags": ["faith", "fear", "strength"]
+  },
+  {
+    "quote": "It's not what you look at that matters. It's what you see.",
+    "author": "Henry David Thoreau",
+    "meaning": "Your perspective defines your emotional landscape.",
+    "instruction": "Choose a more empowering interpretation today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["perception", "clarity", "thoreau"]
+  },
+  {
+    "quote": "The best cure for the body is a quiet mind.",
+    "author": "Napoleon Bonaparte",
+    "meaning": "Calm thinking supports physical health.",
+    "instruction": "Slow your breathing when you feel tension.",
+    "category": "Calm & Stillness",
+    "tags": ["quiet", "mind", "health"]
+  },
+  {
+    "quote": "Your value does not decrease based on someone’s inability to see your worth.",
+    "author": "Unknown",
+    "meaning": "Other people’s opinions do not define you.",
+    "instruction": "Detach from one external judgement today.",
+    "category": "Healing & Hope",
+    "tags": ["worth", "self-esteem", "strength"]
+  },
+
+  {
+    "quote": "Change is never painful, only resistance to change is painful.",
+    "author": "Buddha",
+    "meaning": "Suffering arises from holding on, not from shifting.",
+    "instruction": "Loosen your grip on one expectation.",
+    "category": "Healing & Hope",
+    "tags": ["change", "resistance", "buddha"]
+  },
+  {
+    "quote": "Happiness is when what you think, what you say, and what you do are in harmony.",
+    "author": "Mahatma Gandhi",
+    "meaning": "Alignment creates peace.",
+    "instruction": "Align one action with your true values today.",
+    "category": "Spiritual Peace",
+    "tags": ["alignment", "peace", "gandhi"]
+  },
+  {
+    "quote": "When you accept yourself, the whole world accepts you.",
+    "author": "Lao Tzu",
+    "meaning": "Inner acceptance radiates outward.",
+    "instruction": "Affirm one thing you like about yourself.",
+    "category": "Healing & Hope",
+    "tags": ["self-acceptance", "peace", "tao"]
+  },
+  {
+    "quote": "Be occupied, then, with what you really value.",
+    "author": "Marcus Aurelius",
+    "meaning": "Attention is your most powerful tool.",
+    "instruction": "Prioritize one thing that truly matters.",
+    "category": "Strength & Resilience",
+    "tags": ["stoic", "values", "discipline"]
+  },
+  {
+    "quote": "When things change inside you, things change around you.",
+    "author": "Unknown",
+    "meaning": "Transformation begins internally before externally.",
+    "instruction": "Shift your inner state through one calming thought.",
+    "category": "Healing & Hope",
+    "tags": ["change", "inner world", "calm"]
+  },
+
+  {
+    "quote": "A flower does not think of competing with the flower next to it. It just blooms.",
+    "author": "Zen Proverb",
+    "meaning": "Comparison steals peace; authenticity restores it.",
+    "instruction": "Focus on your own path for the next hour.",
+    "category": "Calm & Stillness",
+    "tags": ["comparison", "growth", "zen"]
+  },
+  {
+    "quote": "The greatest wealth is to live content with little.",
+    "author": "Plato",
+    "meaning": "Contentment brings more peace than abundance.",
+    "instruction": "Appreciate one small thing today.",
+    "category": "Calm & Stillness",
+    "tags": ["contentment", "gratitude", "peace"]
+  },
+  {
+    "quote": "The privilege of a lifetime is to become who you truly are.",
+    "author": "Carl Jung",
+    "meaning": "Authenticity leads to inner peace.",
+    "instruction": "Notice one part of yourself you want to honor.",
+    "category": "Mindfulness & Presence",
+    "tags": ["self", "authenticity", "awareness"]
+  },
+  {
+    "quote": "Sometimes losing something is how you gain everything.",
+    "author": "Unknown",
+    "meaning": "Loss can redirect you toward growth and clarity.",
+    "instruction": "Reflect on one loss that taught you something.",
+    "category": "Healing & Hope",
+    "tags": ["loss", "growth", "change"]
+  },
+  {
+    "quote": "When you learn to stop chasing the wrong things, you give the right things a chance to catch up.",
+    "author": "Unknown",
+    "meaning": "Letting go creates space for new opportunities.",
+    "instruction": "Identify one thing you're chasing that no longer serves you.",
+    "category": "Strength & Resilience",
+    "tags": ["letting go", "clarity", "change"]
+  },
+
+  {
+    "quote": "If you get tired, learn to rest, not quit.",
+    "author": "Banksy",
+    "meaning": "Fatigue means pause, not surrender.",
+    "instruction": "Take a short rest break today.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "recovery", "patience"]
+  },
+  {
+    "quote": "We are all just walking each other home.",
+    "author": "Ram Dass",
+    "meaning": "Connection and compassion soften the journey.",
+    "instruction": "Offer gentle presence to someone today.",
+    "category": "Spiritual Peace",
+    "tags": ["connection", "kindness", "ram dass"]
+  },
+  {
+    "quote": "What lies in our power to do, lies in our power not to do.",
+    "author": "Aristotle",
+    "meaning": "Discipline brings emotional freedom.",
+    "instruction": "Choose one positive habit to follow through on.",
+    "category": "Strength & Resilience",
+    "tags": ["action", "discipline", "clarity"]
+  },
+  {
+    "quote": "Let your heart soften. You don’t have to be strong every second.",
+    "author": "Unknown",
+    "meaning": "Strength includes softness and vulnerability.",
+    "instruction": "Allow yourself one moment of softness today.",
+    "category": "Healing & Hope",
+    "tags": ["softness", "heart", "healing"]
+  },
+  {
+    "quote": "Those who flow as life flows know they need no other force.",
+    "author": "Lao Tzu",
+    "meaning": "Alignment with life reduces internal struggle.",
+    "instruction": "Flow with one unexpected moment instead of resisting it.",
+    "category": "Spiritual Peace",
+    "tags": ["flow", "tao", "peace"]
+  },
+  {
+    "quote": "The greatest step toward a life of simplicity is to learn to let go.",
+    "author": "Steve Maraboli",
+    "meaning": "Simplicity creates emotional spaciousness and peace.",
+    "instruction": "Release one unnecessary worry or responsibility today.",
+    "category": "Calm & Stillness",
+    "tags": ["simplicity", "letting go", "peace"]
+  },
+  {
+    "quote": "Your life is a reflection of your thoughts. If you change your thinking, you change your life.",
+    "author": "Brian Tracy",
+    "meaning": "Mindset determines the quality of your emotional experiences.",
+    "instruction": "Shift one negative thought into a neutral or kinder one.",
+    "category": "Mindfulness & Presence",
+    "tags": ["mindset", "change", "awareness"]
+  },
+  {
+    "quote": "Forgive others, not because they deserve forgiveness, but because you deserve peace.",
+    "author": "Jonathan Lockwood Huie",
+    "meaning": "Forgiveness frees you from emotional weight.",
+    "instruction": "Loosen your grip on one resentment today.",
+    "category": "Healing & Hope",
+    "tags": ["forgiveness", "peace", "healing"]
+  },
+  {
+    "quote": "Act only in accordance with what is within your control.",
+    "author": "Epictetus",
+    "meaning": "Focusing on what you can control reduces stress.",
+    "instruction": "Identify what part of your situation is actually yours to influence.",
+    "category": "Strength & Resilience",
+    "tags": ["control", "stoic", "clarity"]
+  },
+  {
+    "quote": "Let silence be your teacher.",
+    "author": "Zen Proverb",
+    "meaning": "Stillness reveals awareness, truth, and understanding.",
+    "instruction": "Spend ten seconds in silence today.",
+    "category": "Spiritual Peace",
+    "tags": ["silence", "zen", "insight"]
+  },
+
+  {
+    "quote": "Sometimes you just need to breathe, trust, let go, and see what happens.",
+    "author": "Unknown",
+    "meaning": "Trusting the unfolding reduces anxiety and overthinking.",
+    "instruction": "Let go of one fearful prediction.",
+    "category": "Anxiety Relief",
+    "tags": ["trust", "breath", "release"]
+  },
+  {
+    "quote": "Be like a tree and let the dead leaves drop.",
+    "author": "Rumi",
+    "meaning": "Letting go of what’s finished makes room for growth.",
+    "instruction": "Let go of one habit or thought that no longer serves you.",
+    "category": "Healing & Hope",
+    "tags": ["rumi", "letting go", "growth"]
+  },
+  {
+    "quote": "Fear is a natural reaction to moving closer to the truth.",
+    "author": "Pema Chödrön",
+    "meaning": "Fear often signals that growth is happening.",
+    "instruction": "Acknowledge your fear without backing away.",
+    "category": "Strength & Resilience",
+    "tags": ["fear", "growth", "truth"]
+  },
+  {
+    "quote": "Peace is the result of retraining your mind to process life as it is, rather than as you think it should be.",
+    "author": "Wayne Dyer",
+    "meaning": "Acceptance ends inner conflict.",
+    "instruction": "Accept one part of your life exactly as it is.",
+    "category": "Calm & Stillness",
+    "tags": ["acceptance", "mind", "peace"]
+  },
+  {
+    "quote": "Nothing can bring you peace but yourself.",
+    "author": "Ralph Waldo Emerson",
+    "meaning": "Inner calm is an inside job, not an external condition.",
+    "instruction": "Check in with your internal state right now.",
+    "category": "Spiritual Peace",
+    "tags": ["peace", "inner world", "self"]
+  },
+
+  {
+    "quote": "The more you know yourself, the more clarity there is.",
+    "author": "Jiddu Krishnamurti",
+    "meaning": "Self-awareness dissolves confusion and emotional chaos.",
+    "instruction": "Notice one emotion without judging it.",
+    "category": "Mindfulness & Presence",
+    "tags": ["awareness", "clarity", "self"]
+  },
+  {
+    "quote": "Now and then it’s good to pause in our pursuit of happiness and just be happy.",
+    "author": "Guillaume Apollinaire",
+    "meaning": "Happiness exists in moments, not pursuits.",
+    "instruction": "Enjoy one simple moment today.",
+    "category": "Calm & Stillness",
+    "tags": ["happiness", "presence", "pause"]
+  },
+  {
+    "quote": "Don't rush something you want to last forever.",
+    "author": "Unknown",
+    "meaning": "Patience strengthens the things that matter.",
+    "instruction": "Slow your pace with one important goal.",
+    "category": "Strength & Resilience",
+    "tags": ["patience", "timing", "goals"]
+  },
+  {
+    "quote": "Let the waves carry you where the light cannot.",
+    "author": "Rumi",
+    "meaning": "Surrendering control sometimes leads to unexpected healing.",
+    "instruction": "Stop forcing one outcome today.",
+    "category": "Spiritual Peace",
+    "tags": ["rumi", "surrender", "flow"]
+  },
+  {
+    "quote": "The present moment is filled with joy and happiness. If you are attentive, you will see it.",
+    "author": "Thich Nhat Hanh",
+    "meaning": "Joy is found by paying attention, not searching outward.",
+    "instruction": "Bring awareness to something beautiful around you.",
+    "category": "Mindfulness & Presence",
+    "tags": ["joy", "presence", "thich nhat hanh"]
+  },
+
+  {
+    "quote": "One day you will look back and see that you worried too much about things that did not matter.",
+    "author": "Unknown",
+    "meaning": "Most worries disappear when viewed from a distance.",
+    "instruction": "Let go of one small worry today.",
+    "category": "Anxiety Relief",
+    "tags": ["worry", "perspective", "calm"]
+  },
+  {
+    "quote": "Let us not look back in anger, nor forward in fear, but around in awareness.",
+    "author": "James Thurber",
+    "meaning": "Awareness shifts your emotional state from fear to clarity.",
+    "instruction": "Notice your surroundings for five seconds.",
+    "category": "Mindfulness & Presence",
+    "tags": ["awareness", "clarity", "present"]
+  },
+  {
+    "quote": "When you let go, you create space for something better.",
+    "author": "Unknown",
+    "meaning": "Releasing old patterns opens room for new experiences.",
+    "instruction": "Release one expectation you're clinging to.",
+    "category": "Healing & Hope",
+    "tags": ["letting go", "renewal", "growth"]
+  },
+  {
+    "quote": "You are bigger than what is making you anxious.",
+    "author": "Unknown",
+    "meaning": "Anxiety exaggerates problems; you remain greater than them.",
+    "instruction": "Breathe deep into your stomach and expand your chest.",
+    "category": "Anxiety Relief",
+    "tags": ["anxiety", "strength", "perspective"]
+  },
+  {
+    "quote": "The wound is the place where the light enters you.",
+    "author": "Rumi",
+    "meaning": "Emotional pain is a doorway to transformation.",
+    "instruction": "Treat one painful memory with compassion.",
+    "category": "Healing & Hope",
+    "tags": ["rumi", "pain", "light"]
+  },
+
+  {
+    "quote": "Let today be the day you stop being haunted by the ghost of yesterday.",
+    "author": "Steve Maraboli",
+    "meaning": "Living in the past steals energy from the present.",
+    "instruction": "Release one memory that drains you.",
+    "category": "Calm & Stillness",
+    "tags": ["past", "freedom", "release"]
+  },
+  {
+    "quote": "Clarity comes from washing your mind of unnecessary thoughts.",
+    "author": "Unknown",
+    "meaning": "Mental clutter creates emotional noise.",
+    "instruction": "Write down one intrusive thought and let it go.",
+    "category": "Mindfulness & Presence",
+    "tags": ["clarity", "thoughts", "focus"]
+  },
+  {
+    "quote": "You can’t pour from an empty cup.",
+    "author": "Unknown",
+    "meaning": "Self-care is necessary for your well-being and for others.",
+    "instruction": "Do one nurturing thing for yourself today.",
+    "category": "Healing & Hope",
+    "tags": ["self-care", "healing", "energy"]
+  },
+  {
+    "quote": "Be the calmest person in the room.",
+    "author": "Unknown",
+    "meaning": "Composure influences others more than force.",
+    "instruction": "Keep your breathing slow in conversations.",
+    "category": "Strength & Resilience",
+    "tags": ["calm", "leadership", "presence"]
+  },
+  {
+    "quote": "Your mind will quit long before your body does. Train your mind.",
+    "author": "Anonymous",
+    "meaning": "Mental strength is built through awareness and discipline.",
+    "instruction": "Challenge one limiting belief today.",
+    "category": "Strength & Resilience",
+    "tags": ["mind", "strength", "discipline"]
+  },
+
+  {
+    "quote": "To hold it together when everyone else would understand if you fell apart—that is true strength.",
+    "author": "Unknown",
+    "meaning": "Quiet resilience is often unnoticed but powerful.",
+    "instruction": "Acknowledge your strength for making it this far.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "resilience", "courage"]
+  },
+  {
+    "quote": "Softness is not weakness. It takes courage to stay gentle.",
+    "author": "Unknown",
+    "meaning": "Gentleness is a sign of emotional maturity.",
+    "instruction": "Speak softly to yourself today.",
+    "category": "Healing & Hope",
+    "tags": ["softness", "love", "healing"]
+  },
+  {
+    "quote": "The mind is everything. What you think you become.",
+    "author": "Buddha",
+    "meaning": "Your thoughts shape your inner and outer world.",
+    "instruction": "Choose one thought that uplifts you today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["mind", "thoughts", "buddha"]
+  },
+  {
+    "quote": "You don’t have to move fast. You just have to move.",
+    "author": "Unknown",
+    "meaning": "Any movement forward supports progress and peace.",
+    "instruction": "Take one small step today.",
+    "category": "Strength & Resilience",
+    "tags": ["progress", "momentum", "growth"]
+  },
+  {
+    "quote": "Healing is not linear.",
+    "author": "Unknown",
+    "meaning": "Recovery goes through cycles; setbacks do not mean failure.",
+    "instruction": "Give yourself grace for where you are today.",
+    "category": "Healing & Hope",
+    "tags": ["healing", "growth", "nonlinear"]
+  },
+  {
+    "quote": "Even the darkest night will end and the sun will rise.",
+    "author": "Victor Hugo",
+    "meaning": "Hard times are temporary; light always returns.",
+    "instruction": "Remind yourself that this moment will pass.",
+    "category": "Healing & Hope",
+    "tags": ["hope", "light", "resilience"]
+  },
+  {
+    "quote": "Be at peace with the path you’ve walked, and the one you’re walking now.",
+    "author": "Unknown",
+    "meaning": "Acceptance of your journey brings emotional freedom.",
+    "instruction": "Acknowledge one part of your story with compassion.",
+    "category": "Healing & Hope",
+    "tags": ["acceptance", "journey", "peace"]
+  },
+  {
+    "quote": "You will never find peace in the future. You must find peace in the present.",
+    "author": "Eckhart Tolle",
+    "meaning": "Peace is available only in this moment, not a future one.",
+    "instruction": "Bring attention to your breath for five seconds.",
+    "category": "Mindfulness & Presence",
+    "tags": ["presence", "peace", "now"]
+  },
+  {
+    "quote": "Sometimes the bravest thing you can do is to keep showing up.",
+    "author": "Unknown",
+    "meaning": "Consistency builds inner strength more than intensity.",
+    "instruction": "Show up for one small task today.",
+    "category": "Strength & Resilience",
+    "tags": ["courage", "consistency", "strength"]
+  },
+  {
+    "quote": "True peace comes from accepting things as they are, not as you wish they were.",
+    "author": "Unknown",
+    "meaning": "Acceptance ends the internal struggle.",
+    "instruction": "Accept one small thing you cannot control.",
+    "category": "Calm & Stillness",
+    "tags": ["acceptance", "peace", "stillness"]
+  },
+
+  {
+    "quote": "If you want to conquer the anxiety of life, live in the moment.",
+    "author": "Amit Ray",
+    "meaning": "Anxiety fades when you stop trying to live in the future.",
+    "instruction": "Focus on what is directly in front of you.",
+    "category": "Anxiety Relief",
+    "tags": ["anxiety", "present", "mindfulness"]
+  },
+  {
+    "quote": "Sometimes things have to fall apart to make way for better things.",
+    "author": "Unknown",
+    "meaning": "Breakdowns often precede breakthroughs.",
+    "instruction": "Trust one area of your life that feels uncertain.",
+    "category": "Healing & Hope",
+    "tags": ["change", "healing", "growth"]
+  },
+  {
+    "quote": "Inhale confidence, exhale doubt.",
+    "author": "Unknown",
+    "meaning": "Breath can shift your emotional state instantly.",
+    "instruction": "Take one slow inhale for confidence, one slow exhale for release.",
+    "category": "Calm & Stillness",
+    "tags": ["breath", "confidence", "calm"]
+  },
+  {
+    "quote": "Do not lose hope. Please believe that there are a thousand beautiful things waiting for you.",
+    "author": "Unknown",
+    "meaning": "Life still holds beauty yet to come.",
+    "instruction": "Notice one beautiful thing today.",
+    "category": "Healing & Hope",
+    "tags": ["beauty", "hope", "future"]
+  },
+  {
+    "quote": "Stop measuring days by degree of productivity, and start experiencing them by degree of presence.",
+    "author": "Alan Watts",
+    "meaning": "Presence matters more than output.",
+    "instruction": "Be present in one simple moment today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["presence", "alan watts", "awareness"]
+  },
+
+  {
+    "quote": "Quiet people have the loudest minds.",
+    "author": "Stephen Hawking",
+    "meaning": "A silent exterior often holds a rich inner world.",
+    "instruction": "Listen to your thoughts without judgment.",
+    "category": "Mindfulness & Presence",
+    "tags": ["thoughts", "inner world", "awareness"]
+  },
+  {
+    "quote": "Forgive yourself for not knowing what you didn’t know before you learned it.",
+    "author": "Maya Angelou",
+    "meaning": "Growth requires patience and self-forgiveness.",
+    "instruction": "Release one self-criticism today.",
+    "category": "Healing & Hope",
+    "tags": ["forgiveness", "growth", "compassion"]
+  },
+  {
+    "quote": "Sometimes making progress means taking rest.",
+    "author": "Unknown",
+    "meaning": "Rest is part of forward movement.",
+    "instruction": "Give yourself permission to pause.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "progress", "balance"]
+  },
+  {
+    "quote": "Every morning we are born again. What we do today matters most.",
+    "author": "Buddha",
+    "meaning": "Your focus today shapes your peace.",
+    "instruction": "Set one small peaceful intention for today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["buddha", "presence", "today"]
+  },
+  {
+    "quote": "Courage doesn't always roar. Sometimes courage is the quiet voice that says 'I will try again tomorrow.'",
+    "author": "Mary Anne Radmacher",
+    "meaning": "Soft persistence is its own form of bravery.",
+    "instruction": "Give yourself credit for not giving up.",
+    "category": "Strength & Resilience",
+    "tags": ["courage", "softness", "persistence"]
+  },
+
+  {
+    "quote": "A calm mind is able to see clearly.",
+    "author": "Unknown",
+    "meaning": "Stillness sharpens perception and decision-making.",
+    "instruction": "Pause before making a decision today.",
+    "category": "Calm & Stillness",
+    "tags": ["clarity", "mind", "calm"]
+  },
+  {
+    "quote": "Your heart knows the way. Run in that direction.",
+    "author": "Rumi",
+    "meaning": "Inner guidance is more accurate than external pressure.",
+    "instruction": "Follow one instinct today.",
+    "category": "Spiritual Peace",
+    "tags": ["rumi", "intuition", "heart"]
+  },
+  {
+    "quote": "A little progress each day adds up to big results.",
+    "author": "Unknown",
+    "meaning": "Consistency builds lasting change.",
+    "instruction": "Complete one small task fully.",
+    "category": "Strength & Resilience",
+    "tags": ["progress", "growth", "discipline"]
+  },
+  {
+    "quote": "Worry is a prayer for something you don't want.",
+    "author": "Unknown",
+    "meaning": "Your attention magnifies whatever you focus on.",
+    "instruction": "Redirect your thoughts to something calming.",
+    "category": "Anxiety Relief",
+    "tags": ["worry", "attention", "mind"]
+  },
+  {
+    "quote": "Sometimes you win, sometimes you learn.",
+    "author": "John Maxwell",
+    "meaning": "Every experience contributes to growth.",
+    "instruction": "Find the lesson in one setback.",
+    "category": "Strength & Resilience",
+    "tags": ["learning", "growth", "strength"]
+  },
+
+  {
+    "quote": "You are not what happened to you. You are what you choose to become.",
+    "author": "Carl Jung",
+    "meaning": "Your identity is shaped by choices, not past events.",
+    "instruction": "Choose one action that aligns with who you want to be.",
+    "category": "Healing & Hope",
+    "tags": ["identity", "choice", "healing"]
+  },
+  {
+    "quote": "Saying 'no' can be a complete sentence.",
+    "author": "Unknown",
+    "meaning": "Boundaries protect your peace.",
+    "instruction": "Say no to one thing that drains you.",
+    "category": "Strength & Resilience",
+    "tags": ["boundaries", "self-respect", "calm"]
+  },
+  {
+    "quote": "If your compassion does not include yourself, it is incomplete.",
+    "author": "Buddha",
+    "meaning": "Self-kindness is as important as compassion for others.",
+    "instruction": "Forgive yourself for one mistake today.",
+    "category": "Healing & Hope",
+    "tags": ["compassion", "self-love", "buddha"]
+  },
+  {
+    "quote": "Feelings are just visitors. Let them come and go.",
+    "author": "Mooji",
+    "meaning": "Emotions are temporary and don’t define you.",
+    "instruction": "Let one emotion pass without clinging to it.",
+    "category": "Anxiety Relief",
+    "tags": ["emotions", "mindfulness", "flow"]
+  },
+  {
+    "quote": "When you stop chasing the wrong things, the right ones catch you.",
+    "author": "Unknown",
+    "meaning": "Letting go creates space for alignment.",
+    "instruction": "Release one unhelpful pursuit today.",
+    "category": "Healing & Hope",
+    "tags": ["release", "alignment", "peace"]
+  },
+
+  {
+    "quote": "A happy life consists in the tranquility of mind.",
+    "author": "Marcus Aurelius",
+    "meaning": "Peaceful thinking leads to a peaceful life.",
+    "instruction": "Return to your breath when your mind wanders.",
+    "category": "Calm & Stillness",
+    "tags": ["stoic", "peace", "mind"]
+  },
+  {
+    "quote": "Where focus goes, energy flows.",
+    "author": "Tony Robbins",
+    "meaning": "Your emotional state follows your attention.",
+    "instruction": "Direct your attention to one positive thing.",
+    "category": "Mindfulness & Presence",
+    "tags": ["focus", "energy", "attention"]
+  },
+  {
+    "quote": "Be strong enough to be gentle.",
+    "author": "Unknown",
+    "meaning": "Gentleness comes from real strength, not weakness.",
+    "instruction": "Speak softly to yourself today.",
+    "category": "Healing & Hope",
+    "tags": ["gentleness", "strength", "compassion"]
+  },
+  {
+    "quote": "The soul is strengthened by quiet.",
+    "author": "Unknown",
+    "meaning": "Stillness restores inner power.",
+    "instruction": "Spend five seconds in silence.",
+    "category": "Calm & Stillness",
+    "tags": ["quiet", "soul", "rest"]
+  },
+  {
+    "quote": "Do not let thoughts of the future steal your present peace.",
+    "author": "Unknown",
+    "meaning": "Worrying about what might happen destroys calm.",
+    "instruction": "Return attention to where you are right now.",
+    "category": "Anxiety Relief",
+    "tags": ["future", "worry", "peace"]
+  },
+  {
+    "quote": "Peace comes from within. Do not seek it without.",
+    "author": "Buddha",
+    "meaning": "Calm arises internally, not from circumstances.",
+    "instruction": "Sit for ten seconds and observe your breath.",
+    "category": "Spiritual Peace",
+    "tags": ["buddhism", "peace", "presence"]
+  },
+  {
+    "quote": "Better than a thousand hollow words is one word that brings peace.",
+    "author": "Buddha",
+    "meaning": "Quality of speech matters more than quantity.",
+    "instruction": "Choose calm words today.",
+    "category": "Calm & Stillness",
+    "tags": ["speech", "peace", "buddhism"]
+  },
+  {
+    "quote": "Just as a candle cannot burn without fire, men cannot live without a spiritual life.",
+    "author": "Buddha",
+    "meaning": "Your inner world fuels your outer life.",
+    "instruction": "Reflect on what nourishes your spirit.",
+    "category": "Mindfulness & Presence",
+    "tags": ["spirit", "inner world"]
+  },
+  {
+    "quote": "If you are facing the right direction, all you have to do is keep walking.",
+    "author": "Buddhist Proverb",
+    "meaning": "Consistency builds peace and progress.",
+    "instruction": "Take one small forward step.",
+    "category": "Strength & Resilience",
+    "tags": ["progress", "buddhism"]
+  },
+  {
+    "quote": "Holding onto anger is like drinking poison and expecting the other person to die.",
+    "author": "Buddha",
+    "meaning": "Anger harms the person holding it.",
+    "instruction": "Release one resentment today.",
+    "category": "Healing & Hope",
+    "tags": ["anger", "forgiveness"]
+  },
+  {
+    "quote": "If you light a lamp for someone else it will also brighten your path.",
+    "author": "Buddha",
+    "meaning": "Kindness creates shared peace.",
+    "instruction": "Do one small act of kindness.",
+    "category": "Spiritual Peace",
+    "tags": ["kindness", "service"]
+  },
+  {
+    "quote": "The mind is everything. What you think you become.",
+    "author": "Buddha",
+    "meaning": "Thoughts shape emotional reality.",
+    "instruction": "Choose one gentle thought.",
+    "category": "Mindfulness & Presence",
+    "tags": ["mind", "thoughts"]
+  },
+  {
+    "quote": "Three things cannot be long hidden: the sun, the moon, and the truth.",
+    "author": "Buddha",
+    "meaning": "Truth always emerges naturally.",
+    "instruction": "Be honest with yourself today.",
+    "category": "Healing & Hope",
+    "tags": ["truth", "clarity"]
+  },
+  {
+    "quote": "Your work is to discover your world and then with all your heart give yourself to it.",
+    "author": "Buddha",
+    "meaning": "Purpose brings peace.",
+    "instruction": "Focus on one meaningful task.",
+    "category": "Strength & Resilience",
+    "tags": ["purpose", "focus"]
+  },
+  {
+    "quote": "If anything is worth doing, do it with all your heart.",
+    "author": "Buddha",
+    "meaning": "Whole-hearted effort creates calm pride.",
+    "instruction": "Immerse fully in what you're doing.",
+    "category": "Mindfulness & Presence",
+    "tags": ["effort", "presence"]
+  },
+  {
+    "quote": "You yourself, as much as anyone in the universe, deserve your love and affection.",
+    "author": "Buddha",
+    "meaning": "Self-love is foundational.",
+    "instruction": "Treat yourself gently today.",
+    "category": "Healing & Hope",
+    "tags": ["self-love", "compassion"]
+  },
+  {
+    "quote": "The trouble is, you think you have time.",
+    "author": "Buddha",
+    "meaning": "Life is fragile—presence matters.",
+    "instruction": "Slow down for five seconds.",
+    "category": "Mindfulness & Presence",
+    "tags": ["time", "presence"]
+  },
+  {
+    "quote": "Radiate boundless love toward the entire world.",
+    "author": "Metta Sutra",
+    "meaning": "Love stabilizes the heart.",
+    "instruction": "Send kindness to someone silently.",
+    "category": "Spiritual Peace",
+    "tags": ["love", "metta"]
+  },
+  {
+    "quote": "Nothing is forever except change.",
+    "author": "Buddha",
+    "meaning": "Change is natural and peaceful once accepted.",
+    "instruction": "Accept one small change today.",
+    "category": "Calm & Stillness",
+    "tags": ["change", "impermanence"]
+  },
+  {
+    "quote": "Peace is the highest bliss.",
+    "author": "Dhammapada",
+    "meaning": "Inner stillness is the greatest form of happiness.",
+    "instruction": "Close your eyes and breathe once slowly.",
+    "category": "Calm & Stillness",
+    "tags": ["peace", "buddhism"]
+  },
+  {
+    "quote": "With our thoughts, we make the world.",
+    "author": "Buddha",
+    "meaning": "Mindset frames all experience.",
+    "instruction": "Shift one perspective.",
+    "category": "Mindfulness & Presence",
+    "tags": ["thoughts", "creation"]
+  },
+  {
+    "quote": "A disciplined mind brings happiness.",
+    "author": "Buddha",
+    "meaning": "Mental stability builds peace.",
+    "instruction": "Focus on one breath cycle.",
+    "category": "Strength & Resilience",
+    "tags": ["discipline", "happiness"]
+  },
+  {
+    "quote": "Let go of the past, let go of the future, and let go of the present.",
+    "author": "Buddha",
+    "meaning": "Attachment creates suffering.",
+    "instruction": "Release one mental story.",
+    "category": "Healing & Hope",
+    "tags": ["letting go", "freedom"]
+  },
+  {
+    "quote": "Nothing can harm you as much as your own thoughts.",
+    "author": "Buddha",
+    "meaning": "Thought patterns dictate emotional suffering.",
+    "instruction": "Replace one harmful thought.",
+    "category": "Anxiety Relief",
+    "tags": ["thoughts", "mind"]
+  },
+  {
+    "quote": "The root of suffering is attachment.",
+    "author": "Buddha",
+    "meaning": "Clinging causes emotional pain.",
+    "instruction": "Loosen your grip on one desire.",
+    "category": "Calm & Stillness",
+    "tags": ["attachment", "peace"]
+  },
+  {
+    "quote": "Be still, and know that I am God.",
+    "author": "Psalm 46:10",
+    "meaning": "Stillness invites faith and calm.",
+    "instruction": "Pause for one breath of stillness.",
+    "category": "Spiritual Peace",
+    "tags": ["christianity", "psalms", "stillness"]
+  },
+  {
+    "quote": "Do not be anxious about anything.",
+    "author": "Philippians 4:6",
+    "meaning": "Handing burdens to God brings peace.",
+    "instruction": "Release one fear in prayer or thought.",
+    "category": "Anxiety Relief",
+    "tags": ["anxiety", "faith"]
+  },
+  {
+    "quote": "The Lord is my shepherd; I shall not want.",
+    "author": "Psalm 23:1",
+    "meaning": "Trust reduces emotional tension.",
+    "instruction": "Remind yourself you are supported.",
+    "category": "Spiritual Peace",
+    "tags": ["faith", "trust"]
+  },
+  {
+    "quote": "Cast all your anxiety on Him because He cares for you.",
+    "author": "1 Peter 5:7",
+    "meaning": "You’re not meant to carry everything alone.",
+    "instruction": "Let go of one burden.",
+    "category": "Healing & Hope",
+    "tags": ["anxiety", "care"]
+  },
+  {
+    "quote": "Love is patient, love is kind.",
+    "author": "1 Corinthians 13:4",
+    "meaning": "Kindness creates peace.",
+    "instruction": "Practice patience once today.",
+    "category": "Healing & Hope",
+    "tags": ["love", "kindness"]
+  },
+  {
+    "quote": "Let the peace of Christ rule in your hearts.",
+    "author": "Colossians 3:15",
+    "meaning": "Peace comes from surrender, not force.",
+    "instruction": "Breathe and allow calm inwardly.",
+    "category": "Spiritual Peace",
+    "tags": ["peace", "christ"]
+  },
+  {
+    "quote": "Do to others as you would have them do to you.",
+    "author": "Luke 6:31",
+    "meaning": "Compassion creates reciprocal harmony.",
+    "instruction": "Treat someone with extra kindness.",
+    "category": "Strength & Resilience",
+    "tags": ["kindness", "compassion"]
+  },
+  {
+    "quote": "Blessed are the peacemakers.",
+    "author": "Matthew 5:9",
+    "meaning": "The pursuit of peace elevates the spirit.",
+    "instruction": "Choose a calm response today.",
+    "category": "Calm & Stillness",
+    "tags": ["peace", "calm"]
+  },
+  {
+    "quote": "The light shines in the darkness, and the darkness has not overcome it.",
+    "author": "John 1:5",
+    "meaning": "Light persists through hardship.",
+    "instruction": "Focus on what is still good.",
+    "category": "Healing & Hope",
+    "tags": ["light", "hope"]
+  },
+  {
+    "quote": "My grace is sufficient for you.",
+    "author": "2 Corinthians 12:9",
+    "meaning": "You are supported even when weak.",
+    "instruction": "Allow yourself to rest today.",
+    "category": "Healing & Hope",
+    "tags": ["grace", "strength"]
+  },
+  {
+    "quote": "The Lord is near to the brokenhearted.",
+    "author": "Psalm 34:18",
+    "meaning": "Pain invites divine closeness.",
+    "instruction": "Receive comfort without resisting.",
+    "category": "Healing & Hope",
+    "tags": ["comfort", "healing"]
+  },
+  {
+    "quote": "Let all that you do be done in love.",
+    "author": "1 Corinthians 16:14",
+    "meaning": "Love transforms stress into gentleness.",
+    "instruction": "Infuse love into one action.",
+    "category": "Spiritual Peace",
+    "tags": ["love", "kindness"]
+  },
+  {
+    "quote": "Ask, and it will be given to you.",
+    "author": "Matthew 7:7",
+    "meaning": "Faith opens doors.",
+    "instruction": "Ask for support—verbally or mentally.",
+    "category": "Spiritual Peace",
+    "tags": ["faith", "trust"]
+  },
+  {
+    "quote": "I can do all things through Christ who strengthens me.",
+    "author": "Philippians 4:13",
+    "meaning": "Strength flows from connection.",
+    "instruction": "Stand tall and breathe deeply.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "faith"]
+  },
+  {
+    "quote": "In quietness and trust is your strength.",
+    "author": "Isaiah 30:15",
+    "meaning": "Calmness increases resilience.",
+    "instruction": "Lower your shoulders and exhale slowly.",
+    "category": "Calm & Stillness",
+    "tags": ["calm", "quiet"]
+  },
+  {
+    "quote": "Love one another as I have loved you.",
+    "author": "John 13:34",
+    "meaning": "Love builds harmony.",
+    "instruction": "Offer one act of love.",
+    "category": "Healing & Hope",
+    "tags": ["love", "kindness"]
+  },
+  {
+    "quote": "He restores my soul.",
+    "author": "Psalm 23:3",
+    "meaning": "Restoration happens when you slow down.",
+    "instruction": "Take a peaceful minute today.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "restoration"]
+  },
+  {
+    "quote": "God is our refuge and strength.",
+    "author": "Psalm 46:1",
+    "meaning": "You are not alone in difficulty.",
+    "instruction": "Release tension in your chest.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "faith"]
+  },
+  {
+    "quote": "Let your light shine before others.",
+    "author": "Matthew 5:16",
+    "meaning": "Your presence elevates others.",
+    "instruction": "Show warmth in your next interaction.",
+    "category": "Spiritual Peace",
+    "tags": ["light", "presence"]
+  },
+  {
+    "quote": "Faith can move mountains.",
+    "author": "Matthew 17:20",
+    "meaning": "Belief dissolves fear.",
+    "instruction": "Trust one small thing today.",
+    "category": "Healing & Hope",
+    "tags": ["faith", "strength"]
+  },
+  {
+    "quote": "Indeed, with hardship comes ease.",
+    "author": "Qur'an 94:6",
+    "meaning": "Every struggle contains relief.",
+    "instruction": "Trust that ease is on the way.",
+    "category": "Healing & Hope",
+    "tags": ["islam", "ease", "hope"]
+  },
+  {
+    "quote": "Remember Me; I will remember you.",
+    "author": "Qur'an 2:152",
+    "meaning": "Connection brings peace.",
+    "instruction": "Spend one moment in remembrance.",
+    "category": "Spiritual Peace",
+    "tags": ["islam", "remembrance"]
+  },
+  {
+    "quote": "And rely upon Allah; and sufficient is He as Disposer of affairs.",
+    "author": "Qur'an 33:3",
+    "meaning": "Relying on divine support removes anxiety.",
+    "instruction": "Let go of one worry.",
+    "category": "Anxiety Relief",
+    "tags": ["trust", "surrender"]
+  },
+  {
+    "quote": "Kind words and forgiveness are better than charity followed by injury.",
+    "author": "Qur'an 2:263",
+    "meaning": "Kindness matters more than gestures.",
+    "instruction": "Speak kindly today.",
+    "category": "Healing & Hope",
+    "tags": ["kindness", "forgiveness"]
+  },
+  {
+    "quote": "God does not burden a soul beyond what it can bear.",
+    "author": "Qur'an 2:286",
+    "meaning": "You are stronger than you think.",
+    "instruction": "Acknowledge your resilience.",
+    "category": "Strength & Resilience",
+    "tags": ["strength", "resilience"]
+  },
+  {
+    "quote": "For indeed, it is in the remembrance of Allah that hearts find rest.",
+    "author": "Qur'an 13:28",
+    "meaning": "Mindfulness of the divine brings calm.",
+    "instruction": "Pause for spiritual reflection.",
+    "category": "Calm & Stillness",
+    "tags": ["peace", "remembrance"]
+  },
+  {
+    "quote": "Whoever is grateful, it is for the good of his own soul.",
+    "author": "Qur'an 31:12",
+    "meaning": "Gratitude heals the heart.",
+    "instruction": "Notice one blessing.",
+    "category": "Healing & Hope",
+    "tags": ["gratitude", "peace"]
+  },
+  {
+    "quote": "Do not despair of the mercy of Allah.",
+    "author": "Qur'an 39:53",
+    "meaning": "Hope is always available.",
+    "instruction": "Forgive yourself today.",
+    "category": "Spiritual Peace",
+    "tags": ["mercy", "forgiveness"]
+  },
+  {
+    "quote": "The best of people are those who are most beneficial to others.",
+    "author": "Prophet Muhammad",
+    "meaning": "Service brings spiritual calm.",
+    "instruction": "Help someone in a small way today.",
+    "category": "Strength & Resilience",
+    "tags": ["service", "kindness"]
+  },
+  {
+    "quote": "A kind word is charity.",
+    "author": "Prophet Muhammad",
+    "meaning": "Compassion doesn't require wealth.",
+    "instruction": "Offer one kind word.",
+    "category": "Healing & Hope",
+    "tags": ["charity", "kindness"]
+  },
+  {
+    "quote": "Richness is not having many belongings, but richness is contentment.",
+    "author": "Prophet Muhammad",
+    "meaning": "Contentment generates inner peace.",
+    "instruction": "Appreciate what you already have.",
+    "category": "Calm & Stillness",
+    "tags": ["contentment", "peace"]
+  },
+  {
+    "quote": "Make things easy and do not make things difficult.",
+    "author": "Prophet Muhammad",
+    "meaning": "Gentleness brings harmony.",
+    "instruction": "Simplify one task.",
+    "category": "Calm & Stillness",
+    "tags": ["ease", "gentleness"]
+  },
+  {
+    "quote": "The strong person is the one who controls his anger.",
+    "author": "Prophet Muhammad",
+    "meaning": "Real strength is emotional mastery.",
+    "instruction": "Take one slow breath instead of reacting.",
+    "category": "Strength & Resilience",
+    "tags": ["anger", "control"]
+  },
+  {
+    "quote": "Verily, Allah is with the patient.",
+    "author": "Qur'an 2:153",
+    "meaning": "Patience invites divine support.",
+    "instruction": "Softly slow your pace.",
+    "category": "Calm & Stillness",
+    "tags": ["patience", "faith"]
+  },
+  {
+    "quote": "What is with God is better and more lasting.",
+    "author": "Qur'an 42:36",
+    "meaning": "Spiritual peace outlasts worldly gains.",
+    "instruction": "Prioritise inner values.",
+    "category": "Spiritual Peace",
+    "tags": ["values", "eternal"]
+  },
+  {
+    "quote": "Speak justice, even if it is against yourself.",
+    "author": "Qur'an 4:135",
+    "meaning": "Honesty brings integrity and peace.",
+    "instruction": "Be truthful in one moment.",
+    "category": "Strength & Resilience",
+    "tags": ["truth", "integrity"]
+  },
+  {
+    "quote": "Allah loves those who rely upon Him.",
+    "author": "Qur'an 3:159",
+    "meaning": "Trust creates calm.",
+    "instruction": "Release tension through trust.",
+    "category": "Spiritual Peace",
+    "tags": ["trust", "peace"]
+  },
+  {
+    "quote": "Do not lose heart nor fall into despair.",
+    "author": "Qur'an 3:139",
+    "meaning": "Strength returns when hope is restored.",
+    "instruction": "Lift your chin and breathe in hope.",
+    "category": "Healing & Hope",
+    "tags": ["hope", "strength"]
+  },
+  {
+    "quote": "And He is with you wherever you are.",
+    "author": "Qur'an 57:4",
+    "meaning": "You are never alone.",
+    "instruction": "Feel supported for one breath.",
+    "category": "Spiritual Peace",
+    "tags": ["presence", "faith"]
+  },
+  {
+    "quote": "Your task is only to call to the path; guidance is in the hands of God.",
+    "author": "Qur'an 28:56",
+    "meaning": "You are responsible for effort, not outcome.",
+    "instruction": "Focus on what you can control.",
+    "category": "Calm & Stillness",
+    "tags": ["effort", "surrender"]
+  },
+  {
+    "quote": "When the mind is silent, the heart speaks.",
+    "author": "Hindu Proverb",
+    "meaning": "Inner quiet reveals deeper truth.",
+    "instruction": "Sit in silence for ten seconds.",
+    "category": "Spiritual Peace",
+    "tags": ["silence", "heart"]
+  },
+  {
+    "quote": "You have the right to perform your duty, but not to the fruits of your actions.",
+    "author": "Bhagavad Gita",
+    "meaning": "Detached action brings peace.",
+    "instruction": "Do one task without expecting results.",
+    "category": "Calm & Stillness",
+    "tags": ["detachment", "duty"]
+  },
+  {
+    "quote": "The soul is neither born, and nor does it die.",
+    "author": "Bhagavad Gita",
+    "meaning": "Your essence is eternal and safe.",
+    "instruction": "Take comfort in your deeper nature.",
+    "category": "Spiritual Peace",
+    "tags": ["soul", "eternal"]
+  },
+  {
+    "quote": "Set thy heart upon thy work, but never on its reward.",
+    "author": "Bhagavad Gita",
+    "meaning": "Focus on effort, not outcome.",
+    "instruction": "Give fully to one task today.",
+    "category": "Strength & Resilience",
+    "tags": ["effort", "discipline"]
+  },
+  {
+    "quote": "There is nothing lost or wasted in this life.",
+    "author": "Bhagavad Gita",
+    "meaning": "Every experience serves your growth.",
+    "instruction": "Reframe one setback.",
+    "category": "Healing & Hope",
+    "tags": ["growth", "learning"]
+  },
+  {
+    "quote": "Self-control is the key to success.",
+    "author": "Hindu Proverb",
+    "meaning": "Discipline leads to inner peace.",
+    "instruction": "Practice restraint once today.",
+    "category": "Strength & Resilience",
+    "tags": ["discipline", "self-control"]
+  },
+  {
+    "quote": "When meditation is mastered, the mind is unwavering like the flame of a lamp in a windless place.",
+    "author": "Bhagavad Gita",
+    "meaning": "Steadiness brings clarity.",
+    "instruction": "Take one mindful breath.",
+    "category": "Calm & Stillness",
+    "tags": ["meditation", "mastery"]
+  },
+  {
+    "quote": "Man is made by his belief. As he believes, so he is.",
+    "author": "Bhagavad Gita",
+    "meaning": "Beliefs shape inner reality.",
+    "instruction": "Choose one supportive belief.",
+    "category": "Mindfulness & Presence",
+    "tags": ["belief", "identity"]
+  },
+  {
+    "quote": "The happiness of your life depends upon the quality of your thoughts.",
+    "author": "Hindu Teaching",
+    "meaning": "Thought quality determines emotional state.",
+    "instruction": "Replace one negative thought.",
+    "category": "Mindfulness & Presence",
+    "tags": ["thoughts", "quality"]
+  },
+  {
+    "quote": "The body is your temple. Keep it pure and clean.",
+    "author": "Hindu Proverb",
+    "meaning": "Self-care supports spiritual calm.",
+    "instruction": "Do one nurturing act for your body.",
+    "category": "Healing & Hope",
+    "tags": ["body", "temple"]
+  },
+  {
+    "quote": "Silence is a source of great strength.",
+    "author": "Hindu Proverb",
+    "meaning": "Quietness enhances power.",
+    "instruction": "Take a silent pause.",
+    "category": "Calm & Stillness",
+    "tags": ["silence", "strength"]
+  },
+  {
+    "quote": "The one who has control over the mind is tranquil in heat and cold, pleasure and pain.",
+    "author": "Bhagavad Gita",
+    "meaning": "Balance creates inner peace.",
+    "instruction": "Breathe deeply when discomfort arises.",
+    "category": "Strength & Resilience",
+    "tags": ["balance", "control"]
+  },
+  {
+    "quote": "True happiness comes from helping others.",
+    "author": "Hindu Proverb",
+    "meaning": "Service opens the heart.",
+    "instruction": "Help someone in a small way.",
+    "category": "Spiritual Peace",
+    "tags": ["service", "joy"]
+  },
+  {
+    "quote": "Meditation brings wisdom; lack of meditation leaves ignorance.",
+    "author": "Hindu Teaching",
+    "meaning": "Clarity grows through mindfulness.",
+    "instruction": "Meditate for one breath.",
+    "category": "Mindfulness & Presence",
+    "tags": ["meditation", "clarity"]
+  },
+  {
+    "quote": "The mind acts like an enemy for those who do not control it.",
+    "author": "Bhagavad Gita",
+    "meaning": "Untrained mind increases suffering.",
+    "instruction": "Observe your next thought without reacting.",
+    "category": "Anxiety Relief",
+    "tags": ["mind", "control"]
+  },
+  {
+    "quote": "He who has conquered himself is a greater hero than he who has defeated a thousand men.",
+    "author": "Hindu Teaching",
+    "meaning": "Self-mastery is the highest victory.",
+    "instruction": "Practice self-control once today.",
+    "category": "Strength & Resilience",
+    "tags": ["self-mastery", "strength"]
+  },
+  {
+    "quote": "Calmness is the cradle of power.",
+    "author": "Hindu Proverb",
+    "meaning": "Stillness magnifies inner strength.",
+    "instruction": "Tune into your breath.",
+    "category": "Calm & Stillness",
+    "tags": ["calm", "power"]
+  },
+  {
+    "quote": "You are what your deep, driving desire is.",
+    "author": "Upanishads",
+    "meaning": "Desire shapes destiny.",
+    "instruction": "Identify your truest desire today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["desire", "destiny"]
+  },
+  {
+    "quote": "A gift is pure when it is given without expectation.",
+    "author": "Bhagavad Gita",
+    "meaning": "Selfless giving brings genuine peace.",
+    "instruction": "Give something small without expecting anything.",
+    "category": "Healing & Hope",
+    "tags": ["giving", "purity"]
+  },
+  {
+    "quote": "Yoga is the journey of the self, through the self, to the self.",
+    "author": "Bhagavad Gita",
+    "meaning": "Self-exploration brings harmony.",
+    "instruction": "Connect to your breath deeply.",
+    "category": "Spiritual Peace",
+    "tags": ["yoga", "self"]
+  },
+  {
+    "quote": "Whoever saves one life saves the world entire.",
+    "author": "Talmud",
+    "meaning": "Every act of care has enormous impact.",
+    "instruction": "Do one compassionate act today.",
+    "category": "Healing & Hope",
+    "tags": ["compassion", "value"]
+  },
+  {
+    "quote": "The world stands on three things: truth, justice, and peace.",
+    "author": "Pirkei Avot",
+    "meaning": "These foundations bring stability.",
+    "instruction": "Practice truth in one moment today.",
+    "category": "Strength & Resilience",
+    "tags": ["truth", "justice"]
+  },
+  {
+    "quote": "Peace is the vessel that contains all blessings.",
+    "author": "Talmud",
+    "meaning": "Without peace, nothing else can flourish.",
+    "instruction": "Choose a peaceful response once today.",
+    "category": "Calm & Stillness",
+    "tags": ["peace", "blessing"]
+  },
+  {
+    "quote": "Where there is no vision, the people perish.",
+    "author": "Proverbs 29:18",
+    "meaning": "Purpose sustains emotional life.",
+    "instruction": "Visualize one hopeful future.",
+    "category": "Healing & Hope",
+    "tags": ["vision", "hope"]
+  },
+  {
+    "quote": "A soft answer turns away wrath.",
+    "author": "Proverbs 15:1",
+    "meaning": "Gentleness defuses conflict.",
+    "instruction": "Speak softly in your next conversation.",
+    "category": "Strength & Resilience",
+    "tags": ["gentleness", "communication"]
+  },
+  {
+    "quote": "In returning and rest you shall be saved; in quietness and trust is your strength.",
+    "author": "Isaiah 30:15",
+    "meaning": "Rest builds resilience.",
+    "instruction": "Slow down your breathing.",
+    "category": "Calm & Stillness",
+    "tags": ["rest", "trust"]
+  },
+  {
+    "quote": "A cheerful heart is good medicine.",
+    "author": "Proverbs 17:22",
+    "meaning": "Positivity nurtures health.",
+    "instruction": "Do something that brings gentle joy.",
+    "category": "Healing & Hope",
+    "tags": ["joy", "medicine"]
+  },
+  {
+    "quote": "Seek peace and pursue it.",
+    "author": "Psalm 34:14",
+    "meaning": "Peace requires intention.",
+    "instruction": "Make one peaceful choice.",
+    "category": "Calm & Stillness",
+    "tags": ["peace", "pursuit"]
+  },
+  {
+    "quote": "Do not rejoice when your enemy falls.",
+    "author": "Proverbs 24:17",
+    "meaning": "Compassion must extend beyond rivalry.",
+    "instruction": "Release one bitter thought.",
+    "category": "Healing & Hope",
+    "tags": ["compassion", "humility"]
+  },
+  {
+    "quote": "The righteous person falls seven times and rises again.",
+    "author": "Proverbs 24:16",
+    "meaning": "Resilience defines character.",
+    "instruction": "Stand back up emotionally today.",
+    "category": "Strength & Resilience",
+    "tags": ["resilience", "strength"]
+  },
+  {
+    "quote": "Above all else, guard your heart.",
+    "author": "Proverbs 4:23",
+    "meaning": "Your inner world shapes life itself.",
+    "instruction": "Protect your peace today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["heart", "boundaries"]
+  },
+  {
+    "quote": "A gentle tongue is a tree of life.",
+    "author": "Proverbs 15:4",
+    "meaning": "Gentle speech brings healing.",
+    "instruction": "Say something gently today.",
+    "category": "Healing & Hope",
+    "tags": ["gentleness", "speech"]
+  },
+  {
+    "quote": "Wisdom is a tree of life to those who embrace her.",
+    "author": "Proverbs 3:18",
+    "meaning": "Wisdom nurtures emotional growth.",
+    "instruction": "Learn one small lesson today.",
+    "category": "Strength & Resilience",
+    "tags": ["wisdom", "growth"]
+  },
+  {
+    "quote": "Happy is the person who finds wisdom.",
+    "author": "Proverbs 3:13",
+    "meaning": "Understanding brings joy.",
+    "instruction": "Notice one wise thought.",
+    "category": "Calm & Stillness",
+    "tags": ["wisdom", "joy"]
+  },
+  {
+    "quote": "The human spirit is the lamp of the Lord.",
+    "author": "Proverbs 20:27",
+    "meaning": "Your inner light is sacred.",
+    "instruction": "Honor your inner spark.",
+    "category": "Spiritual Peace",
+    "tags": ["light", "spirit"]
+  },
+  {
+    "quote": "Better a patient person than a warrior.",
+    "author": "Proverbs 16:32",
+    "meaning": "Patience exceeds brute strength.",
+    "instruction": "Practice patience once.",
+    "category": "Strength & Resilience",
+    "tags": ["patience", "strength"]
+  },
+  {
+    "quote": "Commit your work to the Lord and your plans will succeed.",
+    "author": "Proverbs 16:3",
+    "meaning": "Intentional dedication brings clarity.",
+    "instruction": "Dedicate one task today.",
+    "category": "Spiritual Peace",
+    "tags": ["intention", "faith"]
+  },
+  {
+    "quote": "The wise heart knows the proper time and procedure.",
+    "author": "Ecclesiastes 8:5",
+    "meaning": "Wisdom softens anxiety.",
+    "instruction": "Pause before acting.",
+    "category": "Calm & Stillness",
+    "tags": ["wisdom", "timing"]
+  },
+  {
+    "quote": "For everything there is a season.",
+    "author": "Ecclesiastes 3:1",
+    "meaning": "Life moves in cycles; acceptance brings peace.",
+    "instruction": "Accept the season you're in.",
+    "category": "Healing & Hope",
+    "tags": ["seasons", "acceptance"]
+  },
+  {
+    "quote": "A truly wise person uses few words.",
+    "author": "Proverbs 17:27",
+    "meaning": "Quietness carries strength.",
+    "instruction": "Speak less, listen more today.",
+    "category": "Mindfulness & Presence",
+    "tags": ["wisdom", "silence"]
+  },
   {
     "quote": "Smooth seas do not make skillful sailors.",
     "author": "African Proverb",
@@ -162,11 +2999,6 @@
     "category": "Strength & Resilience",
     "tags": ["progress"]
   },
-
-  /* ==============================
-     ASIAN PROVERBS (20)
-  =============================== */
-
   {
     "quote": "Tension is who you think you should be. Relaxation is who you are.",
     "author": "Chinese Proverb",
@@ -327,11 +3159,6 @@
     "category": "Anxiety Relief",
     "tags": ["anger control"]
   },
-
-  /* ==============================
-     NATIVE AMERICAN WISDOM (20)
-  =============================== */
-
   {
     "quote": "Silence is the mother of truth.",
     "author": "Native American Proverb",
@@ -492,11 +3319,6 @@
     "category": "Calm & Stillness",
     "tags": ["kindness"]
   },
-
-  /* ==============================
-     MIDDLE EASTERN & SUFI (20)
-  =============================== */
-
   {
     "quote": "When the heart is full of love, the eyes overflow with light.",
     "author": "Sufi Saying",
