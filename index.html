@@ -10,7 +10,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, viewport-fit=cover"
     >
-    <title>Calm Down Quotes | Reset Your Mind Gently</title>
+    <title>Calm Down Quotes, Daily Quote Engine</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://calm-down-quotes.github.io/">
@@ -22,7 +22,7 @@
     >
     <meta
         name="keywords"
-        content="calm quotes, mindfulness, anxiety relief, wellness, inspiration, reset, breathing, motivation, quote meanings, self-care"
+        content="calm quotes, mindfulness, anxiety relief, wellness, inspiration, reset, breathing, motivation, quote meanings, self care"
     >
     <meta name="author" content="Calm Down Quotes">
     <meta name="robots" content="index,follow">
@@ -35,13 +35,13 @@
     <link rel="icon" type="image/svg+xml" href="icon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <!-- Performance -->
+    <!-- Performance hints -->
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="Calm Down Quotes">
+    <meta property="og:title" content="Calm Down Quotes, Daily Quote Engine">
     <meta
         property="og:description"
         content="Reset your mind with calming quotes, deeper meanings, and gentle guidance."
@@ -59,7 +59,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Calm Down Quotes">
+    <meta name="twitter:title" content="Calm Down Quotes, Daily Quote Engine">
     <meta
         name="twitter:description"
         content="Reset your mind with calming quotes, deeper meanings, and gentle guidance."
@@ -93,6 +93,13 @@
     </script>
 
     <!-- ========================================================
+         GOOGLE ADSENSE LOADER (for future ad slots)
+    ========================================================= -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8271945337069886"
+        crossorigin="anonymous"></script>
+
+    <!-- ========================================================
          STYLES
     ========================================================= -->
     <link rel="stylesheet" href="style.css">
@@ -111,7 +118,7 @@
         <!-- Hero -->
         <header class="hero">
             <h1>Calm Down Quotes</h1>
-            <p class="subtitle">Take a breath and centre your mind</p>
+            <p class="subtitle">Take a breath and centre your mind.</p>
         </header>
 
         <!-- Generator button -->
@@ -122,6 +129,7 @@
                 type="button"
                 class="primary-btn"
                 aria-label="Generate a calming quote"
+                aria-controls="quote-box"
             >
                 Give Me a Quote
             </button>
@@ -147,11 +155,11 @@
             <h3 class="section-heading category-label">Category</h3>
             <p class="category" id="quote-category"></p>
 
-            <!-- Tags kept for JS/share text only (hidden by CSS) -->
+            <!-- Tags kept for JS and share text only, hidden by CSS -->
             <h3 class="section-heading tags-label">Tags</h3>
             <p class="tags" id="quote-tags"></p>
 
-            <!-- Copy + Share -->
+            <!-- Copy and share -->
             <div class="copy-row">
                 <button
                     id="copy-btn"
@@ -170,7 +178,7 @@
             </div>
 
             <div class="share-buttons" role="group" aria-label="Share this quote">
-                <!-- Platform buttons are present for JS but visually hidden by CSS -->
+                <!-- Platform buttons present for JS but visually hidden by CSS -->
                 <button id="whatsapp-btn"   class="share-btn" type="button">WhatsApp</button>
                 <button id="sms-btn"        class="share-btn" type="button">SMS</button>
                 <button id="messenger-btn"  class="share-btn" type="button">Messenger</button>
@@ -188,15 +196,48 @@
             </div>
         </section>
 
+        <!-- Email subscribe section -->
+        <section class="subscribe-section" aria-labelledby="subscribe-heading">
+            <h2 id="subscribe-heading">Get daily calm quotes by email</h2>
+            <p class="subscribe-text">
+                Join the Calm Down newsletter and receive one quote in your inbox each day.
+            </p>
+            <a
+                class="subscribe-btn"
+                href="https://calm-down-quotes.beehiiv.com/subscribe"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Subscribe by email
+            </a>
+        </section>
+
+        <!-- Optional home page ad slot area, below card and subscribe, above footer -->
+        <section class="ad-wrapper" aria-label="Sponsored content">
+            <!-- When you are ready to place an ad, drop the AdSense unit here.
+
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-8271945337069886"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            -->
+        </section>
+
     </main>
 
     <footer class="site-footer">
         <nav class="footer-links" aria-label="Legal links">
             <a href="privacy.html">Privacy Policy</a>
-            <span aria-hidden="true">|</span>
+            <span aria-hidden="true">•</span>
             <a href="terms.html">Terms of Service</a>
         </nav>
-        <p>© 2025 Calm Down Quotes. All rights reserved.</p>
+        <p>© 2025 Calm Down Quotes, Daily Quote Engine. All rights reserved.</p>
     </footer>
 
     <!-- App script -->
