@@ -9,8 +9,22 @@ const STORAGE_KEY = "calm_down_quotes_state_v3";
 const TRANSITION_DURATION_MS = 350; // matches CSS transition
 
 const PREFERS_REDUCED_MOTION =
+  typeof window !== "undefined" &&
   typeof window.matchMedia === "function" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ========================================================
+   ANALYTICS HELPER
+======================================================== */
+function trackEvent(name, params = {}) {
+  try {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", name, params);
+    }
+  } catch {
+    // Analytics should never break the app
+  }
+}
 
 /* ========================================================
    DOM REFERENCES
@@ -34,6 +48,8 @@ const instagramBtn  = document.getElementById("instagram-btn");
 const pinterestBtn  = document.getElementById("pinterest-btn");
 const shareBtn      = document.getElementById("share-btn");
 
+const subscribeBtn  = document.querySelector(".subscribe-btn");
+
 /* ========================================================
    LOAD QUOTES AND INITIALISATION
 ======================================================== */
@@ -44,7 +60,7 @@ let shuffledIndices = [];
 let currentIndex = 0;
 
 /**
- * Returns a shuffled array of indices using a simple Fisher Yates shuffle.
+ * Returns a shuffled array of indices using a simple Fisher-Yates shuffle.
  */
 function shuffleIndices(len) {
   const arr = Array.from({ length: len }, (_, i) => i);
@@ -123,11 +139,16 @@ async function loadQuotes() {
 
     initialiseOrder();
 
+    trackEvent("quotes_loaded", { total_quotes: quotes.length });
+
     if (quotes.length > 0 && quoteBtn) {
       generateQuote();
     }
   } catch (err) {
     console.error("Error loading quotes:", err);
+    trackEvent("quotes_load_error", {
+      message: err && err.message ? String(err.message) : String(err)
+    });
 
     if (!quoteBox) return;
 
@@ -221,6 +242,11 @@ function generateQuote() {
   } else {
     updateContent();
   }
+
+  trackEvent("quote_generated", {
+    index: currentIndex - 1,
+    total_quotes: quotes.length
+  });
 }
 
 quoteBtn?.addEventListener("click", generateQuote);
@@ -244,6 +270,7 @@ document.addEventListener("keydown", (event) => {
     event.key === "ArrowRight"
   ) {
     event.preventDefault();
+    trackEvent("quote_keyboard_shortcut", { key: event.key });
     generateQuote();
   }
 });
@@ -304,6 +331,7 @@ copyBtn?.addEventListener("click", async () => {
     }
 
     await navigator.clipboard.writeText(text);
+    trackEvent("quote_copied");
     if (copyFeedback) {
       copyFeedback.textContent = "Copied.";
       copyFeedback.classList.add("visible");
@@ -321,6 +349,8 @@ whatsappBtn?.addEventListener("click", () => {
   const text = requireShareText();
   if (!text) return;
 
+  trackEvent("share_whatsapp");
+
   window.open(
     `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
     "_blank",
@@ -332,6 +362,8 @@ smsBtn?.addEventListener("click", () => {
   const text = requireShareText();
   if (!text) return;
 
+  trackEvent("share_sms");
+
   window.location.href = `sms:?body=${encodeURIComponent(text)}`;
 });
 
@@ -340,6 +372,8 @@ messengerBtn?.addEventListener("click", () => {
   if (!text) return;
 
   const appId = "123"; // replace with a real Facebook App ID if you ever use this
+  trackEvent("share_messenger");
+
   window.open(
     `https://www.facebook.com/dialog/send?app_id=${encodeURIComponent(
       appId
@@ -352,6 +386,8 @@ messengerBtn?.addEventListener("click", () => {
 pinterestBtn?.addEventListener("click", () => {
   const text = requireShareText();
   if (!text) return;
+
+  trackEvent("share_pinterest");
 
   window.open(
     `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(
@@ -367,6 +403,8 @@ pinterestBtn?.addEventListener("click", () => {
 instagramBtn?.addEventListener("click", async () => {
   const text = requireShareText();
   if (!text) return;
+
+  trackEvent("share_instagram");
 
   alert(
     "The full quote has been copied. Open Instagram, create a Story or Post, and paste the text."
@@ -393,6 +431,7 @@ shareBtn?.addEventListener("click", async () => {
         text: text.substring(0, 250),
         url: SITE_URL
       });
+      trackEvent("share_native");
     } catch (e) {
       if (e.name !== "AbortError") {
         console.error("Error sharing:", e);
@@ -405,6 +444,7 @@ shareBtn?.addEventListener("click", async () => {
         return;
       }
       await navigator.clipboard.writeText(text);
+      trackEvent("share_fallback_copy");
       if (copyFeedback) {
         copyFeedback.textContent = "Share text copied.";
         copyFeedback.classList.add("visible");
@@ -419,14 +459,24 @@ shareBtn?.addEventListener("click", async () => {
 });
 
 /* ========================================================
+   SUBSCRIBE CLICK TRACKING
+======================================================== */
+subscribeBtn?.addEventListener("click", () => {
+  trackEvent("subscribe_click", { location: "home_subscribe_section" });
+});
+
+/* ========================================================
    SWIPE GESTURE ON MOBILE
 ======================================================== */
 let touchStartX = 0;
+let touchStartY = 0;
 
 document.addEventListener(
   "touchstart",
   (e) => {
-    touchStartX = e.touches?.[0]?.clientX || 0;
+    const touch = e.touches?.[0];
+    touchStartX = touch?.clientX || 0;
+    touchStartY = touch?.clientY || 0;
   },
   { passive: true }
 );
@@ -434,10 +484,16 @@ document.addEventListener(
 document.addEventListener(
   "touchend",
   (e) => {
-    const endX = e.changedTouches?.[0]?.clientX || 0;
-    const deltaX = endX - touchStartX;
+    const touch = e.changedTouches?.[0];
+    const endX = touch?.clientX || 0;
+    const endY = touch?.clientY || 0;
 
-    if (Math.abs(deltaX) > 60) {
+    const deltaX = endX - touchStartX;
+    const deltaY = endY - touchStartY;
+
+    // Only trigger on a clear horizontal swipe
+    if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      trackEvent("quote_swiped");
       generateQuote();
     }
   },
