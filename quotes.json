@@ -16,7 +16,7 @@
     "tags": ["anxiety", "fear", "stoicism"]
   },
   {
-    "quote": "We should always be asking ourselves: 'Is this something that is, or is not, in my control?'",
+    "quote": "We should always be asking ourselves, 'Is this something that is, or is not, in my control?'",
     "author": "Epictetus",
     "meaning": "Peace begins when you stop carrying things that aren't yours to carry.",
     "instruction": "Release one worry outside your control.",
@@ -24,7 +24,7 @@
     "tags": ["control", "resilience", "stoic"]
   },
   {
-    "quote": "The whole future lies in uncertainty; live immediately.",
+    "quote": "The whole future lies in uncertainty, live immediately.",
     "author": "Seneca",
     "meaning": "Anxiety fades when you focus on what is in front of you.",
     "instruction": "Do one small thing that grounds you in the present moment.",
@@ -59,7 +59,7 @@
   {
     "quote": "Nature does not hurry, yet everything is accomplished.",
     "author": "Lao Tzu",
-    "meaning": "There is no need to rush; calm consistency is powerful.",
+    "meaning": "There is no need to rush, calm consistency is powerful.",
     "instruction": "Slow your breathing for the next five seconds.",
     "category": "Mindfulness & Presence",
     "tags": ["tao", "calmness", "nature"]
@@ -75,7 +75,7 @@
   {
     "quote": "You, yourself, as much as anybody in the entire universe, deserve your love and affection.",
     "author": "Buddha",
-    "meaning": "Self-kindness is not optional; it is a foundation for healing.",
+    "meaning": "Self-kindness is not optional, it is a foundation for healing.",
     "instruction": "Tell yourself one gentle sentence.",
     "category": "Healing & Hope",
     "tags": ["self-love", "compassion", "healing"]
@@ -100,7 +100,7 @@
   {
     "quote": "The obstacle is the path.",
     "author": "Zen Proverb",
-    "meaning": "Challenges are not blocks; they are teachers.",
+    "meaning": "Challenges are not blocks, they are teachers.",
     "instruction": "Reflect on what your current challenge is guiding you toward.",
     "category": "Strength & Resilience",
     "tags": ["zen", "growth", "strength"]
@@ -147,7 +147,7 @@
     "tags": ["tao", "presence", "acceptance"]
   },
   {
-    "quote": "Be not afraid of going slowly; be afraid only of standing still.",
+    "quote": "Be not afraid of going slowly, be afraid only of standing still.",
     "author": "Chinese Proverb",
     "meaning": "Steady progress is more important than speed.",
     "instruction": "Take one small step forward today.",
@@ -165,7 +165,7 @@
   {
     "quote": "Tension is who you think you should be. Relaxation is who you are.",
     "author": "Chinese Proverb",
-    "meaning": "Inner pressure comes from trying to meet imagined expectations; calm appears when you return to yourself.",
+    "meaning": "Inner pressure comes from trying to meet imagined expectations, calm appears when you return to yourself.",
     "instruction": "Let your next exhale be slower than your inhale.",
     "category": "Anxiety Relief",
     "tags": ["relaxation", "ease", "proverb"]
@@ -179,7 +179,7 @@
     "tags": ["hope", "light", "renewal"]
   },
   {
-    "quote": "Adopt the pace of nature: her secret is patience.",
+    "quote": "Adopt the pace of nature, her secret is patience.",
     "author": "Ralph Waldo Emerson",
     "meaning": "Nature shows that calm, slow growth creates strong foundations.",
     "instruction": "Slow down one action today and let it feel natural.",
@@ -189,7 +189,7 @@
   {
     "quote": "Nothing can bring you peace but yourself.",
     "author": "Ralph Waldo Emerson",
-    "meaning": "External conditions come and go; inner peace is self-made.",
+    "meaning": "External conditions come and go, inner peace is self-made.",
     "instruction": "Take one quiet moment to reconnect with yourself.",
     "category": "Spiritual Peace",
     "tags": ["inner peace", "spiritual", "calm"]
@@ -203,7 +203,7 @@
     "tags": ["contentment", "simplicity"]
   },
   {
-    "quote": "Be gentle with yourself; you are doing the best you can.",
+    "quote": "Be gentle with yourself, you are doing the best you can.",
     "author": "Unknown",
     "meaning": "Self-compassion nurtures healing and reduces unnecessary pressure.",
     "instruction": "Say one kind sentence to yourself.",
@@ -489,9 +489,9 @@
   },
 
   {
-    "quote": "Look at the birds of the air; they do not sow or reap... yet your heavenly Father feeds them.",
+    "quote": "Look at the birds of the air, they do not sow or reap... yet your heavenly Father feeds them.",
     "author": "Matthew 6:26",
-    "meaning": "Life supports you more than you realise; trust loosens fear.",
+    "meaning": "Life supports you more than you realise, trust loosens fear.",
     "instruction": "Release one fear by taking a slow exhale.",
     "category": "Spiritual Peace",
     "tags": ["faith", "trust", "calm"]
@@ -556,7 +556,7 @@
   {
     "quote": "You cannot stop the waves, but you can learn to surf.",
     "author": "Jon Kabat-Zinn",
-    "meaning": "Life brings challenges; mindfulness helps you move with them instead of resisting.",
+    "meaning": "Life brings challenges, mindfulness helps you move with them instead of resisting.",
     "instruction": "Accept one challenge without fighting it.",
     "category": "Strength & Resilience",
     "tags": ["mindfulness", "adaptation", "resilience"]
@@ -684,7 +684,7 @@
     "tags": ["community", "growth", "support"]
   },
   {
-    "quote": "The universe is not outside of you. Look inside yourself; everything you want, you already are.",
+    "quote": "The universe is not outside of you. Look inside yourself, everything you want, you already are.",
     "author": "Rumi",
     "meaning": "Fulfillment is found through inner exploration, not external pursuit.",
     "instruction": "Reflect on one quality you already possess in abundance.",
@@ -695,7 +695,7 @@
   {
     "quote": "You only lose what you cling to.",
     "author": "Buddha",
-    "meaning": "Attachment creates anxiety; acceptance creates peace.",
+    "meaning": "Attachment creates anxiety, acceptance creates peace.",
     "instruction": "Relax your grip on one outcome.",
     "category": "Anxiety Relief",
     "tags": ["attachment", "release", "buddha"]
@@ -777,7 +777,7 @@
   {
     "quote": "The best way out is always through.",
     "author": "Robert Frost",
-    "meaning": "Avoidance prolongs suffering; facing reality brings relief.",
+    "meaning": "Avoidance prolongs suffering, facing reality brings relief.",
     "instruction": "Confront one avoided task with gentleness.",
     "category": "Strength & Resilience",
     "tags": ["action", "courage", "growth"]
@@ -882,7 +882,7 @@
   {
     "quote": "Worry is a misuse of imagination.",
     "author": "Dan Zadra",
-    "meaning": "Your mind can create possibility or fear; you choose the direction.",
+    "meaning": "Your mind can create possibility or fear, you choose the direction.",
     "instruction": "Imagine one positive outcome instead of a negative one.",
     "category": "Anxiety Relief",
     "tags": ["imagination", "worry", "mind"]
@@ -1078,7 +1078,7 @@
   {
     "quote": "Be patient. Everything comes to you in the right moment.",
     "author": "Unknown",
-    "meaning": "Rushing creates anxiety; patience builds trust and calm.",
+    "meaning": "Rushing creates anxiety, patience builds trust and calm.",
     "instruction": "Pause before your next action.",
     "category": "Mindfulness & Presence",
     "tags": ["patience", "timing", "calm"]
@@ -1193,7 +1193,7 @@
   {
     "quote": "Let whatever you do today be enough.",
     "author": "Unknown",
-    "meaning": "Perfection is unnecessary; effort is enough.",
+    "meaning": "Perfection is unnecessary, effort is enough.",
     "instruction": "Stop pushing yourself beyond your capacity today.",
     "category": "Healing & Hope",
     "tags": ["enough", "self-care", "compassion"]
@@ -1242,7 +1242,7 @@
   {
     "quote": "Let yourself feel what you feel. That is how emotions move.",
     "author": "Unknown",
-    "meaning": "Avoiding emotions traps them; feeling them frees them.",
+    "meaning": "Avoiding emotions traps them, feeling them frees them.",
     "instruction": "Let one emotion exist without suppressing it.",
     "category": "Healing & Hope",
     "tags": ["emotions", "healing", "processing"]
@@ -1291,7 +1291,7 @@
   {
     "quote": "Don't fill your mind with worry. Empty it of everything but peace.",
     "author": "Unknown",
-    "meaning": "Overthinking clutters your mind; calmness clears it.",
+    "meaning": "Overthinking clutters your mind, calmness clears it.",
     "instruction": "Let go of one unnecessary worry.",
     "category": "Anxiety Relief",
     "tags": ["peace", "worry", "calm"]
@@ -1471,7 +1471,7 @@
   {
     "quote": "A flower does not think of competing with the flower next to it. It just blooms.",
     "author": "Zen Proverb",
-    "meaning": "Comparison steals peace; authenticity restores it.",
+    "meaning": "Comparison steals peace, authenticity restores it.",
     "instruction": "Focus on your own path for the next hour.",
     "category": "Calm & Stillness",
     "tags": ["comparison", "growth", "zen"]
@@ -1699,7 +1699,7 @@
   {
     "quote": "You are bigger than what is making you anxious.",
     "author": "Unknown",
-    "meaning": "Anxiety exaggerates problems; you remain greater than them.",
+    "meaning": "Anxiety exaggerates problems, you remain greater than them.",
     "instruction": "Breathe deep into your stomach and expand your chest.",
     "category": "Anxiety Relief",
     "tags": ["anxiety", "strength", "perspective"]
@@ -1789,7 +1789,7 @@
   {
     "quote": "Healing is not linear.",
     "author": "Unknown",
-    "meaning": "Recovery goes through cycles; setbacks do not mean failure.",
+    "meaning": "Recovery goes through cycles, setbacks do not mean failure.",
     "instruction": "Give yourself grace for where you are today.",
     "category": "Healing & Hope",
     "tags": ["healing", "growth", "nonlinear"]
@@ -1797,7 +1797,7 @@
   {
     "quote": "Even the darkest night will end and the sun will rise.",
     "author": "Victor Hugo",
-    "meaning": "Hard times are temporary; light always returns.",
+    "meaning": "Hard times are temporary, light always returns.",
     "instruction": "Remind yourself that this moment will pass.",
     "category": "Healing & Hope",
     "tags": ["hope", "light", "resilience"]
@@ -2216,7 +2216,7 @@
     "tags": ["anxiety", "faith"]
   },
   {
-    "quote": "The Lord is my shepherd; I shall not want.",
+    "quote": "The Lord is my shepherd, I shall not want.",
     "author": "Psalm 23:1",
     "meaning": "Trust reduces emotional tension.",
     "instruction": "Remind yourself you are supported.",
@@ -2368,7 +2368,7 @@
     "tags": ["islam", "ease", "hope"]
   },
   {
-    "quote": "Remember Me; I will remember you.",
+    "quote": "Remember Me, I will remember you.",
     "author": "Qur'an 2:152",
     "meaning": "Connection brings peace.",
     "instruction": "Spend one moment in remembrance.",
@@ -2376,7 +2376,7 @@
     "tags": ["islam", "remembrance"]
   },
   {
-    "quote": "And rely upon Allah; and sufficient is He as Disposer of affairs.",
+    "quote": "And rely upon Allah, and sufficient is He as Disposer of affairs.",
     "author": "Qur'an 33:3",
     "meaning": "Relying on divine support removes anxiety.",
     "instruction": "Let go of one worry.",
@@ -2512,7 +2512,7 @@
     "tags": ["presence", "faith"]
   },
   {
-    "quote": "Your task is only to call to the path; guidance is in the hands of God.",
+    "quote": "Your task is only to call to the path, guidance is in the hands of God.",
     "author": "Qur'an 28:56",
     "meaning": "You are responsible for effort, not outcome.",
     "instruction": "Focus on what you can control.",
@@ -2624,7 +2624,7 @@
     "tags": ["service", "joy"]
   },
   {
-    "quote": "Meditation brings wisdom; lack of meditation leaves ignorance.",
+    "quote": "Meditation brings wisdom, lack of meditation leaves ignorance.",
     "author": "Hindu Teaching",
     "meaning": "Clarity grows through mindfulness.",
     "instruction": "Meditate for one breath.",
@@ -2720,7 +2720,7 @@
     "tags": ["gentleness", "communication"]
   },
   {
-    "quote": "In returning and rest you shall be saved; in quietness and trust is your strength.",
+    "quote": "In returning and rest you shall be saved, in quietness and trust is your strength.",
     "author": "Isaiah 30:15",
     "meaning": "Rest builds resilience.",
     "instruction": "Slow down your breathing.",
@@ -2826,7 +2826,7 @@
   {
     "quote": "For everything there is a season.",
     "author": "Ecclesiastes 3:1",
-    "meaning": "Life moves in cycles; acceptance brings peace.",
+    "meaning": "Life moves in cycles, acceptance brings peace.",
     "instruction": "Accept the season you're in.",
     "category": "Healing & Hope",
     "tags": ["seasons", "acceptance"]
@@ -2880,7 +2880,7 @@
     "tags": ["slow", "presence"]
   },
   {
-    "quote": "Wisdom is like a baobab tree; no one person can embrace it.",
+    "quote": "Wisdom is like a baobab tree, no one person can embrace it.",
     "author": "African Proverb",
     "meaning": "True understanding requires humility.",
     "instruction": "Stay open to learning.",
@@ -3088,7 +3088,7 @@
     "tags": ["care"]
   },
   {
-    "quote": "Be not afraid of growing slowly; be afraid only of standing still.",
+    "quote": "Be not afraid of growing slowly, be afraid only of standing still.",
     "author": "Chinese Proverb",
     "meaning": "Slow progress is still progress.",
     "instruction": "Take a tiny step forward.",
@@ -3176,7 +3176,7 @@
     "tags": ["listening"]
   },
   {
-    "quote": "We do not inherit the earth from our ancestors; we borrow it from our children.",
+    "quote": "We do not inherit the earth from our ancestors, we borrow it from our children.",
     "author": "Native American Wisdom",
     "meaning": "Responsibility creates harmony.",
     "instruction": "Respect something around you.",
@@ -3480,3 +3480,4 @@
     "tags": ["depth", "sufi"]
   }
 ]
+
