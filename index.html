@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!-- ========================================================
          CORE META + SEO
     ========================================================= -->
@@ -38,7 +37,9 @@
     <!-- Performance hints -->
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 
     <!-- OpenGraph -->
     <meta property="og:title" content="Calm Down Quotes, Daily Quote Engine">
@@ -89,7 +90,7 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
         gtag("js", new Date());
-        gtag("config", "G-K9P7Z4CKYG");
+        gtag("config", "G-K9P7Z4CKYG", { anonymize_ip: true });
     </script>
 
     <!-- ========================================================
@@ -103,15 +104,12 @@
          STYLES
     ========================================================= -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-
     <!-- Skip link for accessibility -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <main id="main-content" class="container" role="main">
-
         <!-- Breathing orb -->
         <div class="breathing-circle" aria-hidden="true"></div>
 
@@ -155,7 +153,7 @@
             <h3 class="section-heading category-label">Category</h3>
             <p class="category" id="quote-category"></p>
 
-            <!-- Tags kept for JS and share text only, hidden by CSS -->
+            <!-- Tags kept for JS/share text only, hidden by CSS -->
             <h3 class="section-heading tags-label">Tags</h3>
             <p class="tags" id="quote-tags"></p>
 
@@ -228,7 +226,6 @@
 
             -->
         </section>
-
     </main>
 
     <footer class="site-footer">
@@ -242,8 +239,5 @@
 
     <!-- App script -->
     <script src="script.js" defer></script>
-
 </body>
 </html>
-
-
