@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- ========================================================
-         GOOGLE ANALYTICS 4
-    ========================================================= -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-K9P7Z4CKYG');
-    </script>
-
     <!-- ========================================================
          META CORE
     ========================================================= -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Privacy Policy – Calm Down Quotes</title>
 
     <!-- Canonical -->
     <link rel="canonical" href="https://calm-down-quotes.github.io/privacy.html">
 
-    <!-- Mobile browser color -->
-    <meta name="theme-color" content="#ffffff">
+    <!-- Browser chrome -->
+    <meta name="theme-color" content="#0b1120">
+    <meta name="color-scheme" content="light">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- ========================================================
          SEO
     ========================================================= -->
-    <meta name="description" content="Learn how Calm Down Quotes handles privacy, analytics data, and optional email subscriptions.">
-    <meta name="keywords" content="privacy policy, calm down quotes privacy, data usage, cookies, analytics, email subscription">
+    <meta
+        name="description"
+        content="Learn how Calm Down Quotes handles privacy, analytics data, and optional email subscriptions."
+    >
+    <meta
+        name="keywords"
+        content="privacy policy, calm down quotes privacy, data usage, cookies, analytics, email subscription"
+    >
     <meta name="author" content="Calm Down Quotes">
 
     <!-- ========================================================
          OPEN GRAPH
     ========================================================= -->
     <meta property="og:title" content="Privacy Policy – Calm Down Quotes">
-    <meta property="og:description" content="Understand how Calm Down Quotes protects your privacy, uses analytics, and manages optional email subscriptions.">
+    <meta
+        property="og:description"
+        content="Understand how Calm Down Quotes protects your privacy, uses analytics, and manages optional email subscriptions."
+    >
     <meta property="og:type" content="article">
-    <meta property="og:image" content="https://calm-down-quotes.github.io/preview.png">
-    <meta property="og:url" content="https://calm-down-quotes.github.io/privacy.html">
+    <meta
+        property="og:image"
+        content="https://calm-down-quotes.github.io/preview.png"
+    >
+    <meta
+        property="og:url"
+        content="https://calm-down-quotes.github.io/privacy.html"
+    >
+    <meta property="og:site_name" content="Calm Down Quotes">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy – Calm Down Quotes">
+    <meta
+        name="twitter:description"
+        content="Understand how Calm Down Quotes protects your privacy, uses analytics, and manages optional email subscriptions."
+    >
+    <meta
+        name="twitter:image"
+        content="https://calm-down-quotes.github.io/preview.png"
+    >
 
     <!-- ========================================================
          CONTENT SECURITY POLICY (NO ADSENSE)
+         - Allows GA / GTM and Google Fonts
+         - Blocks iframes and objects
     ========================================================= -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         img-src 'self' https: data:;
         connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
-        style-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
         script-src
             'self'
             'unsafe-inline'
@@ -66,22 +90,43 @@
     ========================================================= -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- ========================================================
+         STRUCTURED DATA
+    ========================================================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy – Calm Down Quotes",
+      "url": "https://calm-down-quotes.github.io/privacy.html",
+      "description": "Learn how Calm Down Quotes handles privacy, analytics data, and optional email subscriptions.",
+      "inLanguage": "en"
+    }
+    </script>
+
+    <!-- ========================================================
+         GOOGLE ANALYTICS 4
+    ========================================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-K9P7Z4CKYG", { anonymize_ip: true });
+    </script>
 </head>
 
 <body>
-
     <!-- Skip link for accessibility -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <main id="main-content" class="container legal-page" role="main">
-
         <header class="legal-header">
             <h1>Privacy Policy</h1>
             <p class="subtitle">Last updated: 2025</p>
         </header>
 
         <section class="policy-section">
-
             <p>Thank you for using Calm Down Quotes. Your privacy matters. This Privacy Policy explains how we collect, use, and protect information when you visit this website.</p>
 
             <h2>1. Information We Collect</h2>
@@ -136,9 +181,7 @@
 
             <h2>9. Contact</h2>
             <p>If you have questions about this Privacy Policy, please refer to any contact details provided on the website (if available) or any contact options included in subscription emails.</p>
-
         </section>
-
     </main>
 
     <footer class="site-footer">
@@ -151,6 +194,5 @@
         </nav>
         <p>© 2025 Calm Down Quotes – Daily Quote Engine. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
