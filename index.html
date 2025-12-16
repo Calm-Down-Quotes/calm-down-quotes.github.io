@@ -1,21 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU">
 <head>
   <!-- ========================================================
        CORE META + SEO
   ========================================================= -->
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Calm Down Quotes – Daily Calm Quote Engine</title>
 
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
-  <!-- Basic SEO -->
-  <meta
-    name="description"
-    content="A calming, minimalist space to reset your thoughts with powerful quotes, deeper meanings, and gentle guidance."
-  >
+  <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes, deeper meanings, and gentle guidance.">
   <meta name="author" content="Calm Down Quotes">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0b1120">
@@ -27,17 +22,14 @@
   <link rel="icon" type="image/svg+xml" href="icon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Performance hints (Analytics only; ads removed) -->
+  <!-- Performance hints (Analytics only) -->
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
   <link rel="dns-prefetch" href="//www.google-analytics.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
   <!-- OpenGraph -->
   <meta property="og:title" content="Calm Down Quotes – Daily Calm Quote Engine">
-  <meta
-    property="og:description"
-    content="Reset your mind with calming quotes, deeper meanings, and gentle guidance."
-  >
+  <meta property="og:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Calm Down Quotes">
   <meta property="og:url" content="https://calm-down-quotes.github.io/">
@@ -50,10 +42,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Calm Down Quotes – Daily Calm Quote Engine">
-  <meta
-    name="twitter:description"
-    content="Reset your mind with calming quotes, deeper meanings, and gentle guidance."
-  >
+  <meta name="twitter:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
   <meta name="twitter:image" content="https://calm-down-quotes.github.io/preview.png">
 
   <!-- Structured Data -->
@@ -83,8 +72,7 @@
   </script>
 
   <!-- ========================================================
-       GOOGLE ANALYTICS 4
-       (Ads removed. If you later add consent controls, this is where you'd gate GA.)
+       GOOGLE ANALYTICS 4 (single instance only)
   ========================================================= -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
   <script>
@@ -94,53 +82,34 @@
     gtag("config", "G-K9P7Z4CKYG", { anonymize_ip: true });
   </script>
 
-  <!-- ========================================================
-       STYLES
-  ========================================================= -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main id="main-content" class="container">
-    <!-- Breathing orb -->
+  <main id="main-content" class="container" role="main">
     <div class="breathing-circle" aria-hidden="true"></div>
 
-    <!-- Hero -->
     <header class="hero">
       <h1>Calm Down Quotes</h1>
       <p class="subtitle">Take a breath and centre your mind.</p>
     </header>
 
-    <!-- Generator button -->
     <section class="generator" aria-labelledby="generator-heading">
       <h2 id="generator-heading" class="sr-only">Generate a calming quote</h2>
-      <button
-        id="quote-btn"
-        type="button"
-        class="primary-btn"
-        aria-label="Generate a calming quote"
-        aria-controls="quote-box"
-      >
+      <button id="quote-btn" type="button" class="primary-btn" aria-controls="quote-box">
         Give Me a Quote
       </button>
     </section>
 
-    <!-- No-JS fallback -->
     <noscript>
       <p class="noscript-note">
         This site needs JavaScript to generate quotes. Please enable JavaScript and refresh.
       </p>
     </noscript>
 
-    <!-- Quote card -->
-    <section
-      id="quote-box"
-      class="quote-box hidden"
-      aria-labelledby="quote-card-heading"
-    >
+    <section id="quote-box" class="quote-box hidden" aria-labelledby="quote-card-heading">
       <h2 id="quote-card-heading" class="sr-only">Your quote</h2>
 
       <blockquote class="quote" id="quote-text" aria-live="polite"></blockquote>
@@ -159,54 +128,38 @@
       <h3 class="section-heading tags-label">Tags</h3>
       <p class="tags" id="quote-tags"></p>
 
-      <!-- Copy and share -->
       <div class="copy-row">
-        <button
-          id="copy-btn"
-          class="copy-btn"
-          type="button"
-          aria-label="Copy quote text"
-        >
-          Copy Quote
-        </button>
-        <span
-          id="copy-feedback"
-          class="copy-feedback"
-          role="status"
-          aria-live="polite"
-        ></span>
+        <button id="copy-btn" class="copy-btn" type="button">Copy Quote</button>
+        <span id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></span>
       </div>
 
       <div class="share-buttons" role="group" aria-label="Share this quote">
-        <!-- Platform buttons present for JS but visually hidden by CSS -->
-        <button id="whatsapp-btn"  class="share-btn" type="button">WhatsApp</button>
-        <button id="sms-btn"       class="share-btn" type="button">SMS</button>
+        <button id="whatsapp-btn" class="share-btn" type="button">WhatsApp</button>
+        <button id="sms-btn" class="share-btn" type="button">SMS</button>
         <button id="messenger-btn" class="share-btn" type="button">Messenger</button>
         <button id="instagram-btn" class="share-btn" type="button">Instagram</button>
         <button id="pinterest-btn" class="share-btn" type="button">Pinterest</button>
 
-        <!-- Primary visible share button -->
-        <button id="share-btn" class="share-btn primary-share" type="button">
-          Share
-        </button>
+        <button id="share-btn" class="share-btn primary-share" type="button">Share</button>
       </div>
     </section>
 
-    <!-- Email subscribe section -->
     <section class="subscribe-section" aria-labelledby="subscribe-heading">
       <h2 id="subscribe-heading">Get daily calm quotes by email</h2>
       <p class="subscribe-text">
         Join the Calm Down newsletter and receive one quote in your inbox each day.
       </p>
-      <a
-        class="subscribe-btn"
-        href="https://calm-down-quotes.beehiiv.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a class="subscribe-btn"
+         href="https://calm-down-quotes.beehiiv.com"
+         target="_blank"
+         rel="noopener noreferrer">
         Subscribe by email
       </a>
     </section>
+
+    <!-- Optional ad slot wrapper (keep empty unless you actively run ads)
+    <section class="ad-wrapper" aria-label="Sponsored content"></section>
+    -->
   </main>
 
   <footer class="site-footer">
@@ -218,7 +171,6 @@
     <p>© 2025 Calm Down Quotes, Daily Quote Engine. All rights reserved.</p>
   </footer>
 
-  <!-- App script -->
   <script src="script.js" defer></script>
 </body>
 </html>
