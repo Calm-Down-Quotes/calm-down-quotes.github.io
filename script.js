@@ -1,839 +1,186 @@
-/* ========================================================
-   CALM APP — DESIGN SYSTEM V5 (NEUTRAL PALETTE)
-======================================================== */
+"use strict";
 
-/* Premium font stack (safe on GitHub Pages) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap");
+/**
+ * Calm Down Quotes — Script (stable DOM + visibility model)
+ * - .hidden controls display
+ * - .visible controls animation state
+ */
 
-:root {
-    /* Atmosphere: neutral greys with a hint of cool tone */
-    --bg-1: #f3f4f6;   /* gray-100 */
-    --bg-2: #e5e7eb;   /* gray-200 */
+const $ = (id) => document.getElementById(id);
 
-    /* Auras (very low saturation, neutral-cool) */
-    --aura-1: rgba(148, 163, 184, 0.55);  /* slate 400 */
-    --aura-2: rgba(129, 140, 248, 0.28);  /* indigo 400, faint */
+const quoteBtn = $("quote-btn");
+const quoteBox = $("quote-box");
+const quoteText = $("quote-text");
+const quoteAuthor = $("quote-author");
+const quoteMeaning = $("quote-meaning");
+const quoteInstruction = $("quote-instruction");
+const quoteCategory = $("quote-category");
+const quoteTags = $("quote-tags");
 
-    /* Text */
-    --t-heading: #020617;   /* slate 950 */
-    --t-body: #111827;      /* gray 900 */
-    --t-muted: #6b7280;     /* gray 500 */
-    --t-subtle: #9ca3af;    /* gray 400 */
+const copyBtn = $("copy-btn");
+const copyFeedback = $("copy-feedback");
+const shareBtn = $("share-btn");
 
-    /* Brand (solid, not pastel) */
-    --brand-1: #2563eb;     /* blue 600 */
-    --brand-2: #1d4ed8;     /* blue 700 */
+// Replace / expand this dataset as you like
+const QUOTES = [
+  {
+    quote: "You don’t have to control your thoughts. You just have to stop letting them control you.",
+    author: "Dan Millman",
+    meaning: "Thoughts are not commands. Create space between what you think and what you do.",
+    instruction: "Name the thought. Then say: “That’s a thought, not a fact.” Take one slow breath.",
+    category: "Anxiety",
+    tags: ["calm", "mindfulness", "anxiety", "perspective"]
+  },
+  {
+    quote: "Almost everything will work again if you unplug it for a few minutes — including you.",
+    author: "Anne Lamott",
+    meaning: "Rest is a reset. Your nervous system needs pauses to return to baseline.",
+    instruction: "Step away from screens for 3 minutes. Look at something far away. Relax your jaw.",
+    category: "Reset",
+    tags: ["reset", "rest", "nervous system"]
+  },
+  {
+    quote: "Feelings are visitors. Let them come and go.",
+    author: "Mooji",
+    meaning: "You can experience emotion without building a story around it.",
+    instruction: "Locate the feeling in your body. Breathe into that area for 5 breaths.",
+    category: "Emotional Regulation",
+    tags: ["emotion", "acceptance", "breathing"]
+  }
+];
 
-    /* Radii */
-    --r-card: 26px;
-    --r-pill: 999px;
-
-    /* Shadows */
-    --shadow-soft:
-        0 18px 55px rgba(15, 23, 42, 0.12),
-        0 4px 12px rgba(15, 23, 42, 0.04);
-
-    /* Motion */
-    --transition: 0.35s ease;
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
-html {
-    scroll-behavior: smooth;
+function formatShareText(item) {
+  const lines = [
+    `"${item.quote}"`,
+    item.author ? `— ${item.author}` : "",
+    "",
+    item.meaning ? `Meaning: ${item.meaning}` : "",
+    item.instruction ? `Try this: ${item.instruction}` : "",
+    item.category ? `Category: ${item.category}` : ""
+  ].filter(Boolean);
+
+  return lines.join("\n");
 }
 
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+function showCard() {
+  // Make it render first
+  quoteBox.classList.remove("hidden");
+
+  // Next frame = animate in reliably
+  requestAnimationFrame(() => {
+    quoteBox.classList.add("visible");
+  });
 }
 
-/* Base reset for images and buttons */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+function setCard(item) {
+  quoteText.textContent = item.quote || "";
+  quoteAuthor.textContent = item.author ? `— ${item.author}` : "";
+  quoteMeaning.textContent = item.meaning || "";
+  quoteInstruction.textContent = item.instruction || "";
+  quoteCategory.textContent = item.category || "";
+  quoteTags.textContent = Array.isArray(item.tags) ? item.tags.join(", ") : "";
 }
 
-button {
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    background: none;
-    border: none;
+function generateQuote() {
+  const item = pickRandom(QUOTES);
+  setCard(item);
+  showCard();
+
+  // Optional: scroll the card into view once it exists
+  quoteBox.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-/* Mobile polish (no visual change on desktop) */
-:where(a, button) {
-    -webkit-tap-highlight-color: transparent;
+async function copyToClipboard(text) {
+  // Modern API
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  // Fallback
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
 }
 
-/* ========================================================
-   GLOBAL LAYOUT & ATMOSPHERE
-======================================================== */
-body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-    color: var(--t-body);
-
-    background-color: var(--bg-1);
-    background: radial-gradient(circle at 0% 0%, #ffffff 0, var(--bg-1) 30%, var(--bg-2) 80%);
-    overflow-x: hidden;
-    min-height: 100vh;
-
-    opacity: 0;
-    animation: fadeIn 0.9s ease forwards;
-    position: relative;
+let feedbackTimer = null;
+function showCopyFeedback(msg) {
+  copyFeedback.textContent = msg;
+  copyFeedback.classList.add("visible");
+  clearTimeout(feedbackTimer);
+  feedbackTimer = setTimeout(() => {
+    copyFeedback.classList.remove("visible");
+  }, 1400);
 }
 
-/* Top aura */
-body::before {
-    content: "";
-    position: fixed;
-    top: -180px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 520px;
-    height: 520px;
-    background:
-        radial-gradient(circle at 30% 20%, var(--aura-1), transparent 65%),
-        radial-gradient(circle at 70% 80%, var(--aura-2), transparent 60%);
-    filter: blur(32px);
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: -1;
+function getCurrentItemForSharing() {
+  return {
+    quote: quoteText.textContent || "",
+    author: quoteAuthor.textContent.replace(/^—\s*/, ""),
+    meaning: quoteMeaning.textContent || "",
+    instruction: quoteInstruction.textContent || "",
+    category: quoteCategory.textContent || "",
+    tags: quoteTags.textContent ? quoteTags.textContent.split(",").map(s => s.trim()) : []
+  };
 }
 
-/* Bottom aura */
-body::after {
-    content: "";
-    position: fixed;
-    bottom: -220px;
-    right: -120px;
-    width: 420px;
-    height: 420px;
-    background:
-        radial-gradient(circle at 25% 20%, rgba(148, 163, 184, 0.3), transparent 65%),
-        radial-gradient(circle at 80% 70%, rgba(37, 99, 235, 0.28), transparent 60%);
-    filter: blur(36px);
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: -1;
+async function handleCopy() {
+  const item = getCurrentItemForSharing();
+  const text = formatShareText(item);
+
+  try {
+    await copyToClipboard(text);
+    showCopyFeedback("Copied");
+  } catch {
+    showCopyFeedback("Copy failed");
+  }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Main app shell */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 56px 24px 40px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: calc(100vh - 120px);
-}
-
-/* ========================================================
-   ACCESSIBILITY HELPERS
-======================================================== */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border: 0;
-}
-
-.skip-link {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -200%);
-    padding: 8px 18px;
-    background: #ffffff;
-    color: var(--t-heading);
-    border-radius: 999px;
-    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
-    font-size: 14px;
-    z-index: 999;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    opacity: 0;
-}
-
-.skip-link:focus-visible {
-    transform: translate(-50%, 12px);
-    opacity: 1;
-}
-
-/* Noscript note (used by updated HTML) */
-.noscript-note {
-    max-width: 60ch;
-    margin: 14px auto 0;
-    padding: 12px 14px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(209, 213, 219, 0.95);
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
-    color: var(--t-muted);
-    font-size: 13px;
-    text-align: center;
-}
-
-/* ========================================================
-   HERO & HEADINGS
-======================================================== */
-.hero {
-    margin-bottom: 26px;
-}
-
-h1 {
-    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: clamp(32px, 6vw, 50px);
-    font-weight: 700;
-    color: var(--t-heading);
-    letter-spacing: -0.04em;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-size: clamp(14px, 2.7vw, 18px);
-    color: var(--t-muted);
-    margin-bottom: 32px;
-}
-
-/* ========================================================
-   BUTTON SYSTEM (ALL BUTTONS)
-======================================================== */
-
-/* Base style shared by main buttons */
-.primary-btn,
-.copy-btn,
-.primary-share,
-.subscribe-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0.85rem 2.6rem;
-    border-radius: var(--r-pill);
-    border: 1px solid rgba(15, 23, 42, 0.12);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: clamp(14px, 3vw, 16px);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    line-height: 1;
-
-    text-decoration: none;
-    cursor: pointer;
-    white-space: nowrap;
-
-    background: linear-gradient(135deg, #ffffff, #f3f4f6);
-    color: var(--t-heading);
-
-    box-shadow:
-        0 14px 30px rgba(15, 23, 42, 0.16),
-        0 0 0 1px rgba(255, 255, 255, 0.85) inset;
-
-    transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        background 0.18s ease,
-        filter 0.18s ease;
-}
-
-/* Strong primary buttons (blue gradient): CTA, share, subscribe */
-.primary-btn,
-.primary-share,
-.subscribe-btn {
-    background: radial-gradient(circle at 20% 0, var(--brand-1), var(--brand-2));
-    color: #ffffff;
-    border-color: rgba(15, 23, 42, 0.45);
-    box-shadow:
-        0 16px 40px rgba(37, 99, 235, 0.55),
-        0 0 0 1px rgba(255, 255, 255, 0.22) inset;
-}
-
-/* Neutral secondary button (Copy Quote) */
-.copy-btn {
-    background: linear-gradient(135deg, #ffffff, #f3f4f6);
-    color: var(--t-body);
-}
-
-/* Main CTA sizing (Give Me a Quote) */
-#quote-btn.primary-btn {
-    padding: 0.95rem 3.1rem;
-    font-size: clamp(15px, 3.2vw, 18px);
-}
-
-/* Hover and active states */
-.primary-btn:hover,
-.primary-share:hover,
-.subscribe-btn:hover,
-.copy-btn:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.03);
-    box-shadow:
-        0 18px 44px rgba(15, 23, 42, 0.20),
-        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
-}
-
-.primary-btn:active,
-.primary-share:active,
-.subscribe-btn:active,
-.copy-btn:active {
-    transform: translateY(0);
-    filter: brightness(0.99);
-    box-shadow:
-        0 8px 20px rgba(15, 23, 42, 0.20),
-        0 0 0 1px rgba(255, 255, 255, 0.9) inset;
-}
-
-/* Keyboard focus */
-button:focus-visible,
-a:focus-visible {
-    outline: 2px solid #93c5fd;
-    outline-offset: 2px;
-}
-
-/* ========================================================
-   BREATHING ORB
-======================================================== */
-.breathing-circle {
-    width: clamp(90px, 16vw, 130px);
-    height: clamp(90px, 16vw, 130px);
-    margin: 0 auto 34px;
-    border-radius: 999px;
-
-    background:
-        radial-gradient(circle at 30% 20%, #ffffff, #e5e7eb 55%, #d1d5db 100%);
-    box-shadow:
-        0 18px 42px rgba(15, 23, 42, 0.20),
-        0 10px 26px rgba(15, 23, 42, 0.08);
-
-    animation: breathe 8s ease-in-out infinite;
-}
-
-@keyframes breathe {
-    0%   { transform: scale(0.9); opacity: 0.75; }
-    40%  { transform: scale(1.08); opacity: 1; }
-    100% { transform: scale(0.9); opacity: 0.75; }
-}
-
-/* ========================================================
-   GLASS QUOTE CARD
-======================================================== */
-#quote-box {
-    position: relative;
-    max-width: 640px;
-    width: 100%;
-    margin: 40px auto 0;
-    padding: 40px 32px 32px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 18px;
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(243,244,246,0.98));
-    border-radius: var(--r-card);
-    border: 1px solid rgba(209, 213, 219, 0.9);
-    box-shadow: var(--shadow-soft);
-
-    opacity: 0;
-    transform: translateY(24px);
-    transition: 0.35s ease;
-    overflow: hidden;
-    z-index: 0;
-}
-
-/* Gradient frame */
-#quote-box::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(
-        135deg,
-        rgba(37, 99, 235, 0.16),
-        rgba(148, 163, 184, 0.22),
-        rgba(248,250,252,0.0)
-    );
-    opacity: 0.9;
-    z-index: -2;
-}
-
-/* Faint decorative quote mark */
-#quote-box::after {
-    content: "“";
-    position: absolute;
-    top: -30px;
-    right: 34px;
-    font-family: "Georgia", serif;
-    font-size: 104px;
-    color: rgba(148, 163, 184, 0.16);
-    pointer-events: none;
-    z-index: -1;
-}
-
-#quote-box.visible {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* ========================================================
-   QUOTE TYPOGRAPHY
-======================================================== */
-.quote {
-    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: clamp(20px, 5.2vw, 28px);
-    font-weight: 700;
-    color: var(--t-heading);
-    line-height: 1.45;
-    letter-spacing: -0.04em;
-    max-width: 36rem;
-    margin: 0 auto 8px;
-    position: relative;
-}
-
-/* Subtle divider under quote */
-.quote::after {
-    content: "";
-    display: block;
-    width: 72px;
-    height: 1px;
-    margin: 16px auto 0;
-    background: linear-gradient(
-        90deg,
-        rgba(156,163,175,0.00),
-        var(--t-subtle),
-        rgba(156,163,175,0.00)
-    );
-    opacity: 0.6;
-}
-
-/* Author */
-.author {
-    font-family: Georgia, "Times New Roman", serif;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(107, 114, 128, 0.9);
-    margin-top: 2px;
-    margin-bottom: 8px;
-    font-style: normal; /* important because author is now <cite> */
-}
-
-/* Body text */
-.meaning,
-.instruction,
-.category,
-.tags {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--t-muted);
-    max-width: 42rem;
-    margin: 0 auto;
-}
-
-/* ========================================================
-   LABELS & TAGS
-======================================================== */
-.section-heading,
-.meaning-label,
-.instruction-label,
-.category-label {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: rgba(156,163,175,0.96);
-    margin-top: 18px;
-    margin-bottom: 6px;
-}
-
-.meaning + .instruction-label,
-.instruction + .category-label {
-    margin-top: 22px;
-}
-
-/* Tag chip style (for when tags are visible) */
-.tag-chip {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 7px 16px;
-    font-size: 12px;
-    font-weight: 500;
-
-    background: rgba(229, 231, 235, 0.96);
-    color: var(--t-heading);
-    border-radius: var(--r-pill);
-    margin: 4px;
-    cursor: default;
-
-    border: 1px solid rgba(209, 213, 219, 0.9);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-}
-
-.tag-chip:hover {
-    transform: translateY(-2px);
-    background: rgba(209, 213, 219, 1);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12), 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-/* Hidden tags container (used only for JS/share text) */
-.tags-label,
-#quote-tags {
-    display: none;
-}
-
-/* ========================================================
-   COPY / SHARE BUTTONS LAYOUT
-======================================================== */
-.copy-row {
-    margin-top: 26px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.share-buttons {
-    margin-top: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Hide platform-specific share buttons visually */
-.share-btn:not(.primary-share) {
-    display: none;
-}
-
-/* Copy feedback text */
-.copy-feedback {
-    display: inline-block;
-    opacity: 0;
-    margin-top: 2px;
-    color: var(--brand-2);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: opacity 0.22s ease, transform 0.22s ease;
-    transform: translateY(2px);
-}
-
-.copy-feedback.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ========================================================
-   SUBSCRIBE SECTION
-======================================================== */
-.subscribe-section {
-    max-width: 640px;
-    width: 100%;
-    margin: 40px auto 0;
-    padding: 24px 20px;
-    text-align: center;
-    border-radius: var(--r-card);
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(209, 213, 219, 0.9);
-    box-shadow: var(--shadow-soft);
-}
-
-.subscribe-section h2 {
-    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: var(--t-heading);
-}
-
-.subscribe-text {
-    font-size: 14px;
-    color: var(--t-muted);
-    margin-bottom: 16px;
-}
-
-/* subscribe-btn already uses primary button style; tweak size */
-.subscribe-btn {
-    padding-inline: 2.4rem;
-    font-size: 14px;
-}
-
-/* ========================================================
-   FOOTER
-======================================================== */
-.site-footer {
-    width: 100%;
-    font-size: 13px;
-    color: var(--t-muted);
-    text-align: center;
-    padding: 18px 16px 32px;
-    margin-top: 32px;
-}
-
-.footer-links {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
-}
-
-.footer-links a {
-    color: var(--brand-2);
-    text-decoration: none;
-}
-
-.footer-links span {
-    color: rgba(156,163,175,0.9);
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.site-footer p {
-    margin-top: 4px;
-}
-
-/* Default link style */
-a {
-    color: var(--brand-2);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ========================================================
-   RESPONSIVE TUNING
-======================================================== */
-@media (max-width: 900px) {
-    #quote-box {
-        margin-top: 32px;
-        padding: 34px 28px 28px;
+async function handleShare() {
+  const item = getCurrentItemForSharing();
+  const text = formatShareText(item);
+
+  // Web Share API (mobile-first)
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Calm Down Quotes",
+        text,
+        url: window.location.href
+      });
+      return;
+    } catch {
+      // If user cancels share, silently ignore
     }
+  }
+
+  // Fallback: copy
+  try {
+    await copyToClipboard(text);
+    showCopyFeedback("Copied to share");
+  } catch {
+    showCopyFeedback("Share failed");
+  }
 }
 
-@media (max-width: 720px) {
-    .container {
-        padding: 40px 18px 28px;
-        min-height: calc(100vh - 110px);
-    }
+/* Wire up events */
+quoteBtn.addEventListener("click", generateQuote);
+copyBtn.addEventListener("click", handleCopy);
+shareBtn.addEventListener("click", handleShare);
 
-    #quote-box {
-        padding: 30px 22px 26px;
-        margin-top: 26px;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 4px;
-    }
-}
-
-@media (max-width: 480px) {
-    .breathing-circle {
-        margin: 0 auto 24px;
-    }
-
-    .hero {
-        margin-bottom: 18px;
-    }
-
-    h1 {
-        font-size: 26px;
-    }
-
-    .subtitle {
-        font-size: 14px;
-        margin-bottom: 24px;
-    }
-
-    /* CTA full-width on small screens */
-    #quote-btn.primary-btn {
-        width: 100%;
-        max-width: 320px;
-        margin-bottom: 18px;
-        justify-content: center;
-    }
-
-    #quote-box {
-        padding: 24px 18px 20px;
-        margin-top: 18px;
-        border-radius: 22px;
-    }
-
-    .quote {
-        font-size: 20px;
-    }
-
-    .quote::after {
-        width: 56px;
-    }
-
-    .copy-row {
-        gap: 8px;
-    }
-
-    .copy-btn,
-    .primary-share {
-        min-width: 0;
-        width: 100%;
-        max-width: 260px;
-        font-size: 12px;
-        padding-inline: 1.2rem;
-        justify-content: center;
-    }
-
-    .subscribe-section {
-        margin-top: 28px;
-        padding: 20px 16px;
-    }
-
-    .subscribe-btn {
-        width: 100%;
-        max-width: 260px;
-        justify-content: center;
-        font-size: 13px;
-        padding-inline: 1.4rem;
-    }
-}
-
-/* ========================================================
-   REDUCED MOTION ACCESSIBILITY
-======================================================== */
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    body {
-        animation: none;
-    }
-
-    body::before,
-    body::after,
-    .breathing-circle {
-        animation: none;
-    }
-
-    #quote-box,
-    .primary-btn,
-    .copy-btn,
-    .share-btn,
-    .subscribe-btn {
-        transition: none;
-    }
-}
-
-/* ========================================================
-   LEGAL PAGES (PRIVACY + TERMS)
-======================================================== */
-.container.legal-page {
-    max-width: 780px;
-    padding: 40px 20px 64px;
-    margin: 0 auto;
-    text-align: left;
-    align-items: stretch;
-}
-
-.legal-header {
-    text-align: left;
-    margin-bottom: 24px;
-}
-
-.legal-header h1 {
-    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: clamp(26px, 4.2vw, 34px);
-    letter-spacing: -0.02em;
-    color: var(--t-heading);
-    margin-bottom: 4px;
-}
-
-.legal-header .subtitle {
-    margin-bottom: 0;
-    font-size: 13px;
-    color: var(--t-subtle);
-}
-
-.policy-section {
-    text-align: left;
-}
-
-.policy-section h2 {
-    font-size: 18px;
-    margin: 24px 0 8px;
-    color: var(--t-heading);
-}
-
-.policy-section p,
-.policy-section li {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--t-body);
-}
-
-.policy-section ul {
-    margin: 0 0 12px 1.4rem;
-    padding-left: 0;
-}
-
-@media (max-width: 480px) {
-    .container.legal-page {
-        padding: 32px 16px 56px;
-    }
-
-    .policy-section h2 {
-        font-size: 17px;
-    }
-
-    .policy-section p,
-    .policy-section li {
-        font-size: 13px;
-    }
-}
-
-/* ========================================================
-   AD WRAPPER ON HOME PAGE (OPTIONAL)
-======================================================== */
-.ad-wrapper {
-    max-width: 640px;
-    margin: 26px auto 0;
-    padding: 4px 0 0;
-}
-
-.ad-wrapper:empty {
-    display: none;
-}
+/* Optional: keyboard shortcut (G = generate) */
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "g" && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    generateQuote();
+  }
+});
