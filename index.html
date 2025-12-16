@@ -7,8 +7,8 @@
   <title>Calm Down Quotes – Daily Calm Quote Engine</title>
   <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
-  <!-- SEO -->
-  <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes, deeper meanings, and gentle guidance.">
+  <!-- Core SEO -->
+  <meta name="description" content="A calm, minimalist space to reset your mind with powerful quotes, deeper meanings, and gentle guidance.">
   <meta name="author" content="Calm Down Quotes">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -16,29 +16,45 @@
 
   <!-- Mobile polish -->
   <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <meta name="application-name" content="Calm Down Quotes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Calm Down Quotes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-  <!-- Theme color (light + dark) -->
+  <!-- Theme color -->
   <meta name="theme-color" content="#f3f4f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
 
-  <!-- Basic security policy (GitHub Pages-friendly) -->
+  <!-- Privacy / permissions -->
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
-  <!-- Content Security Policy (compatible with GA + Google Fonts)
-       Note: 'unsafe-inline' is required because GA config is inline below.
-       If you later move GA config into an external JS file, we can remove 'unsafe-inline'. -->
+  <!-- AdSense account -->
+  <meta name="google-adsense-account" content="ca-pub-8271945337069886">
+
+  <!-- CSP (GitHub Pages-friendly; supports GA4 + Fonts + optional AdSense) -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     base-uri 'self';
     object-src 'none';
     frame-ancestors 'none';
+    form-action 'self';
     img-src 'self' data: https:;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com data:;
-    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
-    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com;
+    script-src 'self' 'unsafe-inline'
+      https://www.googletagmanager.com
+      https://www.google-analytics.com
+      https://pagead2.googlesyndication.com
+      https://googleads.g.doubleclick.net
+      https://tpc.googlesyndication.com;
+    connect-src 'self'
+      https://www.google-analytics.com
+      https://region1.google-analytics.com
+      https://pagead2.googlesyndication.com
+      https://googleads.g.doubleclick.net;
+    frame-src
+      https://googleads.g.doubleclick.net
+      https://tpc.googlesyndication.com;
     upgrade-insecure-requests;
   ">
 
@@ -47,7 +63,7 @@
   <link rel="icon" type="image/svg+xml" href="icon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Fonts (fast + reliable) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -55,11 +71,15 @@
     rel="stylesheet"
   >
 
-  <!-- Preload CSS (small performance win) -->
+  <!-- Performance -->
   <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  <link rel="preload" href="quotes.json" as="fetch">
+  <link rel="preload" href="preview.png" as="image">
+
   <link rel="stylesheet" href="style.css">
 
-  <!-- Social sharing -->
+  <!-- Social -->
   <meta property="og:title" content="Calm Down Quotes – Daily Calm Quote Engine">
   <meta property="og:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
   <meta property="og:type" content="website">
@@ -86,7 +106,7 @@
         "@id": "https://calm-down-quotes.github.io/#website",
         "name": "Calm Down Quotes",
         "url": "https://calm-down-quotes.github.io/",
-        "description": "A calming, minimalist space to reset your thoughts with powerful quotes, deeper meanings, and gentle guidance.",
+        "description": "A calm, minimalist space to reset your mind with powerful quotes, deeper meanings, and gentle guidance.",
         "inLanguage": "en-AU"
       },
       {
@@ -102,7 +122,7 @@
   }
   </script>
 
-  <!-- GA4 (single instance) -->
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -110,6 +130,11 @@
     gtag("js", new Date());
     gtag("config", "G-K9P7Z4CKYG", { anonymize_ip: true });
   </script>
+
+  <!-- AdSense loader (optional; safe even before you place an <ins> ad unit) -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8271945337069886"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -138,11 +163,11 @@
 
     <noscript>
       <p class="noscript-note">
-        This site needs JavaScript to generate quotes. Please enable JavaScript and refresh.
+        This site needs JavaScript to generate daily quotes. Please enable JavaScript and refresh.
       </p>
     </noscript>
 
-    <!-- Quote card (starts hidden) -->
+    <!-- Quote card (starts hidden; JS reveals it) -->
     <section
       id="quote-box"
       class="quote-box hidden"
@@ -152,24 +177,30 @@
     >
       <h2 id="quote-card-heading" class="sr-only">Your quote</h2>
 
-      <blockquote class="quote" id="quote-text"></blockquote>
-      <cite class="author" id="quote-author"></cite>
+      <!-- Fallback content (only used if JS fails to render) -->
+      <blockquote class="quote" id="quote-text">
+        You don’t have to control your thoughts. You just have to stop letting them control you.
+      </blockquote>
+      <cite class="author" id="quote-author">— Dan Millman</cite>
 
       <h3 class="section-heading meaning-label">Meaning</h3>
-      <p class="meaning" id="quote-meaning"></p>
+      <p class="meaning" id="quote-meaning">
+        Thoughts are not commands. Create space between what you think and what you do.
+      </p>
 
       <h3 class="section-heading instruction-label">Try This</h3>
-      <p class="instruction" id="quote-instruction"></p>
+      <p class="instruction" id="quote-instruction">
+        Name the thought. Then say: “That’s a thought, not a fact.” Take one slow breath.
+      </p>
 
       <h3 class="section-heading category-label">Category</h3>
-      <p class="category" id="quote-category"></p>
+      <p class="category" id="quote-category">Anxiety</p>
 
-      <!-- tags kept for share text only -->
       <h3 class="section-heading tags-label">Tags</h3>
-      <p class="tags" id="quote-tags"></p>
+      <p class="tags" id="quote-tags">calm, mindfulness, anxiety, perspective</p>
 
       <div class="copy-row">
-        <button id="copy-btn" class="copy-btn" type="button">Copy Quote</button>
+        <button id="copy-btn" class="copy-btn" type="button" aria-label="Copy the current quote">Copy Quote</button>
         <span id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></span>
       </div>
 
@@ -199,6 +230,7 @@
       </a>
     </section>
 
+    <!-- If you add an AdSense unit later, place it inside this wrapper -->
     <section class="ad-wrapper" aria-label="Sponsored content"></section>
   </main>
 
@@ -212,5 +244,36 @@
   </footer>
 
   <script src="script.js" defer></script>
+
+  <!-- Safety net: if script.js/quotes.json fails, reveal the fallback content (without racing your async fetch). -->
+  <script>
+    (function () {
+      function revealFallback() {
+        var box = document.getElementById("quote-box");
+        var btn = document.getElementById("quote-btn");
+        if (!box) return;
+
+        box.classList.remove("hidden");
+        box.classList.add("visible");
+        if (btn) btn.setAttribute("aria-expanded", "true");
+      }
+
+      // Wait until the page is fully loaded, then give the async fetch a moment.
+      window.addEventListener("load", function () {
+        window.setTimeout(function () {
+          var box = document.getElementById("quote-box");
+          var text = document.getElementById("quote-text");
+
+          if (!box) return;
+
+          var stillHidden = box.classList.contains("hidden");
+          var notVisible = !box.classList.contains("visible");
+          var emptyText = !text || !text.textContent || !text.textContent.trim().length;
+
+          if (stillHidden || notVisible || emptyText) revealFallback();
+        }, 1800);
+      });
+    })();
+  </script>
 </body>
 </html>
