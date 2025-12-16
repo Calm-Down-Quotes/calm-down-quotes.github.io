@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-  <!-- ========================================================
-       CORE META + SEO
-  ========================================================= -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Calm Down Quotes – Daily Calm Quote Engine</title>
@@ -22,10 +19,13 @@
   <link rel="icon" type="image/svg+xml" href="icon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Performance hints (Analytics only) -->
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
-  <link rel="dns-prefetch" href="//www.google-analytics.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <!-- Fonts (preferred: faster than CSS @import) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <!-- OpenGraph -->
   <meta property="og:title" content="Calm Down Quotes – Daily Calm Quote Engine">
@@ -45,7 +45,7 @@
   <meta name="twitter:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
   <meta name="twitter:image" content="https://calm-down-quotes.github.io/preview.png">
 
-  <!-- Structured Data -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,9 +71,7 @@
   }
   </script>
 
-  <!-- ========================================================
-       GOOGLE ANALYTICS 4 (single instance only)
-  ========================================================= -->
+  <!-- GA4 (single instance) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -109,6 +107,7 @@
       </p>
     </noscript>
 
+    <!-- Quote card (starts hidden) -->
     <section id="quote-box" class="quote-box hidden" aria-labelledby="quote-card-heading">
       <h2 id="quote-card-heading" class="sr-only">Your quote</h2>
 
@@ -124,7 +123,7 @@
       <h3 class="section-heading category-label">Category</h3>
       <p class="category" id="quote-category"></p>
 
-      <!-- Tags kept for JS/share text only, hidden by CSS -->
+      <!-- tags kept for share text only -->
       <h3 class="section-heading tags-label">Tags</h3>
       <p class="tags" id="quote-tags"></p>
 
@@ -134,6 +133,7 @@
       </div>
 
       <div class="share-buttons" role="group" aria-label="Share this quote">
+        <!-- optional platform buttons (hidden by CSS, but kept for future use) -->
         <button id="whatsapp-btn" class="share-btn" type="button">WhatsApp</button>
         <button id="sms-btn" class="share-btn" type="button">SMS</button>
         <button id="messenger-btn" class="share-btn" type="button">Messenger</button>
@@ -157,9 +157,7 @@
       </a>
     </section>
 
-    <!-- Optional ad slot wrapper (keep empty unless you actively run ads)
     <section class="ad-wrapper" aria-label="Sponsored content"></section>
-    -->
   </main>
 
   <footer class="site-footer">
