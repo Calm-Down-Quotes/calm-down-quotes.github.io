@@ -3,23 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Calm Down Quotes – Daily Calm Quote Engine</title>
 
+  <title>Calm Down Quotes – Daily Calm Quote Engine</title>
   <link rel="canonical" href="https://calm-down-quotes.github.io/">
 
+  <!-- SEO -->
   <meta name="description" content="A calming, minimalist space to reset your thoughts with powerful quotes, deeper meanings, and gentle guidance.">
   <meta name="author" content="Calm Down Quotes">
-  <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#0b1120">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="color-scheme" content="light dark">
+
+  <!-- Mobile polish -->
+  <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Calm Down Quotes">
+
+  <!-- Theme color (light + dark) -->
+  <meta name="theme-color" content="#f3f4f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+
+  <!-- Basic security policy (GitHub Pages-friendly) -->
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- Content Security Policy (compatible with GA + Google Fonts)
+       Note: 'unsafe-inline' is required because GA config is inline below.
+       If you later move GA config into an external JS file, we can remove 'unsafe-inline'. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-ancestors 'none';
+    img-src 'self' data: https:;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com data:;
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
+    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com;
+    upgrade-insecure-requests;
+  ">
 
   <!-- Icons -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="icon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Fonts (preferred: faster than CSS @import) -->
+  <!-- Fonts (fast + reliable) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -27,7 +55,11 @@
     rel="stylesheet"
   >
 
-  <!-- OpenGraph -->
+  <!-- Preload CSS (small performance win) -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Social sharing -->
   <meta property="og:title" content="Calm Down Quotes – Daily Calm Quote Engine">
   <meta property="og:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
   <meta property="og:type" content="website">
@@ -39,7 +71,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Calm Down Quotes preview image">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Calm Down Quotes – Daily Calm Quote Engine">
   <meta name="twitter:description" content="Reset your mind with calming quotes, deeper meanings, and gentle guidance.">
@@ -79,14 +110,12 @@
     gtag("js", new Date());
     gtag("config", "G-K9P7Z4CKYG", { anonymize_ip: true });
   </script>
-
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main id="main-content" class="container" role="main">
+  <main id="main-content" class="container">
     <div class="breathing-circle" aria-hidden="true"></div>
 
     <header class="hero">
@@ -96,7 +125,13 @@
 
     <section class="generator" aria-labelledby="generator-heading">
       <h2 id="generator-heading" class="sr-only">Generate a calming quote</h2>
-      <button id="quote-btn" type="button" class="primary-btn" aria-controls="quote-box">
+      <button
+        id="quote-btn"
+        type="button"
+        class="primary-btn"
+        aria-controls="quote-box"
+        aria-expanded="false"
+      >
         Give Me a Quote
       </button>
     </section>
@@ -108,10 +143,16 @@
     </noscript>
 
     <!-- Quote card (starts hidden) -->
-    <section id="quote-box" class="quote-box hidden" aria-labelledby="quote-card-heading">
+    <section
+      id="quote-box"
+      class="quote-box hidden"
+      aria-labelledby="quote-card-heading"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <h2 id="quote-card-heading" class="sr-only">Your quote</h2>
 
-      <blockquote class="quote" id="quote-text" aria-live="polite"></blockquote>
+      <blockquote class="quote" id="quote-text"></blockquote>
       <cite class="author" id="quote-author"></cite>
 
       <h3 class="section-heading meaning-label">Meaning</h3>
@@ -133,7 +174,6 @@
       </div>
 
       <div class="share-buttons" role="group" aria-label="Share this quote">
-        <!-- optional platform buttons (hidden by CSS, but kept for future use) -->
         <button id="whatsapp-btn" class="share-btn" type="button">WhatsApp</button>
         <button id="sms-btn" class="share-btn" type="button">SMS</button>
         <button id="messenger-btn" class="share-btn" type="button">Messenger</button>
@@ -149,10 +189,12 @@
       <p class="subscribe-text">
         Join the Calm Down newsletter and receive one quote in your inbox each day.
       </p>
-      <a class="subscribe-btn"
-         href="https://calm-down-quotes.beehiiv.com"
-         target="_blank"
-         rel="noopener noreferrer">
+      <a
+        class="subscribe-btn"
+        href="https://calm-down-quotes.beehiiv.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Subscribe by email
       </a>
     </section>
