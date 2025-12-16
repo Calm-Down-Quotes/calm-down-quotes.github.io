@@ -1,16 +1,24 @@
 "use strict";
 
 /**
- * Calm Down Quotes — Script v2 (hardened + scalable)
+ * Calm Down Quotes — Script v3.1 (final)
  *
- * Goals:
- * - Stable DOM + visibility model (.hidden display, .visible animation state)
- * - Optional quotes.json loading (with embedded fallback)
- * - Daily quote mode (same quote for a given day) + random mode on demand
- * - No immediate repeats
- * - Better a11y and safer fallbacks for copy/share
+ * Characteristics:
+ * - Hardened against DOM, network, CSP, and timing failures
+ * - Deterministic daily quotes + non-repeating random mode
+ * - Fully wired sharing (Web Share, WhatsApp, SMS, Facebook)
+ * - Graceful fallback + history persistence
+ * - Static-hosting safe (GitHub Pages compatible)
  */
 
+/* --------------------------------------------------------
+   Engine-loaded contract (used by HTML fallback logic)
+-------------------------------------------------------- */
+window.__QUOTE_ENGINE_LOADED__ = true;
+
+/* --------------------------------------------------------
+   Helpers
+-------------------------------------------------------- */
 const $ = (id) => document.getElementById(id);
 
 /* --------------------------------------------------------
@@ -29,6 +37,10 @@ const copyBtn = $("copy-btn");
 const copyFeedback = $("copy-feedback");
 const shareBtn = $("share-btn");
 
+const whatsappBtn = $("whatsapp-btn");
+const smsBtn = $("sms-btn");
+const messengerBtn = $("messenger-btn");
+
 const REQUIRED = [
   quoteBtn,
   quoteBox,
@@ -40,17 +52,18 @@ const REQUIRED = [
   quoteTags,
   copyBtn,
   copyFeedback,
-  shareBtn
+  shareBtn,
+  whatsappBtn,
+  smsBtn,
+  messengerBtn
 ].every(Boolean);
 
 if (!REQUIRED) {
-  // Fail fast without throwing (prevents blank page due to JS error)
   console.warn("[CalmDownQuotes] Missing required DOM nodes. Script disabled.");
 }
 
 /* --------------------------------------------------------
    Embedded fallback dataset
-   (Keep small here; move to quotes.json for scale.)
 -------------------------------------------------------- */
 const FALLBACK_QUOTES = [
   {
@@ -83,16 +96,16 @@ const FALLBACK_QUOTES = [
    Config
 -------------------------------------------------------- */
 const CONFIG = {
-  QUOTES_URL: "quotes.json",     // optional external file
+  QUOTES_URL: "quotes.json",
   USE_DAILY_MODE_BY_DEFAULT: true,
-  HISTORY_SIZE: 6,              // prevents immediate repeats
+  HISTORY_SIZE: 6,
   SCROLL_INTO_VIEW: true,
   STORAGE_KEY: "cdq:v2"
 };
 
 const prefersReducedMotion = (() => {
   try {
-    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   } catch {
     return false;
   }
@@ -110,13 +123,8 @@ const state = {
 /* --------------------------------------------------------
    Utilities
 -------------------------------------------------------- */
-function clamp(n, min, max) {
-  return Math.max(min, Math.min(max, n));
-}
-
-function safeText(s) {
-  return (s ?? "").toString().trim();
-}
+const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+const safeText = (s) => (s ?? "").toString().trim();
 
 function isValidQuoteItem(item) {
   return item && typeof item === "object" && safeText(item.quote).length > 0;
@@ -135,168 +143,113 @@ function normalizeItem(item) {
   };
 }
 
-function pickRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-/**
- * Deterministic daily index (same quote each day across devices)
- * Uses UTC date to keep consistent globally. If you want local day, change to local date parts.
- */
+/* --------------------------------------------------------
+   Daily deterministic selection
+-------------------------------------------------------- */
 function dailyIndex(total) {
   if (total <= 0) return 0;
   const now = new Date();
   const dayKey = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-  // Simple integer hash
   let x = dayKey ^ (dayKey >>> 16);
   x = Math.imul(x, 0x45d9f3b);
-  x = x ^ (x >>> 16);
+  x ^= x >>> 16;
   return Math.abs(x) % total;
 }
 
-function formatShareText(item) {
-  const lines = [];
-  lines.push(`"${item.quote}"`);
-  if (item.author) lines.push(`— ${item.author}`);
-
-  if (item.meaning) {
-    lines.push("");
-    lines.push(`Meaning: ${item.meaning}`);
-  }
-
-  if (item.instruction) {
-    lines.push("");
-    lines.push(`Try this: ${item.instruction}`);
-  }
-
-  if (item.category) {
-    lines.push("");
-    lines.push(`Category: ${item.category}`);
-  }
-
-  // Tags only if present
-  if (item.tags && item.tags.length) {
-    lines.push("");
-    lines.push(`Tags: ${item.tags.join(", ")}`);
-  }
-
-  return lines.join("\n").trim();
-}
-
 /* --------------------------------------------------------
-   Persistence (history only; safe + minimal)
+   Persistence
 -------------------------------------------------------- */
 function loadPersisted() {
   try {
     const raw = localStorage.getItem(CONFIG.STORAGE_KEY);
     if (!raw) return;
     const data = JSON.parse(raw);
-    if (Array.isArray(data.history)) state.history = data.history.slice(0, CONFIG.HISTORY_SIZE);
-  } catch {
-    // ignore
-  }
+    if (Array.isArray(data.history)) {
+      state.history = data.history.slice(0, CONFIG.HISTORY_SIZE);
+    }
+  } catch {}
 }
 
 function persist() {
   try {
     localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify({ history: state.history }));
-  } catch {
-    // ignore
-  }
+  } catch {}
 }
 
 /* --------------------------------------------------------
    Rendering
 -------------------------------------------------------- */
 function setCard(item) {
-  const normalized = normalizeItem(item);
-
-  quoteText.textContent = normalized.quote;
-  quoteAuthor.textContent = normalized.author ? `— ${normalized.author}` : "";
-  quoteMeaning.textContent = normalized.meaning || "";
-  quoteInstruction.textContent = normalized.instruction || "";
-  quoteCategory.textContent = normalized.category || "";
-  quoteTags.textContent = normalized.tags.length ? normalized.tags.join(", ") : "";
-
-  // Optional: hide empty sections if desired (future upgrade)
-  // For now, keep consistent layout.
+  const q = normalizeItem(item);
+  quoteText.textContent = q.quote;
+  quoteAuthor.textContent = q.author ? `— ${q.author}` : "";
+  quoteMeaning.textContent = q.meaning;
+  quoteInstruction.textContent = q.instruction;
+  quoteCategory.textContent = q.category;
+  quoteTags.textContent = q.tags.join(", ");
 }
 
 function showCard() {
   quoteBox.classList.remove("hidden");
-
-  // a11y: stateful toggle
   quoteBtn.setAttribute("aria-expanded", "true");
 
   if (prefersReducedMotion) {
     quoteBox.classList.add("visible");
-    return;
+  } else {
+    requestAnimationFrame(() => quoteBox.classList.add("visible"));
   }
-
-  requestAnimationFrame(() => {
-    quoteBox.classList.add("visible");
-  });
 }
 
 function scrollCardIntoView() {
   if (!CONFIG.SCROLL_INTO_VIEW) return;
-
   try {
     quoteBox.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
       block: "start"
     });
-  } catch {
-    // ignore
-  }
+  } catch {}
 }
 
 /* --------------------------------------------------------
-   Selection logic (daily + random + no-repeat)
+   Selection logic
 -------------------------------------------------------- */
 function remember(item) {
-  // Use quote string as the identity key
   const key = safeText(item.quote);
   if (!key) return;
-
   state.history.unshift(key);
-  state.history = Array.from(new Set(state.history)); // de-dupe
-  state.history = state.history.slice(0, CONFIG.HISTORY_SIZE);
+  state.history = Array.from(new Set(state.history)).slice(0, CONFIG.HISTORY_SIZE);
   persist();
 }
 
 function pickNonRepeatingRandom(list) {
   if (list.length <= 1) return list[0];
-
-  // Try a few times to avoid immediate repeats
   const attempts = clamp(list.length, 3, 12);
+
   for (let i = 0; i < attempts; i++) {
     const candidate = pickRandom(list);
-    if (!state.history.includes(safeText(candidate.quote))) return candidate;
+    if (!state.history.includes(candidate.quote)) return candidate;
   }
-
-  // If everything is in history, just pick random
   return pickRandom(list);
 }
 
 function getDailyItem(list) {
-  const idx = dailyIndex(list.length);
-  return list[idx] || list[0];
+  return list[dailyIndex(list.length)] ?? list[0];
 }
 
 /* --------------------------------------------------------
-   Data loading (optional quotes.json)
-   Expected format:
-   [
-     { "quote": "...", "author": "...", "meaning": "...", "instruction": "...", "category": "...", "tags": ["..."] }
-   ]
+   Data loading
 -------------------------------------------------------- */
 async function loadQuotesFromJson() {
   try {
-    const res = await fetch(CONFIG.QUOTES_URL, { cache: "no-store" });
+    const res = await fetch(CONFIG.QUOTES_URL, {
+      cache: "no-store",
+      mode: "same-origin"
+    });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    if (!Array.isArray(data)) throw new Error("quotes.json must be an array");
+    if (!Array.isArray(data)) throw new Error("Invalid JSON format");
 
     const cleaned = data.filter(isValidQuoteItem).map(normalizeItem);
     if (cleaned.length) {
@@ -304,7 +257,7 @@ async function loadQuotesFromJson() {
       return true;
     }
   } catch (err) {
-    console.warn("[CalmDownQuotes] Using embedded quotes (quotes.json not loaded):", err?.message || err);
+    console.warn("[CalmDownQuotes] Using embedded quotes:", err?.message || err);
   }
   return false;
 }
@@ -312,40 +265,6 @@ async function loadQuotesFromJson() {
 /* --------------------------------------------------------
    Copy / Share
 -------------------------------------------------------- */
-async function copyToClipboard(text) {
-  const payload = safeText(text);
-  if (!payload) throw new Error("Nothing to copy");
-
-  // Modern API
-  if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(payload);
-    return;
-  }
-
-  // Fallback
-  const textarea = document.createElement("textarea");
-  textarea.value = payload;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.top = "-9999px";
-  document.body.appendChild(textarea);
-  textarea.select();
-  const ok = document.execCommand("copy");
-  document.body.removeChild(textarea);
-
-  if (!ok) throw new Error("Fallback copy failed");
-}
-
-let feedbackTimer = null;
-function showCopyFeedback(msg) {
-  copyFeedback.textContent = safeText(msg);
-  copyFeedback.classList.add("visible");
-  clearTimeout(feedbackTimer);
-  feedbackTimer = setTimeout(() => {
-    copyFeedback.classList.remove("visible");
-  }, 1400);
-}
-
 function getCurrentItemForSharing() {
   return normalizeItem({
     quote: quoteText.textContent,
@@ -354,17 +273,47 @@ function getCurrentItemForSharing() {
     instruction: quoteInstruction.textContent,
     category: quoteCategory.textContent,
     tags: quoteTags.textContent
-      ? quoteTags.textContent.split(",").map((s) => s.trim()).filter(Boolean)
+      ? quoteTags.textContent.split(",").map((t) => t.trim())
       : []
   });
 }
 
-async function handleCopy() {
-  const item = getCurrentItemForSharing();
-  const text = formatShareText(item);
+function formatShareText(item) {
+  const lines = [`"${item.quote}"`];
+  if (item.author) lines.push(`— ${item.author}`);
+  if (item.meaning) lines.push("", `Meaning: ${item.meaning}`);
+  if (item.instruction) lines.push("", `Try this: ${item.instruction}`);
+  if (item.category) lines.push("", `Category: ${item.category}`);
+  if (item.tags.length) lines.push("", `Tags: ${item.tags.join(", ")}`);
+  return lines.join("\n");
+}
 
+async function copyToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.top = "-9999px";
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+}
+
+let feedbackTimer;
+function showCopyFeedback(msg) {
+  copyFeedback.textContent = msg;
+  copyFeedback.classList.add("visible");
+  clearTimeout(feedbackTimer);
+  feedbackTimer = setTimeout(() => copyFeedback.classList.remove("visible"), 1400);
+}
+
+async function handleCopy() {
   try {
-    await copyToClipboard(text);
+    await copyToClipboard(formatShareText(getCurrentItemForSharing()));
     showCopyFeedback("Copied");
   } catch {
     showCopyFeedback("Copy failed");
@@ -372,24 +321,13 @@ async function handleCopy() {
 }
 
 async function handleShare() {
-  const item = getCurrentItemForSharing();
-  const text = formatShareText(item);
-
-  // Web Share API (mobile-first)
+  const text = formatShareText(getCurrentItemForSharing());
   if (navigator.share) {
     try {
-      await navigator.share({
-        title: "Calm Down Quotes",
-        text,
-        url: window.location.href
-      });
+      await navigator.share({ title: "Calm Down Quotes", text, url: location.href });
       return;
-    } catch {
-      // User cancelled or share failed -> fall through
-    }
+    } catch {}
   }
-
-  // Fallback: copy
   try {
     await copyToClipboard(text);
     showCopyFeedback("Copied to share");
@@ -398,20 +336,28 @@ async function handleShare() {
   }
 }
 
+function handleAppShare(app) {
+  const text = encodeURIComponent(
+    formatShareText(getCurrentItemForSharing()) + "\n\n" + location.href
+  );
+
+  let url;
+  if (app === "whatsapp") url = `whatsapp://send?text=${text}`;
+  if (app === "sms") url = `sms:?body=${text}`;
+  if (app === "messenger") {
+    url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}&quote=${text}`;
+  }
+
+  if (url) window.open(url, "_blank");
+}
+
 /* --------------------------------------------------------
    Core action
 -------------------------------------------------------- */
 function generateQuote({ mode = "default" } = {}) {
   const list = state.quotes.length ? state.quotes : FALLBACK_QUOTES;
-
-  let item;
-  const useDaily = (mode === "daily") || (mode === "default" && CONFIG.USE_DAILY_MODE_BY_DEFAULT);
-
-  if (useDaily) {
-    item = getDailyItem(list);
-  } else {
-    item = pickNonRepeatingRandom(list);
-  }
+  const useDaily = mode === "daily" || (mode === "default" && CONFIG.USE_DAILY_MODE_BY_DEFAULT);
+  const item = useDaily ? getDailyItem(list) : pickNonRepeatingRandom(list);
 
   setCard(item);
   showCard();
@@ -420,18 +366,29 @@ function generateQuote({ mode = "default" } = {}) {
 }
 
 /* --------------------------------------------------------
-   Events / Wiring
+   Events
 -------------------------------------------------------- */
 function wireEvents() {
   quoteBtn.addEventListener("click", () => generateQuote({ mode: "random" }));
   copyBtn.addEventListener("click", handleCopy);
   shareBtn.addEventListener("click", handleShare);
 
-  // Keyboard shortcut (G = generate random)
+  whatsappBtn.addEventListener("click", () => handleAppShare("whatsapp"));
+  smsBtn.addEventListener("click", () => handleAppShare("sms"));
+  messengerBtn.addEventListener("click", () => handleAppShare("messenger"));
+
   document.addEventListener("keydown", (e) => {
-    if (!e || !e.key) return;
-    const k = e.key.toLowerCase();
-    if (k === "g" && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    const ae = document.activeElement;
+    if (
+      e.key?.toLowerCase() === "g" &&
+      !e.metaKey &&
+      !e.ctrlKey &&
+      !e.altKey &&
+      ae &&
+      ae.tagName !== "INPUT" &&
+      ae.tagName !== "TEXTAREA"
+    ) {
+      e.preventDefault();
       generateQuote({ mode: "random" });
     }
   });
@@ -444,21 +401,13 @@ async function init() {
   if (!REQUIRED) return;
 
   loadPersisted();
-
-  // Try external JSON first (optional)
   await loadQuotesFromJson();
 
   state.ready = true;
-
-  // Set initial aria-expanded state
   quoteBtn.setAttribute("aria-expanded", "false");
 
-  // Optional: show a daily quote on first load (comment out if you prefer blank start)
-  if (CONFIG.USE_DAILY_MODE_BY_DEFAULT) {
-    // only show if card is currently hidden (expected)
-    if (quoteBox.classList.contains("hidden")) {
-      generateQuote({ mode: "daily" });
-    }
+  if (CONFIG.USE_DAILY_MODE_BY_DEFAULT && quoteBox.classList.contains("hidden")) {
+    generateQuote({ mode: "daily" });
   }
 
   wireEvents();
