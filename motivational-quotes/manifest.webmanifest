@@ -1,0 +1,10 @@
+{
+  "name":"Motivational Quotes",
+  "short_name":"Motivation",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f5e7d6",
+  "theme_color":"#d9844f",
+  "description":"Original motivational quotes with practical next steps."
+}
