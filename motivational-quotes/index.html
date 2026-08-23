@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
   <link rel="manifest" href="manifest.webmanifest">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9P7Z4CKYG"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-K9P7Z4CKYG',{anonymize_ip:true});</script>
@@ -38,69 +38,17 @@
       <button data-view="saved">Saved <span id="count">0</span></button>
     </nav>
   </header>
-
   <main>
     <section id="home" class="hero view active" aria-live="polite">
-      <div id="quote-wrap">
-        <blockquote id="quote"></blockquote>
-        <p id="note" class="note"></p>
-        <p id="action" class="next-move"></p>
-      </div>
-      <div class="actions">
-        <button id="another" class="primary">Another motivational quote</button>
-        <button id="save" class="secondary">Save this one</button>
-        <button id="share" class="secondary">Share this quote</button>
-      </div>
+      <div id="quote-wrap"><blockquote id="quote"></blockquote><p id="note" class="note"></p><p id="action" class="next-move"></p></div>
+      <div class="actions"><button id="another" class="primary">Another motivational quote</button><button id="save" class="secondary">Save this one</button><button id="share" class="secondary">Share this quote</button></div>
       <button class="text-link" data-view="find">What do you need more of right now?</button>
     </section>
-
-    <section id="find" class="panel view">
-      <p class="eyebrow">Find your drive</p>
-      <h1>What would help most right now?</h1>
-      <p class="intro">Choose the kind of push you need. There is no wrong place to start.</p>
-      <div id="needs" class="feeling-grid need-grid"></div>
-      <button id="any" class="text-link">Just show me any motivational quote</button>
-    </section>
-
-    <section id="saved" class="panel view">
-      <p class="eyebrow">Your collection</p>
-      <h1>Saved for when you need the reminder.</h1>
-      <div id="saved-list"></div>
-    </section>
+    <section id="find" class="panel view"><p class="eyebrow">Find your drive</p><h1>What would help most right now?</h1><p class="intro">Choose the kind of push you need. There is no wrong place to start.</p><div id="needs" class="feeling-grid need-grid"></div><button id="any" class="text-link">Just show me any motivational quote</button></section>
+    <section id="saved" class="panel view"><p class="eyebrow">Your collection</p><h1>Saved for when you need the reminder.</h1><div id="saved-list"></div></section>
   </main>
-
-  <div class="themes" aria-label="Choose an atmosphere">
-    <span>Atmosphere</span>
-    <button data-theme="light" aria-label="First light"></button>
-    <button data-theme="road" aria-label="Open road"></button>
-    <button data-theme="ember" aria-label="Afterglow"></button>
-  </div>
-
-  <footer>
-    <span>Built for forward motion.</span>
-    <a href="../">Calm Down Quotes</a>
-    <a href="../privacy.html">Privacy</a>
-    <a href="../terms.html">Terms</a>
-  </footer>
-
-  <div id="share-layer" class="share-layer" hidden>
-    <section class="share-sheet" role="dialog" aria-modal="true" aria-labelledby="share-title">
-      <button id="close-share" class="close" aria-label="Close">×</button>
-      <p class="eyebrow">Pass it forward</p>
-      <h2 id="share-title">Share this reminder</h2>
-      <p id="share-quote" class="share-quote"></p>
-      <div class="share-grid">
-        <button data-share="whatsapp"><span>WA</span>WhatsApp</button>
-        <button data-share="facebook"><span>f</span>Facebook</button>
-        <button data-share="x"><span>𝕏</span>X</button>
-        <button data-share="email"><span>✉</span>Email</button>
-      </div>
-      <button id="share-image" class="copy">Share as a beautiful image</button>
-      <button id="copy" class="copy secondary-copy">Copy quote and link</button>
-      <p class="share-note">On a phone, the main share button also opens Messenger, messages and other installed apps.</p>
-    </section>
-  </div>
-
-  <script src="script.js" defer></script>
-</body>
-</html>
+  <div class="themes" aria-label="Choose an atmosphere"><span>Atmosphere</span><button data-theme="light" aria-label="First light"></button><button data-theme="road" aria-label="Open road"></button><button data-theme="ember" aria-label="Afterglow"></button></div>
+  <footer><span>Built for forward motion.</span><a href="../">Calm Down Quotes</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></footer>
+  <div id="share-layer" class="share-layer" hidden><section class="share-sheet" role="dialog" aria-modal="true" aria-labelledby="share-title"><button id="close-share" class="close" aria-label="Close">×</button><p class="eyebrow">Pass it forward</p><h2 id="share-title">Share this reminder</h2><p id="share-quote" class="share-quote"></p><div class="share-grid"><button data-share="whatsapp"><span>WA</span>WhatsApp</button><button data-share="facebook"><span>f</span>Facebook</button><button data-share="x"><span>𝕏</span>X</button><button data-share="email"><span>✉</span>Email</button></div><button id="share-image" class="copy">Share as a beautiful image</button><button id="copy" class="copy secondary-copy">Copy quote and link</button><p class="share-note">On a phone, the main share button also opens Messenger, messages and other installed apps.</p></section></div>
+  <script src="script.js?v=3" defer></script>
+</body></html>
